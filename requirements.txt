@@ -32,3 +32,6 @@ tqdm>=4.65.0
 
 # --- Optional: Feature Space Visualization ---
 # umap-learn>=0.5.3
+
+# --- Web UI ---
+streamlit>=1.28.0
