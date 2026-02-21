@@ -1,0 +1,47 @@
+# Python virtual env
+.venv/
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# C extensions
+*.so
+
+# Distribution / packaging
+build/
+dist/
+*.egg-info/
+
+# Installer logs
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Unit test / coverage reports
+.pytest_cache/
+.coverage
+coverage.xml
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints
+
+# VS Code
+.vscode/
+
+# macOS
+.DS_Store
+
+# IDEs
+.idea/
+
+# Model/checkpoint files
+models/
+checkpoints/
+*.pt
+*.pth
+
+# Environment files
+.env
+.venv
+
+*.png

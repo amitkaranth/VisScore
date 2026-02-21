@@ -1,0 +1,34 @@
+# ============================================================
+# VisScore: CNN-Based Visualization Quality Assessment
+# pip install -r requirements.txt
+# ============================================================
+
+# --- Deep Learning ---
+torch>=2.0.0
+torchvision>=0.15.0
+torchaudio>=2.0.0
+
+# --- Data Generation & Visualization ---
+matplotlib>=3.7.0
+numpy>=1.24.0
+
+# --- Image Processing ---
+Pillow>=9.5.0
+opencv-python>=4.8.0
+
+# --- Reddit Scraping ---
+praw>=7.7.0
+requests>=2.31.0
+
+# --- ML Evaluation & Metrics ---
+scikit-learn>=1.3.0
+
+# --- Training Utilities ---
+tqdm>=4.65.0
+
+# --- Optional: Experiment Tracking ---
+# tensorboard>=2.13.0
+# wandb>=0.15.0
+
+# --- Optional: Feature Space Visualization ---
+# umap-learn>=0.5.3
