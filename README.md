@@ -1,6 +1,6 @@
 # VisScore Reddit Scraper
 
-Production-grade Python scraper for collecting chart images from **old.reddit.com** (e.g. r/dataisbeautiful, r/dataisugly) to build a machine learning dataset.
+Python based web scraper for collecting chart images from **old.reddit.com** (e.g. r/dataisbeautiful, r/dataisugly) to build a machine learning dataset.
 
 **No Reddit API. No PRAW.** Uses only `requests` and BeautifulSoup on static HTML. No API keys or OAuth.
 
