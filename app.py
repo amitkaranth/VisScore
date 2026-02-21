@@ -129,7 +129,7 @@ def display_prediction_card(result, input_tensor, original_img, model_name, devi
     with col2:
         st.subheader("Visualization")
         # Display original uploaded image
-        st.image(original_img, use_column_width=True, caption="Uploaded Chart")
+        st.image(original_img, use_container_width=True, caption="Uploaded Chart")
     
     # Grad-CAM visualization
     st.subheader("Model Attention (Grad-CAM)")
