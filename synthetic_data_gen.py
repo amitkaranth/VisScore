@@ -24,6 +24,7 @@ import json
 import random
 import argparse
 import numpy as np
+from PIL import Image, ImageFilter, ImageEnhance
 import matplotlib
 matplotlib.use('Agg')
 import matplotlib.pyplot as plt
@@ -49,6 +50,11 @@ def _ensure_matching_lengths(data, cats):
     return data, cats
 
 
+# Global augmentation controls (set in `main`)
+AUGMENT_STRENGTH = "medium"  # one of: none, low, medium, high
+
+
+
 # ============================================================
 # UTILITY FUNCTIONS
 # ============================================================
@@ -69,7 +75,17 @@ def random_categories(n=6):
         ["Dept A", "Dept B", "Dept C", "Dept D", "Dept E", "Dept F"],
     ]
     pool = random.choice(pools)
-    return pool[:n]
+    if n <= len(pool):
+        return pool[:n]
+    # If more categories requested than pool size, extend with numbered labels
+    cats = list(pool)
+    i = 1
+    while len(cats) < n:
+        candidate = f"Cat{len(cats)+1}"
+        if candidate not in cats:
+            cats.append(candidate)
+        i += 1
+    return cats
 
 def random_title():
     titles = [
@@ -88,24 +104,101 @@ def random_time_series(n=12):
     vals = np.cumsum(np.random.randn(n) * 10 + 5) + 50
     return dates, vals.tolist()
 
+
+def pick_palette(n, bad=False):
+    """Return a list of `n` colors. If `bad` use more varied/rainbow palettes."""
+    palettes = [
+        ['#4C72B0'],
+        ['#4C72B0', '#DD8452'],
+        ['#4C72B0', '#55A868', '#C44E52'],
+        ['#2E91E5', '#E15F99', '#F9C80E', '#9A6FB0'],
+        ['#7B68EE', '#20B2AA', '#FF6347', '#FFD700']
+    ]
+    if bad and random.random() < 0.35:
+        # sometimes use full rainbow for bad charts
+        cols = [plt.cm.rainbow(i / max(1, n - 1)) for i in range(n)]
+        # convert RGBA to hex
+        return [matplotlib.colors.rgb2hex(c) for c in cols]
+
+    base = random.choice(palettes)
+    if len(base) >= n:
+        return base[:n]
+    # repeat to reach n
+    out = (base * ((n // len(base)) + 1))[:n]
+    return out
+
 def save_chart(fig, path, dpi=150):
+    # Save the Matplotlib figure first
     fig.savefig(path, dpi=dpi, bbox_inches='tight', facecolor=fig.get_facecolor())
     plt.close(fig)
+
+    # Post-process the saved image to increase dataset variety:
+    # - random resize (scale), small rotations, brightness/contrast, blur, gaussian noise
+    try:
+        img = Image.open(path).convert('RGB')
+
+        # Probabilities depend on global augmentation strength
+        strength = AUGMENT_STRENGTH
+        p_map = {"none": 0.0, "low": 0.2, "medium": 0.45, "high": 0.75}
+        p = p_map.get(strength, 0.45)
+
+        # Random scale/resample to introduce size variation
+        if random.random() < p * 0.7:
+            scale = random.uniform(0.8, 1.3)
+            new_size = (max(32, int(img.width * scale)), max(32, int(img.height * scale)))
+            img = img.resize(new_size, resample=Image.BILINEAR)
+
+        # Small rotation
+        if random.random() < p * 0.5:
+            angle = random.uniform(-8, 8)
+            img = img.rotate(angle, resample=Image.BICUBIC, expand=False)
+
+        # Brightness / contrast variations
+        if random.random() < p * 0.6:
+            enhancer = ImageEnhance.Brightness(img)
+            img = enhancer.enhance(random.uniform(0.85, 1.15))
+        if random.random() < p * 0.6:
+            enhancer = ImageEnhance.Contrast(img)
+            img = enhancer.enhance(random.uniform(0.85, 1.2))
+
+        # Blur sometimes
+        if random.random() < p * 0.4:
+            img = img.filter(ImageFilter.GaussianBlur(radius=random.uniform(0.3, 1.6)))
+
+        # Add light gaussian noise sometimes
+        if random.random() < p * 0.8:
+            arr = np.array(img).astype(np.int16)
+            noise = np.random.normal(0, random.uniform(2, max(6, p*20)), arr.shape).astype(np.int16)
+            arr = np.clip(arr + noise, 0, 255).astype(np.uint8)
+            img = Image.fromarray(arr)
+
+        # Save final image back (keep original DPI)
+        img.save(path, dpi=(dpi, dpi))
+    except Exception:
+        # If post-processing fails, keep original saved figure
+        pass
 
 
 # ============================================================
 # GOOD CHART GENERATORS (Tufte-compliant)
 # ============================================================
 
-def good_bar_chart(data, cats, title):
-    """Clean bar chart: minimal gridlines, high data-ink ratio, zero baseline."""
+def good_bar_chart(data, cats, title, palette=None):
+    """Clean bar chart: minimal gridlines, high data-ink ratio, zero baseline.
+
+    Accepts optional `palette` via kwargs in generate_sample.
+    """
     fig, ax = plt.subplots(figsize=(8, 5), facecolor='white')
     # Ensure data and category lists match lengths to avoid broadcasting errors
     data, cats = _ensure_matching_lengths(data, cats)
     if not data:
         return fig
-    colors = ['#4C72B0'] * len(data)
-    ax.bar(cats, data, color=colors, edgecolor='none', width=0.6)
+    # small style randomization: bar width and palette
+    bw = random.uniform(0.45, 0.75)
+    colors = palette if palette else ['#4C72B0'] * len(data)
+    if len(colors) < len(data):
+        colors = (colors * ((len(data) // len(colors)) + 1))[:len(data)]
+    ax.bar(cats, data, color=colors, edgecolor='none', width=bw)
     ax.set_title(title, fontsize=13, fontweight='bold', pad=12)
     ax.set_ylabel("Value", fontsize=10)
     ax.spines['top'].set_visible(False)
@@ -155,7 +248,7 @@ def good_scatter_chart(title):
     fig.tight_layout()
     return fig
 
-def good_horizontal_bar(data, cats, title):
+def good_horizontal_bar(data, cats, title, palette=None):
     """Clean horizontal bar chart."""
     fig, ax = plt.subplots(figsize=(8, 5), facecolor='white')
     # Ensure data and category lists match lengths to avoid broadcasting errors
@@ -164,7 +257,10 @@ def good_horizontal_bar(data, cats, title):
         return fig  # nothing to plot
 
     y_pos = np.arange(len(data))
-    ax.barh(y_pos, data, color='#4C72B0', edgecolor='none', height=0.6)
+    colors = palette if palette else ['#4C72B0'] * len(data)
+    if len(colors) < len(data):
+        colors = (colors * ((len(data) // len(colors)) + 1))[:len(data)]
+    ax.barh(y_pos, data, color=colors, edgecolor='none', height=0.6)
     ax.set_yticks(y_pos)
     ax.set_yticklabels(cats, fontsize=9)
     ax.set_title(title, fontsize=13, fontweight='bold', pad=12)
@@ -181,12 +277,12 @@ def good_horizontal_bar(data, cats, title):
     fig.tight_layout()
     return fig
 
-def good_pie_chart_simple(title):
+def good_pie_chart_simple(title, palette=None):
     """Pie chart with 3 or fewer categories (acceptable use case)."""
     n = random.choice([2, 3])
     data = random_data(n, 20, 60)
     cats = random_categories(n)
-    colors = ['#4C72B0', '#DD8452', '#55A868'][:n]
+    colors = palette[:n] if palette else ['#4C72B0', '#DD8452', '#55A868'][:n]
     fig, ax = plt.subplots(figsize=(6, 6), facecolor='white')
     wedges, texts, autotexts = ax.pie(
         data, labels=cats, autopct='%1.1f%%', colors=colors,
@@ -204,7 +300,7 @@ def good_pie_chart_simple(title):
 # BAD CHART GENERATORS (Tufte violations)
 # ============================================================
 
-def bad_chartjunk_bar(data, cats, title):
+def bad_chartjunk_bar(data, cats, title, palette=None):
     """Bar chart with heavy chartjunk: background, moiré patterns, borders, 
     excessive gridlines, gradient fills, unnecessary legend."""
     fig, ax = plt.subplots(figsize=(8, 5))
@@ -215,7 +311,7 @@ def bad_chartjunk_bar(data, cats, title):
     fig.patch.set_facecolor('#e8e0d4')
     ax.set_facecolor('#f5f0e8')
     hatches = ['///', '\\\\\\', 'xxx', '+++', 'ooo', '...']
-    colors = ['#ff6b6b', '#feca57', '#48dbfb', '#ff9ff3', '#54a0ff', '#5f27cd']
+    colors = palette if palette else ['#ff6b6b', '#feca57', '#48dbfb', '#ff9ff3', '#54a0ff', '#5f27cd']
     for i, (d, c) in enumerate(zip(data, cats)):
         ax.bar(c, d, color=colors[i % len(colors)], edgecolor='black', linewidth=2,
                hatch=hatches[i % len(hatches)])
@@ -238,7 +334,7 @@ def bad_chartjunk_bar(data, cats, title):
     fig.tight_layout()
     return fig, ["chartjunk", "low_data_ink_ratio", "excessive_decoration"]
 
-def bad_3d_bar(data, cats, title):
+def bad_3d_bar(data, cats, title, palette=None):
     """Unnecessary 3D bar chart — perspective distortion makes comparison difficult."""
     fig = plt.figure(figsize=(9, 6))
     # Ensure lengths match
@@ -247,7 +343,11 @@ def bad_3d_bar(data, cats, title):
         return fig, ["3d_effect"]
     ax = fig.add_subplot(111, projection='3d')
     x = np.arange(len(cats))
-    colors = cm.rainbow(np.linspace(0, 1, len(data)))
+    colors = None
+    if palette:
+        colors = palette
+    else:
+        colors = [matplotlib.colors.rgb2hex(c) for c in cm.rainbow(np.linspace(0, 1, len(data)))]
     ax.bar3d(x, 0, 0, 0.6, 0.6, data, color=colors, edgecolor='black', linewidth=0.5, alpha=0.85)
     ax.set_xticks(x + 0.3)
     ax.set_xticklabels(cats, fontsize=8, rotation=15)
@@ -341,7 +441,7 @@ def bad_dual_axis_abuse(title):
     fig.tight_layout()
     return fig, ["dual_axis_abuse", "misleading_correlation", "scale_manipulation"]
 
-def bad_heavy_gridlines(data, cats, title):
+def bad_heavy_gridlines(data, cats, title, palette=None):
     """Chart with excessively heavy gridlines that overpower the data."""
     fig, ax = plt.subplots(figsize=(8, 5), facecolor='#f0f0f0')
     # Ensure lengths match
@@ -349,7 +449,10 @@ def bad_heavy_gridlines(data, cats, title):
     if not data:
         return fig, []
     ax.set_facecolor('#e0e0e0')
-    ax.bar(cats, data, color='#aaaaaa', edgecolor='black', linewidth=1.5, width=0.6)
+    colors = palette if palette else ['#aaaaaa'] * len(data)
+    if len(colors) < len(data):
+        colors = (colors * ((len(data) // len(colors)) + 1))[:len(data)]
+    ax.bar(cats, data, color=colors, edgecolor='black', linewidth=1.5, width=0.6)
     ax.set_title(title, fontsize=13, fontweight='bold', pad=12)
     ax.set_ylabel("Value", fontsize=10)
     ax.grid(True, linewidth=2.5, color='black', alpha=0.6)
@@ -360,7 +463,7 @@ def bad_heavy_gridlines(data, cats, title):
     fig.tight_layout()
     return fig, ["heavy_gridlines", "low_data_ink_ratio", "data_obscured"]
 
-def bad_rainbow_explosion(data, cats, title):
+def bad_rainbow_explosion(data, cats, title, palette=None):
     """Bar chart with unnecessary rainbow coloring and gradient background."""
     fig, ax = plt.subplots(figsize=(8, 5))
     # Ensure lengths match
@@ -369,7 +472,10 @@ def bad_rainbow_explosion(data, cats, title):
         return fig, ["rainbow_palette"]
     fig.patch.set_facecolor('#1a1a2e')
     ax.set_facecolor('#16213e')
-    colors = cm.rainbow(np.linspace(0, 1, len(data)))
+    if palette:
+        colors = palette
+    else:
+        colors = [matplotlib.colors.rgb2hex(c) for c in cm.rainbow(np.linspace(0, 1, len(data)))]
     bars = ax.bar(cats, data, color=colors, edgecolor='white', linewidth=2, width=0.6)
     # Add glow-like effect
     for bar, c in zip(bars, colors):
@@ -386,30 +492,67 @@ def bad_rainbow_explosion(data, cats, title):
     return fig, ["rainbow_palette", "dark_theme_abuse", "low_data_ink_ratio", "unnecessary_color"]
 
 
+def good_histogram(title, palette=None):
+    """Clean histogram showing distribution."""
+    fig, ax = plt.subplots(figsize=(8, 5), facecolor='white')
+    vals = np.random.randn(200) * random.uniform(5, 25) + random.uniform(30, 80)
+    ax.hist(vals, bins=random.randint(8, 20), color=palette[0] if palette else '#4C72B0', edgecolor='none')
+    ax.set_title(title, fontsize=13, fontweight='bold', pad=12)
+    ax.set_xlabel('Value', fontsize=10)
+    ax.set_ylabel('Count', fontsize=10)
+    ax.spines['top'].set_visible(False)
+    ax.spines['right'].set_visible(False)
+    fig.tight_layout()
+    return fig
+
+
+def bad_histogram(title, palette=None):
+    """Misleading histogram: uneven bins, truncated axes."""
+    fig, ax = plt.subplots(figsize=(8, 5), facecolor='white')
+    vals = np.random.randn(200) * random.uniform(3, 20) + random.uniform(30, 80)
+    bins = sorted(set([0] + np.random.randint(1, 40, size=random.randint(5, 12)).tolist()))
+    ax.hist(vals, bins=bins, color=palette[0] if palette else '#C44E52', edgecolor='black')
+    ax.set_ylim(min(vals) * 0.6, max(vals) * 1.05)
+    ax.set_title(title, fontsize=13, fontweight='bold', pad=12)
+    fig.tight_layout()
+    return fig, ["truncated_axis", "misleading_bins"]
+
+
 # ============================================================
 # MAIN GENERATOR
 # ============================================================
 
 def generate_sample(idx, output_dir):
     """Generate one good + one bad chart pair with metadata."""
-    n_cats = random.choice([4, 5, 6, 7])
-    data = random_data(n_cats)
+    # Vary number of categories broadly to increase diversity
+    n_cats = random.randint(2, 12)
+    # Randomize value ranges per-sample
+    low = random.randint(1, 20)
+    high = random.randint(low + 8, low + 220)
+    data = random_data(n_cats, low=low, high=high)
     cats = random_categories(n_cats)
     title = random_title()
     dates, time_vals = random_time_series()
 
+    # Pick palettes for good and bad variants
+    palette_good = pick_palette(max(1, len(cats)), bad=False)
+    palette_bad = pick_palette(max(1, len(cats)), bad=True)
+
     # --- Generate GOOD chart ---
-    good_type = random.choice(["bar", "line", "scatter", "hbar", "pie"])
+    good_type = random.choice(["bar", "line", "scatter", "hbar", "pie", "hist"])
     if good_type == "bar":
-        fig_good = good_bar_chart(data, cats, title)
+        fig_good = good_bar_chart(data, cats, title, palette=palette_good)
     elif good_type == "line":
         fig_good = good_line_chart(dates, time_vals, title)
     elif good_type == "scatter":
         fig_good = good_scatter_chart(title)
     elif good_type == "hbar":
-        fig_good = good_horizontal_bar(data, cats, title)
+        fig_good = good_horizontal_bar(data, cats, title, palette=palette_good)
     else:
-        fig_good = good_pie_chart_simple(title)
+        if good_type == 'pie':
+            fig_good = good_pie_chart_simple(title, palette=palette_good)
+        else:
+            fig_good = good_histogram(title, palette=palette_good)
 
     good_path = os.path.join(output_dir, "good", f"good_{idx:04d}.png")
     save_chart(fig_good, good_path)
@@ -426,13 +569,13 @@ def generate_sample(idx, output_dir):
     # --- Generate BAD chart ---
     bad_choice = random.choice([
         "chartjunk", "3d", "truncated", "pie_many",
-        "spaghetti", "dual_axis", "heavy_grid", "rainbow"
+        "spaghetti", "dual_axis", "heavy_grid", "rainbow", "hist"
     ])
 
     if bad_choice == "chartjunk":
-        fig_bad, violations = bad_chartjunk_bar(data, cats, title)
+        fig_bad, violations = bad_chartjunk_bar(data, cats, title, palette=palette_bad)
     elif bad_choice == "3d":
-        fig_bad, violations = bad_3d_bar(data, cats, title)
+        fig_bad, violations = bad_3d_bar(data, cats, title, palette=palette_bad)
     elif bad_choice == "truncated":
         fig_bad, violations = bad_truncated_axis(data, cats, title)
     elif bad_choice == "pie_many":
@@ -442,9 +585,12 @@ def generate_sample(idx, output_dir):
     elif bad_choice == "dual_axis":
         fig_bad, violations = bad_dual_axis_abuse(title)
     elif bad_choice == "heavy_grid":
-        fig_bad, violations = bad_heavy_gridlines(data, cats, title)
+        fig_bad, violations = bad_heavy_gridlines(data, cats, title, palette=palette_bad)
     else:
-        fig_bad, violations = bad_rainbow_explosion(data, cats, title)
+        if bad_choice == 'hist':
+            fig_bad, violations = bad_histogram(title, palette=palette_bad)
+        else:
+            fig_bad, violations = bad_rainbow_explosion(data, cats, title, palette=palette_bad)
 
     bad_path = os.path.join(output_dir, "bad", f"bad_{idx:04d}.png")
     save_chart(fig_bad, bad_path)
@@ -468,10 +614,20 @@ def main():
     parser.add_argument("--num_samples", type=int, default=500,
                         help="Number of good/bad pairs to generate")
     parser.add_argument("--seed", type=int, default=42, help="Random seed")
+    parser.add_argument("--augment_strength", choices=['none','low','medium','high'], default='medium',
+                        help="Augmentation strength for post-processing")
+    parser.add_argument("--seed_aug", type=int, default=None,
+                        help="Optional seed for augmentation randomness (keeps reproducible augmentations)")
     args = parser.parse_args()
 
     np.random.seed(args.seed)
     random.seed(args.seed)
+    # Set augmentation controls
+    global AUGMENT_STRENGTH
+    AUGMENT_STRENGTH = args.augment_strength
+    if args.seed_aug is not None:
+        random.seed(args.seed_aug)
+        np.random.seed(args.seed_aug)
 
     # Create directories
     os.makedirs(os.path.join(args.output_dir, "good"), exist_ok=True)

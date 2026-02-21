@@ -1,0 +1,8 @@
+[
+  {
+    "image": "image_bad.png",
+    "label": "BAD",
+    "probability": 0.0021546408534049988,
+    "confidence": 0.997845359146595
+  }
+]
