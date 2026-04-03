@@ -1,0 +1,6619 @@
+[
+  {
+    "id": "plotly_good_00000",
+    "label": "good",
+    "chart_type": "line",
+    "title": "Regional Comparison",
+    "violations": [],
+    "tufte_score": 1.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_bad_00000",
+    "label": "bad",
+    "chart_type": "spaghetti",
+    "title": "Regional Comparison",
+    "violations": [
+      "spaghetti_chart",
+      "too_many_series",
+      "rainbow_palette",
+      "low_readability"
+    ],
+    "tufte_score": 0.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_good_00001",
+    "label": "good",
+    "chart_type": "bar",
+    "title": "Annual Metrics",
+    "violations": [],
+    "tufte_score": 1.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_bad_00001",
+    "label": "bad",
+    "chart_type": "truncated",
+    "title": "Annual Metrics",
+    "violations": [
+      "truncated_axis",
+      "misleading_scale"
+    ],
+    "tufte_score": 0.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_good_00002",
+    "label": "good",
+    "chart_type": "pie",
+    "title": "Revenue Growth",
+    "violations": [],
+    "tufte_score": 1.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_bad_00002",
+    "label": "bad",
+    "chart_type": "rainbow",
+    "title": "Revenue Growth",
+    "violations": [
+      "rainbow_palette",
+      "dark_theme_abuse",
+      "low_data_ink_ratio"
+    ],
+    "tufte_score": 0.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_good_00003",
+    "label": "good",
+    "chart_type": "line",
+    "title": "Monthly Performance",
+    "violations": [],
+    "tufte_score": 1.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_bad_00003",
+    "label": "bad",
+    "chart_type": "truncated",
+    "title": "Monthly Performance",
+    "violations": [
+      "truncated_axis",
+      "misleading_scale"
+    ],
+    "tufte_score": 0.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_good_00004",
+    "label": "good",
+    "chart_type": "pie",
+    "title": "Revenue Growth",
+    "violations": [],
+    "tufte_score": 1.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_bad_00004",
+    "label": "bad",
+    "chart_type": "rainbow",
+    "title": "Revenue Growth",
+    "violations": [
+      "rainbow_palette",
+      "dark_theme_abuse",
+      "low_data_ink_ratio"
+    ],
+    "tufte_score": 0.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_good_00005",
+    "label": "good",
+    "chart_type": "bar",
+    "title": "Market Share Analysis",
+    "violations": [],
+    "tufte_score": 1.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_bad_00005",
+    "label": "bad",
+    "chart_type": "rainbow",
+    "title": "Market Share Analysis",
+    "violations": [
+      "rainbow_palette",
+      "dark_theme_abuse",
+      "low_data_ink_ratio"
+    ],
+    "tufte_score": 0.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_good_00006",
+    "label": "good",
+    "chart_type": "line",
+    "title": "Customer Satisfaction",
+    "violations": [],
+    "tufte_score": 1.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_bad_00006",
+    "label": "bad",
+    "chart_type": "heavy_grid",
+    "title": "Customer Satisfaction",
+    "violations": [
+      "heavy_gridlines",
+      "low_data_ink_ratio",
+      "data_obscured"
+    ],
+    "tufte_score": 0.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_good_00007",
+    "label": "good",
+    "chart_type": "scatter",
+    "title": "Sales by Quarter",
+    "violations": [],
+    "tufte_score": 1.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_bad_00007",
+    "label": "bad",
+    "chart_type": "dual_axis",
+    "title": "Sales by Quarter",
+    "violations": [
+      "dual_axis_abuse",
+      "misleading_correlation",
+      "scale_manipulation"
+    ],
+    "tufte_score": 0.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_good_00008",
+    "label": "good",
+    "chart_type": "line",
+    "title": "Revenue Growth",
+    "violations": [],
+    "tufte_score": 1.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_bad_00008",
+    "label": "bad",
+    "chart_type": "rainbow",
+    "title": "Revenue Growth",
+    "violations": [
+      "rainbow_palette",
+      "dark_theme_abuse",
+      "low_data_ink_ratio"
+    ],
+    "tufte_score": 0.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_good_00009",
+    "label": "good",
+    "chart_type": "bar",
+    "title": "Customer Satisfaction",
+    "violations": [],
+    "tufte_score": 1.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_bad_00009",
+    "label": "bad",
+    "chart_type": "3d",
+    "title": "Customer Satisfaction",
+    "violations": [
+      "3d_effects",
+      "perspective_distortion",
+      "chartjunk"
+    ],
+    "tufte_score": 0.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_good_00010",
+    "label": "good",
+    "chart_type": "line",
+    "title": "Revenue Growth",
+    "violations": [],
+    "tufte_score": 1.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_bad_00010",
+    "label": "bad",
+    "chart_type": "rainbow",
+    "title": "Revenue Growth",
+    "violations": [
+      "rainbow_palette",
+      "dark_theme_abuse",
+      "low_data_ink_ratio"
+    ],
+    "tufte_score": 0.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_good_00011",
+    "label": "good",
+    "chart_type": "hbar",
+    "title": "Annual Metrics",
+    "violations": [],
+    "tufte_score": 1.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_bad_00011",
+    "label": "bad",
+    "chart_type": "truncated",
+    "title": "Annual Metrics",
+    "violations": [
+      "truncated_axis",
+      "misleading_scale"
+    ],
+    "tufte_score": 0.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_good_00012",
+    "label": "good",
+    "chart_type": "bar",
+    "title": "Annual Metrics",
+    "violations": [],
+    "tufte_score": 1.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_bad_00012",
+    "label": "bad",
+    "chart_type": "spaghetti",
+    "title": "Annual Metrics",
+    "violations": [
+      "spaghetti_chart",
+      "too_many_series",
+      "rainbow_palette",
+      "low_readability"
+    ],
+    "tufte_score": 0.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_good_00013",
+    "label": "good",
+    "chart_type": "hbar",
+    "title": "Monthly Performance",
+    "violations": [],
+    "tufte_score": 1.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_bad_00013",
+    "label": "bad",
+    "chart_type": "heavy_grid",
+    "title": "Monthly Performance",
+    "violations": [
+      "heavy_gridlines",
+      "low_data_ink_ratio",
+      "data_obscured"
+    ],
+    "tufte_score": 0.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_good_00014",
+    "label": "good",
+    "chart_type": "hbar",
+    "title": "Team Productivity",
+    "violations": [],
+    "tufte_score": 1.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_bad_00014",
+    "label": "bad",
+    "chart_type": "dual_axis",
+    "title": "Team Productivity",
+    "violations": [
+      "dual_axis_abuse",
+      "misleading_correlation",
+      "scale_manipulation"
+    ],
+    "tufte_score": 0.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_good_00015",
+    "label": "good",
+    "chart_type": "pie",
+    "title": "Customer Satisfaction",
+    "violations": [],
+    "tufte_score": 1.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_bad_00015",
+    "label": "bad",
+    "chart_type": "dual_axis",
+    "title": "Customer Satisfaction",
+    "violations": [
+      "dual_axis_abuse",
+      "misleading_correlation",
+      "scale_manipulation"
+    ],
+    "tufte_score": 0.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_good_00016",
+    "label": "good",
+    "chart_type": "pie",
+    "title": "Team Productivity",
+    "violations": [],
+    "tufte_score": 1.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_bad_00016",
+    "label": "bad",
+    "chart_type": "truncated",
+    "title": "Team Productivity",
+    "violations": [
+      "truncated_axis",
+      "misleading_scale"
+    ],
+    "tufte_score": 0.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_good_00017",
+    "label": "good",
+    "chart_type": "pie",
+    "title": "Customer Satisfaction",
+    "violations": [],
+    "tufte_score": 1.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_bad_00017",
+    "label": "bad",
+    "chart_type": "3d",
+    "title": "Customer Satisfaction",
+    "violations": [
+      "3d_effects",
+      "perspective_distortion",
+      "chartjunk"
+    ],
+    "tufte_score": 0.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_good_00018",
+    "label": "good",
+    "chart_type": "hbar",
+    "title": "Regional Comparison",
+    "violations": [],
+    "tufte_score": 1.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_bad_00018",
+    "label": "bad",
+    "chart_type": "truncated",
+    "title": "Regional Comparison",
+    "violations": [
+      "truncated_axis",
+      "misleading_scale"
+    ],
+    "tufte_score": 0.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_good_00019",
+    "label": "good",
+    "chart_type": "pie",
+    "title": "Market Share Analysis",
+    "violations": [],
+    "tufte_score": 1.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_bad_00019",
+    "label": "bad",
+    "chart_type": "spaghetti",
+    "title": "Market Share Analysis",
+    "violations": [
+      "spaghetti_chart",
+      "too_many_series",
+      "rainbow_palette",
+      "low_readability"
+    ],
+    "tufte_score": 0.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_good_00020",
+    "label": "good",
+    "chart_type": "pie",
+    "title": "Sales by Quarter",
+    "violations": [],
+    "tufte_score": 1.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_bad_00020",
+    "label": "bad",
+    "chart_type": "3d",
+    "title": "Sales by Quarter",
+    "violations": [
+      "3d_effects",
+      "perspective_distortion",
+      "chartjunk"
+    ],
+    "tufte_score": 0.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_good_00021",
+    "label": "good",
+    "chart_type": "hbar",
+    "title": "Sales by Quarter",
+    "violations": [],
+    "tufte_score": 1.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_bad_00021",
+    "label": "bad",
+    "chart_type": "dual_axis",
+    "title": "Sales by Quarter",
+    "violations": [
+      "dual_axis_abuse",
+      "misleading_correlation",
+      "scale_manipulation"
+    ],
+    "tufte_score": 0.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_good_00022",
+    "label": "good",
+    "chart_type": "pie",
+    "title": "Sales by Quarter",
+    "violations": [],
+    "tufte_score": 1.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_bad_00022",
+    "label": "bad",
+    "chart_type": "3d",
+    "title": "Sales by Quarter",
+    "violations": [
+      "3d_effects",
+      "perspective_distortion",
+      "chartjunk"
+    ],
+    "tufte_score": 0.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_good_00023",
+    "label": "good",
+    "chart_type": "bar",
+    "title": "Regional Comparison",
+    "violations": [],
+    "tufte_score": 1.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_bad_00023",
+    "label": "bad",
+    "chart_type": "heavy_grid",
+    "title": "Regional Comparison",
+    "violations": [
+      "heavy_gridlines",
+      "low_data_ink_ratio",
+      "data_obscured"
+    ],
+    "tufte_score": 0.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_good_00024",
+    "label": "good",
+    "chart_type": "pie",
+    "title": "Annual Metrics",
+    "violations": [],
+    "tufte_score": 1.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_bad_00024",
+    "label": "bad",
+    "chart_type": "chartjunk",
+    "title": "Annual Metrics",
+    "violations": [
+      "chartjunk",
+      "decorative_elements",
+      "low_data_ink_ratio"
+    ],
+    "tufte_score": 0.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_good_00025",
+    "label": "good",
+    "chart_type": "pie",
+    "title": "Annual Metrics",
+    "violations": [],
+    "tufte_score": 1.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_bad_00025",
+    "label": "bad",
+    "chart_type": "3d",
+    "title": "Annual Metrics",
+    "violations": [
+      "3d_effects",
+      "perspective_distortion",
+      "chartjunk"
+    ],
+    "tufte_score": 0.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_good_00026",
+    "label": "good",
+    "chart_type": "bar",
+    "title": "Revenue Growth",
+    "violations": [],
+    "tufte_score": 1.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_bad_00026",
+    "label": "bad",
+    "chart_type": "spaghetti",
+    "title": "Revenue Growth",
+    "violations": [
+      "spaghetti_chart",
+      "too_many_series",
+      "rainbow_palette",
+      "low_readability"
+    ],
+    "tufte_score": 0.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_good_00027",
+    "label": "good",
+    "chart_type": "pie",
+    "title": "Monthly Performance",
+    "violations": [],
+    "tufte_score": 1.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_bad_00027",
+    "label": "bad",
+    "chart_type": "rainbow",
+    "title": "Monthly Performance",
+    "violations": [
+      "rainbow_palette",
+      "dark_theme_abuse",
+      "low_data_ink_ratio"
+    ],
+    "tufte_score": 0.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_good_00028",
+    "label": "good",
+    "chart_type": "scatter",
+    "title": "Monthly Performance",
+    "violations": [],
+    "tufte_score": 1.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_bad_00028",
+    "label": "bad",
+    "chart_type": "heavy_grid",
+    "title": "Monthly Performance",
+    "violations": [
+      "heavy_gridlines",
+      "low_data_ink_ratio",
+      "data_obscured"
+    ],
+    "tufte_score": 0.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_good_00029",
+    "label": "good",
+    "chart_type": "hbar",
+    "title": "Monthly Performance",
+    "violations": [],
+    "tufte_score": 1.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_bad_00029",
+    "label": "bad",
+    "chart_type": "heavy_grid",
+    "title": "Monthly Performance",
+    "violations": [
+      "heavy_gridlines",
+      "low_data_ink_ratio",
+      "data_obscured"
+    ],
+    "tufte_score": 0.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_good_00030",
+    "label": "good",
+    "chart_type": "scatter",
+    "title": "Team Productivity",
+    "violations": [],
+    "tufte_score": 1.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_bad_00030",
+    "label": "bad",
+    "chart_type": "spaghetti",
+    "title": "Team Productivity",
+    "violations": [
+      "spaghetti_chart",
+      "too_many_series",
+      "rainbow_palette",
+      "low_readability"
+    ],
+    "tufte_score": 0.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_good_00031",
+    "label": "good",
+    "chart_type": "hbar",
+    "title": "Monthly Performance",
+    "violations": [],
+    "tufte_score": 1.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_bad_00031",
+    "label": "bad",
+    "chart_type": "spaghetti",
+    "title": "Monthly Performance",
+    "violations": [
+      "spaghetti_chart",
+      "too_many_series",
+      "rainbow_palette",
+      "low_readability"
+    ],
+    "tufte_score": 0.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_good_00032",
+    "label": "good",
+    "chart_type": "scatter",
+    "title": "Team Productivity",
+    "violations": [],
+    "tufte_score": 1.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_bad_00032",
+    "label": "bad",
+    "chart_type": "chartjunk",
+    "title": "Team Productivity",
+    "violations": [
+      "chartjunk",
+      "decorative_elements",
+      "low_data_ink_ratio"
+    ],
+    "tufte_score": 0.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_good_00033",
+    "label": "good",
+    "chart_type": "bar",
+    "title": "Annual Metrics",
+    "violations": [],
+    "tufte_score": 1.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_bad_00033",
+    "label": "bad",
+    "chart_type": "spaghetti",
+    "title": "Annual Metrics",
+    "violations": [
+      "spaghetti_chart",
+      "too_many_series",
+      "rainbow_palette",
+      "low_readability"
+    ],
+    "tufte_score": 0.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_good_00034",
+    "label": "good",
+    "chart_type": "scatter",
+    "title": "Market Share Analysis",
+    "violations": [],
+    "tufte_score": 1.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_bad_00034",
+    "label": "bad",
+    "chart_type": "dual_axis",
+    "title": "Market Share Analysis",
+    "violations": [
+      "dual_axis_abuse",
+      "misleading_correlation",
+      "scale_manipulation"
+    ],
+    "tufte_score": 0.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_good_00035",
+    "label": "good",
+    "chart_type": "line",
+    "title": "Regional Comparison",
+    "violations": [],
+    "tufte_score": 1.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_bad_00035",
+    "label": "bad",
+    "chart_type": "3d",
+    "title": "Regional Comparison",
+    "violations": [
+      "3d_effects",
+      "perspective_distortion",
+      "chartjunk"
+    ],
+    "tufte_score": 0.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_good_00036",
+    "label": "good",
+    "chart_type": "pie",
+    "title": "Team Productivity",
+    "violations": [],
+    "tufte_score": 1.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_bad_00036",
+    "label": "bad",
+    "chart_type": "dual_axis",
+    "title": "Team Productivity",
+    "violations": [
+      "dual_axis_abuse",
+      "misleading_correlation",
+      "scale_manipulation"
+    ],
+    "tufte_score": 0.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_good_00037",
+    "label": "good",
+    "chart_type": "scatter",
+    "title": "Sales by Quarter",
+    "violations": [],
+    "tufte_score": 1.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_bad_00037",
+    "label": "bad",
+    "chart_type": "dual_axis",
+    "title": "Sales by Quarter",
+    "violations": [
+      "dual_axis_abuse",
+      "misleading_correlation",
+      "scale_manipulation"
+    ],
+    "tufte_score": 0.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_good_00038",
+    "label": "good",
+    "chart_type": "line",
+    "title": "Revenue Growth",
+    "violations": [],
+    "tufte_score": 1.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_bad_00038",
+    "label": "bad",
+    "chart_type": "3d",
+    "title": "Revenue Growth",
+    "violations": [
+      "3d_effects",
+      "perspective_distortion",
+      "chartjunk"
+    ],
+    "tufte_score": 0.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_good_00039",
+    "label": "good",
+    "chart_type": "scatter",
+    "title": "Sales by Quarter",
+    "violations": [],
+    "tufte_score": 1.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_bad_00039",
+    "label": "bad",
+    "chart_type": "truncated",
+    "title": "Sales by Quarter",
+    "violations": [
+      "truncated_axis",
+      "misleading_scale"
+    ],
+    "tufte_score": 0.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_good_00040",
+    "label": "good",
+    "chart_type": "pie",
+    "title": "Regional Comparison",
+    "violations": [],
+    "tufte_score": 1.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_bad_00040",
+    "label": "bad",
+    "chart_type": "spaghetti",
+    "title": "Regional Comparison",
+    "violations": [
+      "spaghetti_chart",
+      "too_many_series",
+      "rainbow_palette",
+      "low_readability"
+    ],
+    "tufte_score": 0.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_good_00041",
+    "label": "good",
+    "chart_type": "pie",
+    "title": "Market Share Analysis",
+    "violations": [],
+    "tufte_score": 1.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_bad_00041",
+    "label": "bad",
+    "chart_type": "chartjunk",
+    "title": "Market Share Analysis",
+    "violations": [
+      "chartjunk",
+      "decorative_elements",
+      "low_data_ink_ratio"
+    ],
+    "tufte_score": 0.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_good_00042",
+    "label": "good",
+    "chart_type": "bar",
+    "title": "Team Productivity",
+    "violations": [],
+    "tufte_score": 1.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_bad_00042",
+    "label": "bad",
+    "chart_type": "spaghetti",
+    "title": "Team Productivity",
+    "violations": [
+      "spaghetti_chart",
+      "too_many_series",
+      "rainbow_palette",
+      "low_readability"
+    ],
+    "tufte_score": 0.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_good_00043",
+    "label": "good",
+    "chart_type": "line",
+    "title": "Sales by Quarter",
+    "violations": [],
+    "tufte_score": 1.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_bad_00043",
+    "label": "bad",
+    "chart_type": "rainbow",
+    "title": "Sales by Quarter",
+    "violations": [
+      "rainbow_palette",
+      "dark_theme_abuse",
+      "low_data_ink_ratio"
+    ],
+    "tufte_score": 0.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_good_00044",
+    "label": "good",
+    "chart_type": "bar",
+    "title": "Sales by Quarter",
+    "violations": [],
+    "tufte_score": 1.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_bad_00044",
+    "label": "bad",
+    "chart_type": "heavy_grid",
+    "title": "Sales by Quarter",
+    "violations": [
+      "heavy_gridlines",
+      "low_data_ink_ratio",
+      "data_obscured"
+    ],
+    "tufte_score": 0.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_good_00045",
+    "label": "good",
+    "chart_type": "line",
+    "title": "Regional Comparison",
+    "violations": [],
+    "tufte_score": 1.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_bad_00045",
+    "label": "bad",
+    "chart_type": "3d",
+    "title": "Regional Comparison",
+    "violations": [
+      "3d_effects",
+      "perspective_distortion",
+      "chartjunk"
+    ],
+    "tufte_score": 0.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_good_00046",
+    "label": "good",
+    "chart_type": "bar",
+    "title": "Customer Satisfaction",
+    "violations": [],
+    "tufte_score": 1.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_bad_00046",
+    "label": "bad",
+    "chart_type": "dual_axis",
+    "title": "Customer Satisfaction",
+    "violations": [
+      "dual_axis_abuse",
+      "misleading_correlation",
+      "scale_manipulation"
+    ],
+    "tufte_score": 0.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_good_00047",
+    "label": "good",
+    "chart_type": "scatter",
+    "title": "Monthly Performance",
+    "violations": [],
+    "tufte_score": 1.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_bad_00047",
+    "label": "bad",
+    "chart_type": "3d",
+    "title": "Monthly Performance",
+    "violations": [
+      "3d_effects",
+      "perspective_distortion",
+      "chartjunk"
+    ],
+    "tufte_score": 0.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_good_00048",
+    "label": "good",
+    "chart_type": "scatter",
+    "title": "Market Share Analysis",
+    "violations": [],
+    "tufte_score": 1.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_bad_00048",
+    "label": "bad",
+    "chart_type": "spaghetti",
+    "title": "Market Share Analysis",
+    "violations": [
+      "spaghetti_chart",
+      "too_many_series",
+      "rainbow_palette",
+      "low_readability"
+    ],
+    "tufte_score": 0.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_good_00049",
+    "label": "good",
+    "chart_type": "line",
+    "title": "Sales by Quarter",
+    "violations": [],
+    "tufte_score": 1.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_bad_00049",
+    "label": "bad",
+    "chart_type": "dual_axis",
+    "title": "Sales by Quarter",
+    "violations": [
+      "dual_axis_abuse",
+      "misleading_correlation",
+      "scale_manipulation"
+    ],
+    "tufte_score": 0.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_good_00050",
+    "label": "good",
+    "chart_type": "scatter",
+    "title": "Monthly Performance",
+    "violations": [],
+    "tufte_score": 1.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_bad_00050",
+    "label": "bad",
+    "chart_type": "heavy_grid",
+    "title": "Monthly Performance",
+    "violations": [
+      "heavy_gridlines",
+      "low_data_ink_ratio",
+      "data_obscured"
+    ],
+    "tufte_score": 0.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_good_00051",
+    "label": "good",
+    "chart_type": "bar",
+    "title": "Team Productivity",
+    "violations": [],
+    "tufte_score": 1.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_bad_00051",
+    "label": "bad",
+    "chart_type": "spaghetti",
+    "title": "Team Productivity",
+    "violations": [
+      "spaghetti_chart",
+      "too_many_series",
+      "rainbow_palette",
+      "low_readability"
+    ],
+    "tufte_score": 0.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_good_00052",
+    "label": "good",
+    "chart_type": "line",
+    "title": "Market Share Analysis",
+    "violations": [],
+    "tufte_score": 1.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_bad_00052",
+    "label": "bad",
+    "chart_type": "spaghetti",
+    "title": "Market Share Analysis",
+    "violations": [
+      "spaghetti_chart",
+      "too_many_series",
+      "rainbow_palette",
+      "low_readability"
+    ],
+    "tufte_score": 0.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_good_00053",
+    "label": "good",
+    "chart_type": "hbar",
+    "title": "Annual Metrics",
+    "violations": [],
+    "tufte_score": 1.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_bad_00053",
+    "label": "bad",
+    "chart_type": "truncated",
+    "title": "Annual Metrics",
+    "violations": [
+      "truncated_axis",
+      "misleading_scale"
+    ],
+    "tufte_score": 0.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_good_00054",
+    "label": "good",
+    "chart_type": "pie",
+    "title": "Market Share Analysis",
+    "violations": [],
+    "tufte_score": 1.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_bad_00054",
+    "label": "bad",
+    "chart_type": "dual_axis",
+    "title": "Market Share Analysis",
+    "violations": [
+      "dual_axis_abuse",
+      "misleading_correlation",
+      "scale_manipulation"
+    ],
+    "tufte_score": 0.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_good_00055",
+    "label": "good",
+    "chart_type": "bar",
+    "title": "Monthly Performance",
+    "violations": [],
+    "tufte_score": 1.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_bad_00055",
+    "label": "bad",
+    "chart_type": "dual_axis",
+    "title": "Monthly Performance",
+    "violations": [
+      "dual_axis_abuse",
+      "misleading_correlation",
+      "scale_manipulation"
+    ],
+    "tufte_score": 0.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_good_00056",
+    "label": "good",
+    "chart_type": "bar",
+    "title": "Monthly Performance",
+    "violations": [],
+    "tufte_score": 1.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_bad_00056",
+    "label": "bad",
+    "chart_type": "chartjunk",
+    "title": "Monthly Performance",
+    "violations": [
+      "chartjunk",
+      "decorative_elements",
+      "low_data_ink_ratio"
+    ],
+    "tufte_score": 0.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_good_00057",
+    "label": "good",
+    "chart_type": "scatter",
+    "title": "Annual Metrics",
+    "violations": [],
+    "tufte_score": 1.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_bad_00057",
+    "label": "bad",
+    "chart_type": "chartjunk",
+    "title": "Annual Metrics",
+    "violations": [
+      "chartjunk",
+      "decorative_elements",
+      "low_data_ink_ratio"
+    ],
+    "tufte_score": 0.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_good_00058",
+    "label": "good",
+    "chart_type": "line",
+    "title": "Market Share Analysis",
+    "violations": [],
+    "tufte_score": 1.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_bad_00058",
+    "label": "bad",
+    "chart_type": "heavy_grid",
+    "title": "Market Share Analysis",
+    "violations": [
+      "heavy_gridlines",
+      "low_data_ink_ratio",
+      "data_obscured"
+    ],
+    "tufte_score": 0.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_good_00059",
+    "label": "good",
+    "chart_type": "line",
+    "title": "Revenue Growth",
+    "violations": [],
+    "tufte_score": 1.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_bad_00059",
+    "label": "bad",
+    "chart_type": "spaghetti",
+    "title": "Revenue Growth",
+    "violations": [
+      "spaghetti_chart",
+      "too_many_series",
+      "rainbow_palette",
+      "low_readability"
+    ],
+    "tufte_score": 0.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_good_00060",
+    "label": "good",
+    "chart_type": "line",
+    "title": "Monthly Performance",
+    "violations": [],
+    "tufte_score": 1.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_bad_00060",
+    "label": "bad",
+    "chart_type": "heavy_grid",
+    "title": "Monthly Performance",
+    "violations": [
+      "heavy_gridlines",
+      "low_data_ink_ratio",
+      "data_obscured"
+    ],
+    "tufte_score": 0.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_good_00061",
+    "label": "good",
+    "chart_type": "line",
+    "title": "Monthly Performance",
+    "violations": [],
+    "tufte_score": 1.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_bad_00061",
+    "label": "bad",
+    "chart_type": "rainbow",
+    "title": "Monthly Performance",
+    "violations": [
+      "rainbow_palette",
+      "dark_theme_abuse",
+      "low_data_ink_ratio"
+    ],
+    "tufte_score": 0.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_good_00062",
+    "label": "good",
+    "chart_type": "line",
+    "title": "Market Share Analysis",
+    "violations": [],
+    "tufte_score": 1.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_bad_00062",
+    "label": "bad",
+    "chart_type": "truncated",
+    "title": "Market Share Analysis",
+    "violations": [
+      "truncated_axis",
+      "misleading_scale"
+    ],
+    "tufte_score": 0.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_good_00063",
+    "label": "good",
+    "chart_type": "hbar",
+    "title": "Regional Comparison",
+    "violations": [],
+    "tufte_score": 1.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_bad_00063",
+    "label": "bad",
+    "chart_type": "truncated",
+    "title": "Regional Comparison",
+    "violations": [
+      "truncated_axis",
+      "misleading_scale"
+    ],
+    "tufte_score": 0.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_good_00064",
+    "label": "good",
+    "chart_type": "line",
+    "title": "Market Share Analysis",
+    "violations": [],
+    "tufte_score": 1.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_bad_00064",
+    "label": "bad",
+    "chart_type": "chartjunk",
+    "title": "Market Share Analysis",
+    "violations": [
+      "chartjunk",
+      "decorative_elements",
+      "low_data_ink_ratio"
+    ],
+    "tufte_score": 0.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_good_00065",
+    "label": "good",
+    "chart_type": "scatter",
+    "title": "Monthly Performance",
+    "violations": [],
+    "tufte_score": 1.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_bad_00065",
+    "label": "bad",
+    "chart_type": "dual_axis",
+    "title": "Monthly Performance",
+    "violations": [
+      "dual_axis_abuse",
+      "misleading_correlation",
+      "scale_manipulation"
+    ],
+    "tufte_score": 0.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_good_00066",
+    "label": "good",
+    "chart_type": "bar",
+    "title": "Regional Comparison",
+    "violations": [],
+    "tufte_score": 1.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_bad_00066",
+    "label": "bad",
+    "chart_type": "truncated",
+    "title": "Regional Comparison",
+    "violations": [
+      "truncated_axis",
+      "misleading_scale"
+    ],
+    "tufte_score": 0.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_good_00067",
+    "label": "good",
+    "chart_type": "pie",
+    "title": "Regional Comparison",
+    "violations": [],
+    "tufte_score": 1.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_bad_00067",
+    "label": "bad",
+    "chart_type": "chartjunk",
+    "title": "Regional Comparison",
+    "violations": [
+      "chartjunk",
+      "decorative_elements",
+      "low_data_ink_ratio"
+    ],
+    "tufte_score": 0.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_good_00068",
+    "label": "good",
+    "chart_type": "scatter",
+    "title": "Annual Metrics",
+    "violations": [],
+    "tufte_score": 1.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_bad_00068",
+    "label": "bad",
+    "chart_type": "truncated",
+    "title": "Annual Metrics",
+    "violations": [
+      "truncated_axis",
+      "misleading_scale"
+    ],
+    "tufte_score": 0.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_good_00069",
+    "label": "good",
+    "chart_type": "scatter",
+    "title": "Revenue Growth",
+    "violations": [],
+    "tufte_score": 1.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_bad_00069",
+    "label": "bad",
+    "chart_type": "heavy_grid",
+    "title": "Revenue Growth",
+    "violations": [
+      "heavy_gridlines",
+      "low_data_ink_ratio",
+      "data_obscured"
+    ],
+    "tufte_score": 0.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_good_00070",
+    "label": "good",
+    "chart_type": "pie",
+    "title": "Customer Satisfaction",
+    "violations": [],
+    "tufte_score": 1.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_bad_00070",
+    "label": "bad",
+    "chart_type": "heavy_grid",
+    "title": "Customer Satisfaction",
+    "violations": [
+      "heavy_gridlines",
+      "low_data_ink_ratio",
+      "data_obscured"
+    ],
+    "tufte_score": 0.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_good_00071",
+    "label": "good",
+    "chart_type": "scatter",
+    "title": "Annual Metrics",
+    "violations": [],
+    "tufte_score": 1.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_bad_00071",
+    "label": "bad",
+    "chart_type": "dual_axis",
+    "title": "Annual Metrics",
+    "violations": [
+      "dual_axis_abuse",
+      "misleading_correlation",
+      "scale_manipulation"
+    ],
+    "tufte_score": 0.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_good_00072",
+    "label": "good",
+    "chart_type": "pie",
+    "title": "Revenue Growth",
+    "violations": [],
+    "tufte_score": 1.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_bad_00072",
+    "label": "bad",
+    "chart_type": "dual_axis",
+    "title": "Revenue Growth",
+    "violations": [
+      "dual_axis_abuse",
+      "misleading_correlation",
+      "scale_manipulation"
+    ],
+    "tufte_score": 0.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_good_00073",
+    "label": "good",
+    "chart_type": "line",
+    "title": "Sales by Quarter",
+    "violations": [],
+    "tufte_score": 1.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_bad_00073",
+    "label": "bad",
+    "chart_type": "chartjunk",
+    "title": "Sales by Quarter",
+    "violations": [
+      "chartjunk",
+      "decorative_elements",
+      "low_data_ink_ratio"
+    ],
+    "tufte_score": 0.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_good_00074",
+    "label": "good",
+    "chart_type": "line",
+    "title": "Sales by Quarter",
+    "violations": [],
+    "tufte_score": 1.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_bad_00074",
+    "label": "bad",
+    "chart_type": "chartjunk",
+    "title": "Sales by Quarter",
+    "violations": [
+      "chartjunk",
+      "decorative_elements",
+      "low_data_ink_ratio"
+    ],
+    "tufte_score": 0.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_good_00075",
+    "label": "good",
+    "chart_type": "line",
+    "title": "Customer Satisfaction",
+    "violations": [],
+    "tufte_score": 1.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_bad_00075",
+    "label": "bad",
+    "chart_type": "rainbow",
+    "title": "Customer Satisfaction",
+    "violations": [
+      "rainbow_palette",
+      "dark_theme_abuse",
+      "low_data_ink_ratio"
+    ],
+    "tufte_score": 0.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_good_00076",
+    "label": "good",
+    "chart_type": "bar",
+    "title": "Regional Comparison",
+    "violations": [],
+    "tufte_score": 1.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_bad_00076",
+    "label": "bad",
+    "chart_type": "truncated",
+    "title": "Regional Comparison",
+    "violations": [
+      "truncated_axis",
+      "misleading_scale"
+    ],
+    "tufte_score": 0.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_good_00077",
+    "label": "good",
+    "chart_type": "hbar",
+    "title": "Regional Comparison",
+    "violations": [],
+    "tufte_score": 1.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_bad_00077",
+    "label": "bad",
+    "chart_type": "dual_axis",
+    "title": "Regional Comparison",
+    "violations": [
+      "dual_axis_abuse",
+      "misleading_correlation",
+      "scale_manipulation"
+    ],
+    "tufte_score": 0.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_good_00078",
+    "label": "good",
+    "chart_type": "scatter",
+    "title": "Customer Satisfaction",
+    "violations": [],
+    "tufte_score": 1.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_bad_00078",
+    "label": "bad",
+    "chart_type": "dual_axis",
+    "title": "Customer Satisfaction",
+    "violations": [
+      "dual_axis_abuse",
+      "misleading_correlation",
+      "scale_manipulation"
+    ],
+    "tufte_score": 0.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_good_00079",
+    "label": "good",
+    "chart_type": "bar",
+    "title": "Sales by Quarter",
+    "violations": [],
+    "tufte_score": 1.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_bad_00079",
+    "label": "bad",
+    "chart_type": "3d",
+    "title": "Sales by Quarter",
+    "violations": [
+      "3d_effects",
+      "perspective_distortion",
+      "chartjunk"
+    ],
+    "tufte_score": 0.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_good_00080",
+    "label": "good",
+    "chart_type": "line",
+    "title": "Monthly Performance",
+    "violations": [],
+    "tufte_score": 1.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_bad_00080",
+    "label": "bad",
+    "chart_type": "3d",
+    "title": "Monthly Performance",
+    "violations": [
+      "3d_effects",
+      "perspective_distortion",
+      "chartjunk"
+    ],
+    "tufte_score": 0.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_good_00081",
+    "label": "good",
+    "chart_type": "bar",
+    "title": "Monthly Performance",
+    "violations": [],
+    "tufte_score": 1.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_bad_00081",
+    "label": "bad",
+    "chart_type": "rainbow",
+    "title": "Monthly Performance",
+    "violations": [
+      "rainbow_palette",
+      "dark_theme_abuse",
+      "low_data_ink_ratio"
+    ],
+    "tufte_score": 0.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_good_00082",
+    "label": "good",
+    "chart_type": "scatter",
+    "title": "Monthly Performance",
+    "violations": [],
+    "tufte_score": 1.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_bad_00082",
+    "label": "bad",
+    "chart_type": "dual_axis",
+    "title": "Monthly Performance",
+    "violations": [
+      "dual_axis_abuse",
+      "misleading_correlation",
+      "scale_manipulation"
+    ],
+    "tufte_score": 0.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_good_00083",
+    "label": "good",
+    "chart_type": "scatter",
+    "title": "Revenue Growth",
+    "violations": [],
+    "tufte_score": 1.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_bad_00083",
+    "label": "bad",
+    "chart_type": "heavy_grid",
+    "title": "Revenue Growth",
+    "violations": [
+      "heavy_gridlines",
+      "low_data_ink_ratio",
+      "data_obscured"
+    ],
+    "tufte_score": 0.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_good_00084",
+    "label": "good",
+    "chart_type": "line",
+    "title": "Customer Satisfaction",
+    "violations": [],
+    "tufte_score": 1.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_bad_00084",
+    "label": "bad",
+    "chart_type": "truncated",
+    "title": "Customer Satisfaction",
+    "violations": [
+      "truncated_axis",
+      "misleading_scale"
+    ],
+    "tufte_score": 0.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_good_00085",
+    "label": "good",
+    "chart_type": "bar",
+    "title": "Customer Satisfaction",
+    "violations": [],
+    "tufte_score": 1.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_bad_00085",
+    "label": "bad",
+    "chart_type": "dual_axis",
+    "title": "Customer Satisfaction",
+    "violations": [
+      "dual_axis_abuse",
+      "misleading_correlation",
+      "scale_manipulation"
+    ],
+    "tufte_score": 0.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_good_00086",
+    "label": "good",
+    "chart_type": "bar",
+    "title": "Annual Metrics",
+    "violations": [],
+    "tufte_score": 1.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_bad_00086",
+    "label": "bad",
+    "chart_type": "chartjunk",
+    "title": "Annual Metrics",
+    "violations": [
+      "chartjunk",
+      "decorative_elements",
+      "low_data_ink_ratio"
+    ],
+    "tufte_score": 0.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_good_00087",
+    "label": "good",
+    "chart_type": "line",
+    "title": "Team Productivity",
+    "violations": [],
+    "tufte_score": 1.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_bad_00087",
+    "label": "bad",
+    "chart_type": "dual_axis",
+    "title": "Team Productivity",
+    "violations": [
+      "dual_axis_abuse",
+      "misleading_correlation",
+      "scale_manipulation"
+    ],
+    "tufte_score": 0.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_good_00088",
+    "label": "good",
+    "chart_type": "scatter",
+    "title": "Monthly Performance",
+    "violations": [],
+    "tufte_score": 1.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_bad_00088",
+    "label": "bad",
+    "chart_type": "spaghetti",
+    "title": "Monthly Performance",
+    "violations": [
+      "spaghetti_chart",
+      "too_many_series",
+      "rainbow_palette",
+      "low_readability"
+    ],
+    "tufte_score": 0.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_good_00089",
+    "label": "good",
+    "chart_type": "line",
+    "title": "Market Share Analysis",
+    "violations": [],
+    "tufte_score": 1.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_bad_00089",
+    "label": "bad",
+    "chart_type": "dual_axis",
+    "title": "Market Share Analysis",
+    "violations": [
+      "dual_axis_abuse",
+      "misleading_correlation",
+      "scale_manipulation"
+    ],
+    "tufte_score": 0.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_good_00090",
+    "label": "good",
+    "chart_type": "hbar",
+    "title": "Regional Comparison",
+    "violations": [],
+    "tufte_score": 1.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_bad_00090",
+    "label": "bad",
+    "chart_type": "heavy_grid",
+    "title": "Regional Comparison",
+    "violations": [
+      "heavy_gridlines",
+      "low_data_ink_ratio",
+      "data_obscured"
+    ],
+    "tufte_score": 0.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_good_00091",
+    "label": "good",
+    "chart_type": "bar",
+    "title": "Annual Metrics",
+    "violations": [],
+    "tufte_score": 1.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_bad_00091",
+    "label": "bad",
+    "chart_type": "spaghetti",
+    "title": "Annual Metrics",
+    "violations": [
+      "spaghetti_chart",
+      "too_many_series",
+      "rainbow_palette",
+      "low_readability"
+    ],
+    "tufte_score": 0.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_good_00092",
+    "label": "good",
+    "chart_type": "hbar",
+    "title": "Customer Satisfaction",
+    "violations": [],
+    "tufte_score": 1.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_bad_00092",
+    "label": "bad",
+    "chart_type": "heavy_grid",
+    "title": "Customer Satisfaction",
+    "violations": [
+      "heavy_gridlines",
+      "low_data_ink_ratio",
+      "data_obscured"
+    ],
+    "tufte_score": 0.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_good_00093",
+    "label": "good",
+    "chart_type": "pie",
+    "title": "Market Share Analysis",
+    "violations": [],
+    "tufte_score": 1.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_bad_00093",
+    "label": "bad",
+    "chart_type": "rainbow",
+    "title": "Market Share Analysis",
+    "violations": [
+      "rainbow_palette",
+      "dark_theme_abuse",
+      "low_data_ink_ratio"
+    ],
+    "tufte_score": 0.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_good_00094",
+    "label": "good",
+    "chart_type": "line",
+    "title": "Regional Comparison",
+    "violations": [],
+    "tufte_score": 1.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_bad_00094",
+    "label": "bad",
+    "chart_type": "chartjunk",
+    "title": "Regional Comparison",
+    "violations": [
+      "chartjunk",
+      "decorative_elements",
+      "low_data_ink_ratio"
+    ],
+    "tufte_score": 0.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_good_00095",
+    "label": "good",
+    "chart_type": "bar",
+    "title": "Sales by Quarter",
+    "violations": [],
+    "tufte_score": 1.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_bad_00095",
+    "label": "bad",
+    "chart_type": "3d",
+    "title": "Sales by Quarter",
+    "violations": [
+      "3d_effects",
+      "perspective_distortion",
+      "chartjunk"
+    ],
+    "tufte_score": 0.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_good_00096",
+    "label": "good",
+    "chart_type": "hbar",
+    "title": "Sales by Quarter",
+    "violations": [],
+    "tufte_score": 1.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_bad_00096",
+    "label": "bad",
+    "chart_type": "3d",
+    "title": "Sales by Quarter",
+    "violations": [
+      "3d_effects",
+      "perspective_distortion",
+      "chartjunk"
+    ],
+    "tufte_score": 0.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_good_00097",
+    "label": "good",
+    "chart_type": "line",
+    "title": "Annual Metrics",
+    "violations": [],
+    "tufte_score": 1.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_bad_00097",
+    "label": "bad",
+    "chart_type": "spaghetti",
+    "title": "Annual Metrics",
+    "violations": [
+      "spaghetti_chart",
+      "too_many_series",
+      "rainbow_palette",
+      "low_readability"
+    ],
+    "tufte_score": 0.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_good_00098",
+    "label": "good",
+    "chart_type": "line",
+    "title": "Revenue Growth",
+    "violations": [],
+    "tufte_score": 1.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_bad_00098",
+    "label": "bad",
+    "chart_type": "3d",
+    "title": "Revenue Growth",
+    "violations": [
+      "3d_effects",
+      "perspective_distortion",
+      "chartjunk"
+    ],
+    "tufte_score": 0.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_good_00099",
+    "label": "good",
+    "chart_type": "hbar",
+    "title": "Regional Comparison",
+    "violations": [],
+    "tufte_score": 1.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_bad_00099",
+    "label": "bad",
+    "chart_type": "spaghetti",
+    "title": "Regional Comparison",
+    "violations": [
+      "spaghetti_chart",
+      "too_many_series",
+      "rainbow_palette",
+      "low_readability"
+    ],
+    "tufte_score": 0.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_good_00100",
+    "label": "good",
+    "chart_type": "pie",
+    "title": "Revenue Growth",
+    "violations": [],
+    "tufte_score": 1.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_bad_00100",
+    "label": "bad",
+    "chart_type": "3d",
+    "title": "Revenue Growth",
+    "violations": [
+      "3d_effects",
+      "perspective_distortion",
+      "chartjunk"
+    ],
+    "tufte_score": 0.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_good_00101",
+    "label": "good",
+    "chart_type": "scatter",
+    "title": "Sales by Quarter",
+    "violations": [],
+    "tufte_score": 1.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_bad_00101",
+    "label": "bad",
+    "chart_type": "3d",
+    "title": "Sales by Quarter",
+    "violations": [
+      "3d_effects",
+      "perspective_distortion",
+      "chartjunk"
+    ],
+    "tufte_score": 0.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_good_00102",
+    "label": "good",
+    "chart_type": "hbar",
+    "title": "Revenue Growth",
+    "violations": [],
+    "tufte_score": 1.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_bad_00102",
+    "label": "bad",
+    "chart_type": "rainbow",
+    "title": "Revenue Growth",
+    "violations": [
+      "rainbow_palette",
+      "dark_theme_abuse",
+      "low_data_ink_ratio"
+    ],
+    "tufte_score": 0.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_good_00103",
+    "label": "good",
+    "chart_type": "hbar",
+    "title": "Regional Comparison",
+    "violations": [],
+    "tufte_score": 1.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_bad_00103",
+    "label": "bad",
+    "chart_type": "rainbow",
+    "title": "Regional Comparison",
+    "violations": [
+      "rainbow_palette",
+      "dark_theme_abuse",
+      "low_data_ink_ratio"
+    ],
+    "tufte_score": 0.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_good_00104",
+    "label": "good",
+    "chart_type": "pie",
+    "title": "Annual Metrics",
+    "violations": [],
+    "tufte_score": 1.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_bad_00104",
+    "label": "bad",
+    "chart_type": "dual_axis",
+    "title": "Annual Metrics",
+    "violations": [
+      "dual_axis_abuse",
+      "misleading_correlation",
+      "scale_manipulation"
+    ],
+    "tufte_score": 0.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_good_00105",
+    "label": "good",
+    "chart_type": "hbar",
+    "title": "Regional Comparison",
+    "violations": [],
+    "tufte_score": 1.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_bad_00105",
+    "label": "bad",
+    "chart_type": "heavy_grid",
+    "title": "Regional Comparison",
+    "violations": [
+      "heavy_gridlines",
+      "low_data_ink_ratio",
+      "data_obscured"
+    ],
+    "tufte_score": 0.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_good_00106",
+    "label": "good",
+    "chart_type": "scatter",
+    "title": "Regional Comparison",
+    "violations": [],
+    "tufte_score": 1.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_bad_00106",
+    "label": "bad",
+    "chart_type": "truncated",
+    "title": "Regional Comparison",
+    "violations": [
+      "truncated_axis",
+      "misleading_scale"
+    ],
+    "tufte_score": 0.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_good_00107",
+    "label": "good",
+    "chart_type": "bar",
+    "title": "Annual Metrics",
+    "violations": [],
+    "tufte_score": 1.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_bad_00107",
+    "label": "bad",
+    "chart_type": "heavy_grid",
+    "title": "Annual Metrics",
+    "violations": [
+      "heavy_gridlines",
+      "low_data_ink_ratio",
+      "data_obscured"
+    ],
+    "tufte_score": 0.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_good_00108",
+    "label": "good",
+    "chart_type": "line",
+    "title": "Revenue Growth",
+    "violations": [],
+    "tufte_score": 1.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_bad_00108",
+    "label": "bad",
+    "chart_type": "rainbow",
+    "title": "Revenue Growth",
+    "violations": [
+      "rainbow_palette",
+      "dark_theme_abuse",
+      "low_data_ink_ratio"
+    ],
+    "tufte_score": 0.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_good_00109",
+    "label": "good",
+    "chart_type": "bar",
+    "title": "Revenue Growth",
+    "violations": [],
+    "tufte_score": 1.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_bad_00109",
+    "label": "bad",
+    "chart_type": "heavy_grid",
+    "title": "Revenue Growth",
+    "violations": [
+      "heavy_gridlines",
+      "low_data_ink_ratio",
+      "data_obscured"
+    ],
+    "tufte_score": 0.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_good_00110",
+    "label": "good",
+    "chart_type": "hbar",
+    "title": "Annual Metrics",
+    "violations": [],
+    "tufte_score": 1.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_bad_00110",
+    "label": "bad",
+    "chart_type": "3d",
+    "title": "Annual Metrics",
+    "violations": [
+      "3d_effects",
+      "perspective_distortion",
+      "chartjunk"
+    ],
+    "tufte_score": 0.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_good_00111",
+    "label": "good",
+    "chart_type": "bar",
+    "title": "Regional Comparison",
+    "violations": [],
+    "tufte_score": 1.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_bad_00111",
+    "label": "bad",
+    "chart_type": "heavy_grid",
+    "title": "Regional Comparison",
+    "violations": [
+      "heavy_gridlines",
+      "low_data_ink_ratio",
+      "data_obscured"
+    ],
+    "tufte_score": 0.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_good_00112",
+    "label": "good",
+    "chart_type": "pie",
+    "title": "Regional Comparison",
+    "violations": [],
+    "tufte_score": 1.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_bad_00112",
+    "label": "bad",
+    "chart_type": "dual_axis",
+    "title": "Regional Comparison",
+    "violations": [
+      "dual_axis_abuse",
+      "misleading_correlation",
+      "scale_manipulation"
+    ],
+    "tufte_score": 0.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_good_00113",
+    "label": "good",
+    "chart_type": "bar",
+    "title": "Monthly Performance",
+    "violations": [],
+    "tufte_score": 1.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_bad_00113",
+    "label": "bad",
+    "chart_type": "truncated",
+    "title": "Monthly Performance",
+    "violations": [
+      "truncated_axis",
+      "misleading_scale"
+    ],
+    "tufte_score": 0.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_good_00114",
+    "label": "good",
+    "chart_type": "pie",
+    "title": "Regional Comparison",
+    "violations": [],
+    "tufte_score": 1.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_bad_00114",
+    "label": "bad",
+    "chart_type": "chartjunk",
+    "title": "Regional Comparison",
+    "violations": [
+      "chartjunk",
+      "decorative_elements",
+      "low_data_ink_ratio"
+    ],
+    "tufte_score": 0.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_good_00115",
+    "label": "good",
+    "chart_type": "scatter",
+    "title": "Revenue Growth",
+    "violations": [],
+    "tufte_score": 1.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_bad_00115",
+    "label": "bad",
+    "chart_type": "rainbow",
+    "title": "Revenue Growth",
+    "violations": [
+      "rainbow_palette",
+      "dark_theme_abuse",
+      "low_data_ink_ratio"
+    ],
+    "tufte_score": 0.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_good_00116",
+    "label": "good",
+    "chart_type": "line",
+    "title": "Market Share Analysis",
+    "violations": [],
+    "tufte_score": 1.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_bad_00116",
+    "label": "bad",
+    "chart_type": "rainbow",
+    "title": "Market Share Analysis",
+    "violations": [
+      "rainbow_palette",
+      "dark_theme_abuse",
+      "low_data_ink_ratio"
+    ],
+    "tufte_score": 0.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_good_00117",
+    "label": "good",
+    "chart_type": "line",
+    "title": "Team Productivity",
+    "violations": [],
+    "tufte_score": 1.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_bad_00117",
+    "label": "bad",
+    "chart_type": "rainbow",
+    "title": "Team Productivity",
+    "violations": [
+      "rainbow_palette",
+      "dark_theme_abuse",
+      "low_data_ink_ratio"
+    ],
+    "tufte_score": 0.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_good_00118",
+    "label": "good",
+    "chart_type": "hbar",
+    "title": "Regional Comparison",
+    "violations": [],
+    "tufte_score": 1.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_bad_00118",
+    "label": "bad",
+    "chart_type": "spaghetti",
+    "title": "Regional Comparison",
+    "violations": [
+      "spaghetti_chart",
+      "too_many_series",
+      "rainbow_palette",
+      "low_readability"
+    ],
+    "tufte_score": 0.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_good_00119",
+    "label": "good",
+    "chart_type": "pie",
+    "title": "Customer Satisfaction",
+    "violations": [],
+    "tufte_score": 1.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_bad_00119",
+    "label": "bad",
+    "chart_type": "dual_axis",
+    "title": "Customer Satisfaction",
+    "violations": [
+      "dual_axis_abuse",
+      "misleading_correlation",
+      "scale_manipulation"
+    ],
+    "tufte_score": 0.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_good_00120",
+    "label": "good",
+    "chart_type": "hbar",
+    "title": "Customer Satisfaction",
+    "violations": [],
+    "tufte_score": 1.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_bad_00120",
+    "label": "bad",
+    "chart_type": "3d",
+    "title": "Customer Satisfaction",
+    "violations": [
+      "3d_effects",
+      "perspective_distortion",
+      "chartjunk"
+    ],
+    "tufte_score": 0.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_good_00121",
+    "label": "good",
+    "chart_type": "scatter",
+    "title": "Market Share Analysis",
+    "violations": [],
+    "tufte_score": 1.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_bad_00121",
+    "label": "bad",
+    "chart_type": "heavy_grid",
+    "title": "Market Share Analysis",
+    "violations": [
+      "heavy_gridlines",
+      "low_data_ink_ratio",
+      "data_obscured"
+    ],
+    "tufte_score": 0.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_good_00122",
+    "label": "good",
+    "chart_type": "line",
+    "title": "Sales by Quarter",
+    "violations": [],
+    "tufte_score": 1.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_bad_00122",
+    "label": "bad",
+    "chart_type": "3d",
+    "title": "Sales by Quarter",
+    "violations": [
+      "3d_effects",
+      "perspective_distortion",
+      "chartjunk"
+    ],
+    "tufte_score": 0.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_good_00123",
+    "label": "good",
+    "chart_type": "line",
+    "title": "Sales by Quarter",
+    "violations": [],
+    "tufte_score": 1.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_bad_00123",
+    "label": "bad",
+    "chart_type": "chartjunk",
+    "title": "Sales by Quarter",
+    "violations": [
+      "chartjunk",
+      "decorative_elements",
+      "low_data_ink_ratio"
+    ],
+    "tufte_score": 0.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_good_00124",
+    "label": "good",
+    "chart_type": "scatter",
+    "title": "Regional Comparison",
+    "violations": [],
+    "tufte_score": 1.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_bad_00124",
+    "label": "bad",
+    "chart_type": "3d",
+    "title": "Regional Comparison",
+    "violations": [
+      "3d_effects",
+      "perspective_distortion",
+      "chartjunk"
+    ],
+    "tufte_score": 0.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_good_00125",
+    "label": "good",
+    "chart_type": "scatter",
+    "title": "Regional Comparison",
+    "violations": [],
+    "tufte_score": 1.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_bad_00125",
+    "label": "bad",
+    "chart_type": "spaghetti",
+    "title": "Regional Comparison",
+    "violations": [
+      "spaghetti_chart",
+      "too_many_series",
+      "rainbow_palette",
+      "low_readability"
+    ],
+    "tufte_score": 0.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_good_00126",
+    "label": "good",
+    "chart_type": "hbar",
+    "title": "Revenue Growth",
+    "violations": [],
+    "tufte_score": 1.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_bad_00126",
+    "label": "bad",
+    "chart_type": "chartjunk",
+    "title": "Revenue Growth",
+    "violations": [
+      "chartjunk",
+      "decorative_elements",
+      "low_data_ink_ratio"
+    ],
+    "tufte_score": 0.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_good_00127",
+    "label": "good",
+    "chart_type": "hbar",
+    "title": "Team Productivity",
+    "violations": [],
+    "tufte_score": 1.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_bad_00127",
+    "label": "bad",
+    "chart_type": "spaghetti",
+    "title": "Team Productivity",
+    "violations": [
+      "spaghetti_chart",
+      "too_many_series",
+      "rainbow_palette",
+      "low_readability"
+    ],
+    "tufte_score": 0.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_good_00128",
+    "label": "good",
+    "chart_type": "line",
+    "title": "Market Share Analysis",
+    "violations": [],
+    "tufte_score": 1.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_bad_00128",
+    "label": "bad",
+    "chart_type": "rainbow",
+    "title": "Market Share Analysis",
+    "violations": [
+      "rainbow_palette",
+      "dark_theme_abuse",
+      "low_data_ink_ratio"
+    ],
+    "tufte_score": 0.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_good_00129",
+    "label": "good",
+    "chart_type": "scatter",
+    "title": "Customer Satisfaction",
+    "violations": [],
+    "tufte_score": 1.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_bad_00129",
+    "label": "bad",
+    "chart_type": "3d",
+    "title": "Customer Satisfaction",
+    "violations": [
+      "3d_effects",
+      "perspective_distortion",
+      "chartjunk"
+    ],
+    "tufte_score": 0.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_good_00130",
+    "label": "good",
+    "chart_type": "bar",
+    "title": "Sales by Quarter",
+    "violations": [],
+    "tufte_score": 1.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_bad_00130",
+    "label": "bad",
+    "chart_type": "rainbow",
+    "title": "Sales by Quarter",
+    "violations": [
+      "rainbow_palette",
+      "dark_theme_abuse",
+      "low_data_ink_ratio"
+    ],
+    "tufte_score": 0.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_good_00131",
+    "label": "good",
+    "chart_type": "hbar",
+    "title": "Customer Satisfaction",
+    "violations": [],
+    "tufte_score": 1.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_bad_00131",
+    "label": "bad",
+    "chart_type": "rainbow",
+    "title": "Customer Satisfaction",
+    "violations": [
+      "rainbow_palette",
+      "dark_theme_abuse",
+      "low_data_ink_ratio"
+    ],
+    "tufte_score": 0.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_good_00132",
+    "label": "good",
+    "chart_type": "hbar",
+    "title": "Monthly Performance",
+    "violations": [],
+    "tufte_score": 1.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_bad_00132",
+    "label": "bad",
+    "chart_type": "spaghetti",
+    "title": "Monthly Performance",
+    "violations": [
+      "spaghetti_chart",
+      "too_many_series",
+      "rainbow_palette",
+      "low_readability"
+    ],
+    "tufte_score": 0.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_good_00133",
+    "label": "good",
+    "chart_type": "hbar",
+    "title": "Market Share Analysis",
+    "violations": [],
+    "tufte_score": 1.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_bad_00133",
+    "label": "bad",
+    "chart_type": "truncated",
+    "title": "Market Share Analysis",
+    "violations": [
+      "truncated_axis",
+      "misleading_scale"
+    ],
+    "tufte_score": 0.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_good_00134",
+    "label": "good",
+    "chart_type": "pie",
+    "title": "Sales by Quarter",
+    "violations": [],
+    "tufte_score": 1.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_bad_00134",
+    "label": "bad",
+    "chart_type": "heavy_grid",
+    "title": "Sales by Quarter",
+    "violations": [
+      "heavy_gridlines",
+      "low_data_ink_ratio",
+      "data_obscured"
+    ],
+    "tufte_score": 0.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_good_00135",
+    "label": "good",
+    "chart_type": "bar",
+    "title": "Regional Comparison",
+    "violations": [],
+    "tufte_score": 1.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_bad_00135",
+    "label": "bad",
+    "chart_type": "dual_axis",
+    "title": "Regional Comparison",
+    "violations": [
+      "dual_axis_abuse",
+      "misleading_correlation",
+      "scale_manipulation"
+    ],
+    "tufte_score": 0.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_good_00136",
+    "label": "good",
+    "chart_type": "pie",
+    "title": "Sales by Quarter",
+    "violations": [],
+    "tufte_score": 1.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_bad_00136",
+    "label": "bad",
+    "chart_type": "dual_axis",
+    "title": "Sales by Quarter",
+    "violations": [
+      "dual_axis_abuse",
+      "misleading_correlation",
+      "scale_manipulation"
+    ],
+    "tufte_score": 0.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_good_00137",
+    "label": "good",
+    "chart_type": "scatter",
+    "title": "Regional Comparison",
+    "violations": [],
+    "tufte_score": 1.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_bad_00137",
+    "label": "bad",
+    "chart_type": "chartjunk",
+    "title": "Regional Comparison",
+    "violations": [
+      "chartjunk",
+      "decorative_elements",
+      "low_data_ink_ratio"
+    ],
+    "tufte_score": 0.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_good_00138",
+    "label": "good",
+    "chart_type": "bar",
+    "title": "Market Share Analysis",
+    "violations": [],
+    "tufte_score": 1.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_bad_00138",
+    "label": "bad",
+    "chart_type": "chartjunk",
+    "title": "Market Share Analysis",
+    "violations": [
+      "chartjunk",
+      "decorative_elements",
+      "low_data_ink_ratio"
+    ],
+    "tufte_score": 0.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_good_00139",
+    "label": "good",
+    "chart_type": "bar",
+    "title": "Customer Satisfaction",
+    "violations": [],
+    "tufte_score": 1.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_bad_00139",
+    "label": "bad",
+    "chart_type": "chartjunk",
+    "title": "Customer Satisfaction",
+    "violations": [
+      "chartjunk",
+      "decorative_elements",
+      "low_data_ink_ratio"
+    ],
+    "tufte_score": 0.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_good_00140",
+    "label": "good",
+    "chart_type": "hbar",
+    "title": "Sales by Quarter",
+    "violations": [],
+    "tufte_score": 1.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_bad_00140",
+    "label": "bad",
+    "chart_type": "heavy_grid",
+    "title": "Sales by Quarter",
+    "violations": [
+      "heavy_gridlines",
+      "low_data_ink_ratio",
+      "data_obscured"
+    ],
+    "tufte_score": 0.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_good_00141",
+    "label": "good",
+    "chart_type": "hbar",
+    "title": "Monthly Performance",
+    "violations": [],
+    "tufte_score": 1.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_bad_00141",
+    "label": "bad",
+    "chart_type": "rainbow",
+    "title": "Monthly Performance",
+    "violations": [
+      "rainbow_palette",
+      "dark_theme_abuse",
+      "low_data_ink_ratio"
+    ],
+    "tufte_score": 0.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_good_00142",
+    "label": "good",
+    "chart_type": "hbar",
+    "title": "Regional Comparison",
+    "violations": [],
+    "tufte_score": 1.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_bad_00142",
+    "label": "bad",
+    "chart_type": "rainbow",
+    "title": "Regional Comparison",
+    "violations": [
+      "rainbow_palette",
+      "dark_theme_abuse",
+      "low_data_ink_ratio"
+    ],
+    "tufte_score": 0.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_good_00143",
+    "label": "good",
+    "chart_type": "scatter",
+    "title": "Market Share Analysis",
+    "violations": [],
+    "tufte_score": 1.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_bad_00143",
+    "label": "bad",
+    "chart_type": "heavy_grid",
+    "title": "Market Share Analysis",
+    "violations": [
+      "heavy_gridlines",
+      "low_data_ink_ratio",
+      "data_obscured"
+    ],
+    "tufte_score": 0.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_good_00144",
+    "label": "good",
+    "chart_type": "hbar",
+    "title": "Team Productivity",
+    "violations": [],
+    "tufte_score": 1.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_bad_00144",
+    "label": "bad",
+    "chart_type": "spaghetti",
+    "title": "Team Productivity",
+    "violations": [
+      "spaghetti_chart",
+      "too_many_series",
+      "rainbow_palette",
+      "low_readability"
+    ],
+    "tufte_score": 0.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_good_00145",
+    "label": "good",
+    "chart_type": "scatter",
+    "title": "Monthly Performance",
+    "violations": [],
+    "tufte_score": 1.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_bad_00145",
+    "label": "bad",
+    "chart_type": "spaghetti",
+    "title": "Monthly Performance",
+    "violations": [
+      "spaghetti_chart",
+      "too_many_series",
+      "rainbow_palette",
+      "low_readability"
+    ],
+    "tufte_score": 0.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_good_00146",
+    "label": "good",
+    "chart_type": "line",
+    "title": "Market Share Analysis",
+    "violations": [],
+    "tufte_score": 1.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_bad_00146",
+    "label": "bad",
+    "chart_type": "rainbow",
+    "title": "Market Share Analysis",
+    "violations": [
+      "rainbow_palette",
+      "dark_theme_abuse",
+      "low_data_ink_ratio"
+    ],
+    "tufte_score": 0.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_good_00147",
+    "label": "good",
+    "chart_type": "pie",
+    "title": "Team Productivity",
+    "violations": [],
+    "tufte_score": 1.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_bad_00147",
+    "label": "bad",
+    "chart_type": "dual_axis",
+    "title": "Team Productivity",
+    "violations": [
+      "dual_axis_abuse",
+      "misleading_correlation",
+      "scale_manipulation"
+    ],
+    "tufte_score": 0.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_good_00148",
+    "label": "good",
+    "chart_type": "hbar",
+    "title": "Revenue Growth",
+    "violations": [],
+    "tufte_score": 1.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_bad_00148",
+    "label": "bad",
+    "chart_type": "rainbow",
+    "title": "Revenue Growth",
+    "violations": [
+      "rainbow_palette",
+      "dark_theme_abuse",
+      "low_data_ink_ratio"
+    ],
+    "tufte_score": 0.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_good_00149",
+    "label": "good",
+    "chart_type": "pie",
+    "title": "Market Share Analysis",
+    "violations": [],
+    "tufte_score": 1.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_bad_00149",
+    "label": "bad",
+    "chart_type": "dual_axis",
+    "title": "Market Share Analysis",
+    "violations": [
+      "dual_axis_abuse",
+      "misleading_correlation",
+      "scale_manipulation"
+    ],
+    "tufte_score": 0.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_good_00150",
+    "label": "good",
+    "chart_type": "hbar",
+    "title": "Monthly Performance",
+    "violations": [],
+    "tufte_score": 1.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_bad_00150",
+    "label": "bad",
+    "chart_type": "spaghetti",
+    "title": "Monthly Performance",
+    "violations": [
+      "spaghetti_chart",
+      "too_many_series",
+      "rainbow_palette",
+      "low_readability"
+    ],
+    "tufte_score": 0.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_good_00151",
+    "label": "good",
+    "chart_type": "line",
+    "title": "Market Share Analysis",
+    "violations": [],
+    "tufte_score": 1.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_bad_00151",
+    "label": "bad",
+    "chart_type": "spaghetti",
+    "title": "Market Share Analysis",
+    "violations": [
+      "spaghetti_chart",
+      "too_many_series",
+      "rainbow_palette",
+      "low_readability"
+    ],
+    "tufte_score": 0.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_good_00152",
+    "label": "good",
+    "chart_type": "line",
+    "title": "Market Share Analysis",
+    "violations": [],
+    "tufte_score": 1.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_bad_00152",
+    "label": "bad",
+    "chart_type": "chartjunk",
+    "title": "Market Share Analysis",
+    "violations": [
+      "chartjunk",
+      "decorative_elements",
+      "low_data_ink_ratio"
+    ],
+    "tufte_score": 0.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_good_00153",
+    "label": "good",
+    "chart_type": "scatter",
+    "title": "Team Productivity",
+    "violations": [],
+    "tufte_score": 1.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_bad_00153",
+    "label": "bad",
+    "chart_type": "spaghetti",
+    "title": "Team Productivity",
+    "violations": [
+      "spaghetti_chart",
+      "too_many_series",
+      "rainbow_palette",
+      "low_readability"
+    ],
+    "tufte_score": 0.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_good_00154",
+    "label": "good",
+    "chart_type": "bar",
+    "title": "Market Share Analysis",
+    "violations": [],
+    "tufte_score": 1.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_bad_00154",
+    "label": "bad",
+    "chart_type": "rainbow",
+    "title": "Market Share Analysis",
+    "violations": [
+      "rainbow_palette",
+      "dark_theme_abuse",
+      "low_data_ink_ratio"
+    ],
+    "tufte_score": 0.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_good_00155",
+    "label": "good",
+    "chart_type": "pie",
+    "title": "Regional Comparison",
+    "violations": [],
+    "tufte_score": 1.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_bad_00155",
+    "label": "bad",
+    "chart_type": "truncated",
+    "title": "Regional Comparison",
+    "violations": [
+      "truncated_axis",
+      "misleading_scale"
+    ],
+    "tufte_score": 0.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_good_00156",
+    "label": "good",
+    "chart_type": "hbar",
+    "title": "Team Productivity",
+    "violations": [],
+    "tufte_score": 1.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_bad_00156",
+    "label": "bad",
+    "chart_type": "rainbow",
+    "title": "Team Productivity",
+    "violations": [
+      "rainbow_palette",
+      "dark_theme_abuse",
+      "low_data_ink_ratio"
+    ],
+    "tufte_score": 0.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_good_00157",
+    "label": "good",
+    "chart_type": "scatter",
+    "title": "Market Share Analysis",
+    "violations": [],
+    "tufte_score": 1.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_bad_00157",
+    "label": "bad",
+    "chart_type": "spaghetti",
+    "title": "Market Share Analysis",
+    "violations": [
+      "spaghetti_chart",
+      "too_many_series",
+      "rainbow_palette",
+      "low_readability"
+    ],
+    "tufte_score": 0.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_good_00158",
+    "label": "good",
+    "chart_type": "line",
+    "title": "Regional Comparison",
+    "violations": [],
+    "tufte_score": 1.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_bad_00158",
+    "label": "bad",
+    "chart_type": "spaghetti",
+    "title": "Regional Comparison",
+    "violations": [
+      "spaghetti_chart",
+      "too_many_series",
+      "rainbow_palette",
+      "low_readability"
+    ],
+    "tufte_score": 0.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_good_00159",
+    "label": "good",
+    "chart_type": "bar",
+    "title": "Team Productivity",
+    "violations": [],
+    "tufte_score": 1.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_bad_00159",
+    "label": "bad",
+    "chart_type": "dual_axis",
+    "title": "Team Productivity",
+    "violations": [
+      "dual_axis_abuse",
+      "misleading_correlation",
+      "scale_manipulation"
+    ],
+    "tufte_score": 0.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_good_00160",
+    "label": "good",
+    "chart_type": "bar",
+    "title": "Customer Satisfaction",
+    "violations": [],
+    "tufte_score": 1.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_bad_00160",
+    "label": "bad",
+    "chart_type": "chartjunk",
+    "title": "Customer Satisfaction",
+    "violations": [
+      "chartjunk",
+      "decorative_elements",
+      "low_data_ink_ratio"
+    ],
+    "tufte_score": 0.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_good_00161",
+    "label": "good",
+    "chart_type": "pie",
+    "title": "Monthly Performance",
+    "violations": [],
+    "tufte_score": 1.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_bad_00161",
+    "label": "bad",
+    "chart_type": "heavy_grid",
+    "title": "Monthly Performance",
+    "violations": [
+      "heavy_gridlines",
+      "low_data_ink_ratio",
+      "data_obscured"
+    ],
+    "tufte_score": 0.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_good_00162",
+    "label": "good",
+    "chart_type": "hbar",
+    "title": "Sales by Quarter",
+    "violations": [],
+    "tufte_score": 1.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_bad_00162",
+    "label": "bad",
+    "chart_type": "dual_axis",
+    "title": "Sales by Quarter",
+    "violations": [
+      "dual_axis_abuse",
+      "misleading_correlation",
+      "scale_manipulation"
+    ],
+    "tufte_score": 0.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_good_00163",
+    "label": "good",
+    "chart_type": "hbar",
+    "title": "Annual Metrics",
+    "violations": [],
+    "tufte_score": 1.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_bad_00163",
+    "label": "bad",
+    "chart_type": "truncated",
+    "title": "Annual Metrics",
+    "violations": [
+      "truncated_axis",
+      "misleading_scale"
+    ],
+    "tufte_score": 0.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_good_00164",
+    "label": "good",
+    "chart_type": "hbar",
+    "title": "Team Productivity",
+    "violations": [],
+    "tufte_score": 1.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_bad_00164",
+    "label": "bad",
+    "chart_type": "truncated",
+    "title": "Team Productivity",
+    "violations": [
+      "truncated_axis",
+      "misleading_scale"
+    ],
+    "tufte_score": 0.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_good_00165",
+    "label": "good",
+    "chart_type": "hbar",
+    "title": "Regional Comparison",
+    "violations": [],
+    "tufte_score": 1.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_bad_00165",
+    "label": "bad",
+    "chart_type": "heavy_grid",
+    "title": "Regional Comparison",
+    "violations": [
+      "heavy_gridlines",
+      "low_data_ink_ratio",
+      "data_obscured"
+    ],
+    "tufte_score": 0.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_good_00166",
+    "label": "good",
+    "chart_type": "hbar",
+    "title": "Revenue Growth",
+    "violations": [],
+    "tufte_score": 1.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_bad_00166",
+    "label": "bad",
+    "chart_type": "rainbow",
+    "title": "Revenue Growth",
+    "violations": [
+      "rainbow_palette",
+      "dark_theme_abuse",
+      "low_data_ink_ratio"
+    ],
+    "tufte_score": 0.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_good_00167",
+    "label": "good",
+    "chart_type": "pie",
+    "title": "Team Productivity",
+    "violations": [],
+    "tufte_score": 1.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_bad_00167",
+    "label": "bad",
+    "chart_type": "truncated",
+    "title": "Team Productivity",
+    "violations": [
+      "truncated_axis",
+      "misleading_scale"
+    ],
+    "tufte_score": 0.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_good_00168",
+    "label": "good",
+    "chart_type": "scatter",
+    "title": "Market Share Analysis",
+    "violations": [],
+    "tufte_score": 1.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_bad_00168",
+    "label": "bad",
+    "chart_type": "heavy_grid",
+    "title": "Market Share Analysis",
+    "violations": [
+      "heavy_gridlines",
+      "low_data_ink_ratio",
+      "data_obscured"
+    ],
+    "tufte_score": 0.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_good_00169",
+    "label": "good",
+    "chart_type": "pie",
+    "title": "Monthly Performance",
+    "violations": [],
+    "tufte_score": 1.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_bad_00169",
+    "label": "bad",
+    "chart_type": "rainbow",
+    "title": "Monthly Performance",
+    "violations": [
+      "rainbow_palette",
+      "dark_theme_abuse",
+      "low_data_ink_ratio"
+    ],
+    "tufte_score": 0.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_good_00170",
+    "label": "good",
+    "chart_type": "hbar",
+    "title": "Revenue Growth",
+    "violations": [],
+    "tufte_score": 1.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_bad_00170",
+    "label": "bad",
+    "chart_type": "heavy_grid",
+    "title": "Revenue Growth",
+    "violations": [
+      "heavy_gridlines",
+      "low_data_ink_ratio",
+      "data_obscured"
+    ],
+    "tufte_score": 0.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_good_00171",
+    "label": "good",
+    "chart_type": "pie",
+    "title": "Regional Comparison",
+    "violations": [],
+    "tufte_score": 1.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_bad_00171",
+    "label": "bad",
+    "chart_type": "dual_axis",
+    "title": "Regional Comparison",
+    "violations": [
+      "dual_axis_abuse",
+      "misleading_correlation",
+      "scale_manipulation"
+    ],
+    "tufte_score": 0.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_good_00172",
+    "label": "good",
+    "chart_type": "pie",
+    "title": "Team Productivity",
+    "violations": [],
+    "tufte_score": 1.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_bad_00172",
+    "label": "bad",
+    "chart_type": "heavy_grid",
+    "title": "Team Productivity",
+    "violations": [
+      "heavy_gridlines",
+      "low_data_ink_ratio",
+      "data_obscured"
+    ],
+    "tufte_score": 0.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_good_00173",
+    "label": "good",
+    "chart_type": "bar",
+    "title": "Monthly Performance",
+    "violations": [],
+    "tufte_score": 1.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_bad_00173",
+    "label": "bad",
+    "chart_type": "spaghetti",
+    "title": "Monthly Performance",
+    "violations": [
+      "spaghetti_chart",
+      "too_many_series",
+      "rainbow_palette",
+      "low_readability"
+    ],
+    "tufte_score": 0.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_good_00174",
+    "label": "good",
+    "chart_type": "bar",
+    "title": "Customer Satisfaction",
+    "violations": [],
+    "tufte_score": 1.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_bad_00174",
+    "label": "bad",
+    "chart_type": "heavy_grid",
+    "title": "Customer Satisfaction",
+    "violations": [
+      "heavy_gridlines",
+      "low_data_ink_ratio",
+      "data_obscured"
+    ],
+    "tufte_score": 0.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_good_00175",
+    "label": "good",
+    "chart_type": "hbar",
+    "title": "Annual Metrics",
+    "violations": [],
+    "tufte_score": 1.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_bad_00175",
+    "label": "bad",
+    "chart_type": "spaghetti",
+    "title": "Annual Metrics",
+    "violations": [
+      "spaghetti_chart",
+      "too_many_series",
+      "rainbow_palette",
+      "low_readability"
+    ],
+    "tufte_score": 0.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_good_00176",
+    "label": "good",
+    "chart_type": "scatter",
+    "title": "Sales by Quarter",
+    "violations": [],
+    "tufte_score": 1.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_bad_00176",
+    "label": "bad",
+    "chart_type": "chartjunk",
+    "title": "Sales by Quarter",
+    "violations": [
+      "chartjunk",
+      "decorative_elements",
+      "low_data_ink_ratio"
+    ],
+    "tufte_score": 0.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_good_00177",
+    "label": "good",
+    "chart_type": "line",
+    "title": "Sales by Quarter",
+    "violations": [],
+    "tufte_score": 1.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_bad_00177",
+    "label": "bad",
+    "chart_type": "spaghetti",
+    "title": "Sales by Quarter",
+    "violations": [
+      "spaghetti_chart",
+      "too_many_series",
+      "rainbow_palette",
+      "low_readability"
+    ],
+    "tufte_score": 0.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_good_00178",
+    "label": "good",
+    "chart_type": "hbar",
+    "title": "Monthly Performance",
+    "violations": [],
+    "tufte_score": 1.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_bad_00178",
+    "label": "bad",
+    "chart_type": "chartjunk",
+    "title": "Monthly Performance",
+    "violations": [
+      "chartjunk",
+      "decorative_elements",
+      "low_data_ink_ratio"
+    ],
+    "tufte_score": 0.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_good_00179",
+    "label": "good",
+    "chart_type": "bar",
+    "title": "Team Productivity",
+    "violations": [],
+    "tufte_score": 1.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_bad_00179",
+    "label": "bad",
+    "chart_type": "dual_axis",
+    "title": "Team Productivity",
+    "violations": [
+      "dual_axis_abuse",
+      "misleading_correlation",
+      "scale_manipulation"
+    ],
+    "tufte_score": 0.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_good_00180",
+    "label": "good",
+    "chart_type": "pie",
+    "title": "Market Share Analysis",
+    "violations": [],
+    "tufte_score": 1.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_bad_00180",
+    "label": "bad",
+    "chart_type": "dual_axis",
+    "title": "Market Share Analysis",
+    "violations": [
+      "dual_axis_abuse",
+      "misleading_correlation",
+      "scale_manipulation"
+    ],
+    "tufte_score": 0.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_good_00181",
+    "label": "good",
+    "chart_type": "bar",
+    "title": "Customer Satisfaction",
+    "violations": [],
+    "tufte_score": 1.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_bad_00181",
+    "label": "bad",
+    "chart_type": "heavy_grid",
+    "title": "Customer Satisfaction",
+    "violations": [
+      "heavy_gridlines",
+      "low_data_ink_ratio",
+      "data_obscured"
+    ],
+    "tufte_score": 0.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_good_00182",
+    "label": "good",
+    "chart_type": "hbar",
+    "title": "Monthly Performance",
+    "violations": [],
+    "tufte_score": 1.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_bad_00182",
+    "label": "bad",
+    "chart_type": "3d",
+    "title": "Monthly Performance",
+    "violations": [
+      "3d_effects",
+      "perspective_distortion",
+      "chartjunk"
+    ],
+    "tufte_score": 0.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_good_00183",
+    "label": "good",
+    "chart_type": "hbar",
+    "title": "Monthly Performance",
+    "violations": [],
+    "tufte_score": 1.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_bad_00183",
+    "label": "bad",
+    "chart_type": "truncated",
+    "title": "Monthly Performance",
+    "violations": [
+      "truncated_axis",
+      "misleading_scale"
+    ],
+    "tufte_score": 0.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_good_00184",
+    "label": "good",
+    "chart_type": "hbar",
+    "title": "Sales by Quarter",
+    "violations": [],
+    "tufte_score": 1.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_bad_00184",
+    "label": "bad",
+    "chart_type": "rainbow",
+    "title": "Sales by Quarter",
+    "violations": [
+      "rainbow_palette",
+      "dark_theme_abuse",
+      "low_data_ink_ratio"
+    ],
+    "tufte_score": 0.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_good_00185",
+    "label": "good",
+    "chart_type": "pie",
+    "title": "Sales by Quarter",
+    "violations": [],
+    "tufte_score": 1.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_bad_00185",
+    "label": "bad",
+    "chart_type": "truncated",
+    "title": "Sales by Quarter",
+    "violations": [
+      "truncated_axis",
+      "misleading_scale"
+    ],
+    "tufte_score": 0.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_good_00186",
+    "label": "good",
+    "chart_type": "line",
+    "title": "Market Share Analysis",
+    "violations": [],
+    "tufte_score": 1.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_bad_00186",
+    "label": "bad",
+    "chart_type": "spaghetti",
+    "title": "Market Share Analysis",
+    "violations": [
+      "spaghetti_chart",
+      "too_many_series",
+      "rainbow_palette",
+      "low_readability"
+    ],
+    "tufte_score": 0.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_good_00187",
+    "label": "good",
+    "chart_type": "line",
+    "title": "Market Share Analysis",
+    "violations": [],
+    "tufte_score": 1.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_bad_00187",
+    "label": "bad",
+    "chart_type": "3d",
+    "title": "Market Share Analysis",
+    "violations": [
+      "3d_effects",
+      "perspective_distortion",
+      "chartjunk"
+    ],
+    "tufte_score": 0.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_good_00188",
+    "label": "good",
+    "chart_type": "scatter",
+    "title": "Annual Metrics",
+    "violations": [],
+    "tufte_score": 1.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_bad_00188",
+    "label": "bad",
+    "chart_type": "chartjunk",
+    "title": "Annual Metrics",
+    "violations": [
+      "chartjunk",
+      "decorative_elements",
+      "low_data_ink_ratio"
+    ],
+    "tufte_score": 0.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_good_00189",
+    "label": "good",
+    "chart_type": "bar",
+    "title": "Team Productivity",
+    "violations": [],
+    "tufte_score": 1.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_bad_00189",
+    "label": "bad",
+    "chart_type": "chartjunk",
+    "title": "Team Productivity",
+    "violations": [
+      "chartjunk",
+      "decorative_elements",
+      "low_data_ink_ratio"
+    ],
+    "tufte_score": 0.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_good_00190",
+    "label": "good",
+    "chart_type": "pie",
+    "title": "Sales by Quarter",
+    "violations": [],
+    "tufte_score": 1.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_bad_00190",
+    "label": "bad",
+    "chart_type": "spaghetti",
+    "title": "Sales by Quarter",
+    "violations": [
+      "spaghetti_chart",
+      "too_many_series",
+      "rainbow_palette",
+      "low_readability"
+    ],
+    "tufte_score": 0.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_good_00191",
+    "label": "good",
+    "chart_type": "hbar",
+    "title": "Customer Satisfaction",
+    "violations": [],
+    "tufte_score": 1.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_bad_00191",
+    "label": "bad",
+    "chart_type": "truncated",
+    "title": "Customer Satisfaction",
+    "violations": [
+      "truncated_axis",
+      "misleading_scale"
+    ],
+    "tufte_score": 0.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_good_00192",
+    "label": "good",
+    "chart_type": "hbar",
+    "title": "Market Share Analysis",
+    "violations": [],
+    "tufte_score": 1.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_bad_00192",
+    "label": "bad",
+    "chart_type": "heavy_grid",
+    "title": "Market Share Analysis",
+    "violations": [
+      "heavy_gridlines",
+      "low_data_ink_ratio",
+      "data_obscured"
+    ],
+    "tufte_score": 0.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_good_00193",
+    "label": "good",
+    "chart_type": "scatter",
+    "title": "Revenue Growth",
+    "violations": [],
+    "tufte_score": 1.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_bad_00193",
+    "label": "bad",
+    "chart_type": "dual_axis",
+    "title": "Revenue Growth",
+    "violations": [
+      "dual_axis_abuse",
+      "misleading_correlation",
+      "scale_manipulation"
+    ],
+    "tufte_score": 0.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_good_00194",
+    "label": "good",
+    "chart_type": "bar",
+    "title": "Market Share Analysis",
+    "violations": [],
+    "tufte_score": 1.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_bad_00194",
+    "label": "bad",
+    "chart_type": "3d",
+    "title": "Market Share Analysis",
+    "violations": [
+      "3d_effects",
+      "perspective_distortion",
+      "chartjunk"
+    ],
+    "tufte_score": 0.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_good_00195",
+    "label": "good",
+    "chart_type": "pie",
+    "title": "Market Share Analysis",
+    "violations": [],
+    "tufte_score": 1.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_bad_00195",
+    "label": "bad",
+    "chart_type": "dual_axis",
+    "title": "Market Share Analysis",
+    "violations": [
+      "dual_axis_abuse",
+      "misleading_correlation",
+      "scale_manipulation"
+    ],
+    "tufte_score": 0.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_good_00196",
+    "label": "good",
+    "chart_type": "pie",
+    "title": "Sales by Quarter",
+    "violations": [],
+    "tufte_score": 1.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_bad_00196",
+    "label": "bad",
+    "chart_type": "dual_axis",
+    "title": "Sales by Quarter",
+    "violations": [
+      "dual_axis_abuse",
+      "misleading_correlation",
+      "scale_manipulation"
+    ],
+    "tufte_score": 0.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_good_00197",
+    "label": "good",
+    "chart_type": "bar",
+    "title": "Monthly Performance",
+    "violations": [],
+    "tufte_score": 1.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_bad_00197",
+    "label": "bad",
+    "chart_type": "chartjunk",
+    "title": "Monthly Performance",
+    "violations": [
+      "chartjunk",
+      "decorative_elements",
+      "low_data_ink_ratio"
+    ],
+    "tufte_score": 0.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_good_00198",
+    "label": "good",
+    "chart_type": "hbar",
+    "title": "Market Share Analysis",
+    "violations": [],
+    "tufte_score": 1.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_bad_00198",
+    "label": "bad",
+    "chart_type": "3d",
+    "title": "Market Share Analysis",
+    "violations": [
+      "3d_effects",
+      "perspective_distortion",
+      "chartjunk"
+    ],
+    "tufte_score": 0.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_good_00199",
+    "label": "good",
+    "chart_type": "bar",
+    "title": "Market Share Analysis",
+    "violations": [],
+    "tufte_score": 1.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_bad_00199",
+    "label": "bad",
+    "chart_type": "truncated",
+    "title": "Market Share Analysis",
+    "violations": [
+      "truncated_axis",
+      "misleading_scale"
+    ],
+    "tufte_score": 0.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_good_00200",
+    "label": "good",
+    "chart_type": "hbar",
+    "title": "Monthly Performance",
+    "violations": [],
+    "tufte_score": 1.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_bad_00200",
+    "label": "bad",
+    "chart_type": "heavy_grid",
+    "title": "Monthly Performance",
+    "violations": [
+      "heavy_gridlines",
+      "low_data_ink_ratio",
+      "data_obscured"
+    ],
+    "tufte_score": 0.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_good_00201",
+    "label": "good",
+    "chart_type": "scatter",
+    "title": "Market Share Analysis",
+    "violations": [],
+    "tufte_score": 1.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_bad_00201",
+    "label": "bad",
+    "chart_type": "rainbow",
+    "title": "Market Share Analysis",
+    "violations": [
+      "rainbow_palette",
+      "dark_theme_abuse",
+      "low_data_ink_ratio"
+    ],
+    "tufte_score": 0.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_good_00202",
+    "label": "good",
+    "chart_type": "hbar",
+    "title": "Customer Satisfaction",
+    "violations": [],
+    "tufte_score": 1.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_bad_00202",
+    "label": "bad",
+    "chart_type": "3d",
+    "title": "Customer Satisfaction",
+    "violations": [
+      "3d_effects",
+      "perspective_distortion",
+      "chartjunk"
+    ],
+    "tufte_score": 0.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_good_00203",
+    "label": "good",
+    "chart_type": "bar",
+    "title": "Revenue Growth",
+    "violations": [],
+    "tufte_score": 1.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_bad_00203",
+    "label": "bad",
+    "chart_type": "truncated",
+    "title": "Revenue Growth",
+    "violations": [
+      "truncated_axis",
+      "misleading_scale"
+    ],
+    "tufte_score": 0.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_good_00204",
+    "label": "good",
+    "chart_type": "scatter",
+    "title": "Team Productivity",
+    "violations": [],
+    "tufte_score": 1.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_bad_00204",
+    "label": "bad",
+    "chart_type": "truncated",
+    "title": "Team Productivity",
+    "violations": [
+      "truncated_axis",
+      "misleading_scale"
+    ],
+    "tufte_score": 0.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_good_00205",
+    "label": "good",
+    "chart_type": "bar",
+    "title": "Monthly Performance",
+    "violations": [],
+    "tufte_score": 1.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_bad_00205",
+    "label": "bad",
+    "chart_type": "chartjunk",
+    "title": "Monthly Performance",
+    "violations": [
+      "chartjunk",
+      "decorative_elements",
+      "low_data_ink_ratio"
+    ],
+    "tufte_score": 0.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_good_00206",
+    "label": "good",
+    "chart_type": "pie",
+    "title": "Market Share Analysis",
+    "violations": [],
+    "tufte_score": 1.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_bad_00206",
+    "label": "bad",
+    "chart_type": "spaghetti",
+    "title": "Market Share Analysis",
+    "violations": [
+      "spaghetti_chart",
+      "too_many_series",
+      "rainbow_palette",
+      "low_readability"
+    ],
+    "tufte_score": 0.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_good_00207",
+    "label": "good",
+    "chart_type": "pie",
+    "title": "Market Share Analysis",
+    "violations": [],
+    "tufte_score": 1.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_bad_00207",
+    "label": "bad",
+    "chart_type": "3d",
+    "title": "Market Share Analysis",
+    "violations": [
+      "3d_effects",
+      "perspective_distortion",
+      "chartjunk"
+    ],
+    "tufte_score": 0.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_good_00208",
+    "label": "good",
+    "chart_type": "bar",
+    "title": "Revenue Growth",
+    "violations": [],
+    "tufte_score": 1.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_bad_00208",
+    "label": "bad",
+    "chart_type": "chartjunk",
+    "title": "Revenue Growth",
+    "violations": [
+      "chartjunk",
+      "decorative_elements",
+      "low_data_ink_ratio"
+    ],
+    "tufte_score": 0.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_good_00209",
+    "label": "good",
+    "chart_type": "line",
+    "title": "Monthly Performance",
+    "violations": [],
+    "tufte_score": 1.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_bad_00209",
+    "label": "bad",
+    "chart_type": "3d",
+    "title": "Monthly Performance",
+    "violations": [
+      "3d_effects",
+      "perspective_distortion",
+      "chartjunk"
+    ],
+    "tufte_score": 0.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_good_00210",
+    "label": "good",
+    "chart_type": "hbar",
+    "title": "Sales by Quarter",
+    "violations": [],
+    "tufte_score": 1.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_bad_00210",
+    "label": "bad",
+    "chart_type": "spaghetti",
+    "title": "Sales by Quarter",
+    "violations": [
+      "spaghetti_chart",
+      "too_many_series",
+      "rainbow_palette",
+      "low_readability"
+    ],
+    "tufte_score": 0.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_good_00211",
+    "label": "good",
+    "chart_type": "line",
+    "title": "Market Share Analysis",
+    "violations": [],
+    "tufte_score": 1.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_bad_00211",
+    "label": "bad",
+    "chart_type": "spaghetti",
+    "title": "Market Share Analysis",
+    "violations": [
+      "spaghetti_chart",
+      "too_many_series",
+      "rainbow_palette",
+      "low_readability"
+    ],
+    "tufte_score": 0.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_good_00212",
+    "label": "good",
+    "chart_type": "pie",
+    "title": "Revenue Growth",
+    "violations": [],
+    "tufte_score": 1.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_bad_00212",
+    "label": "bad",
+    "chart_type": "3d",
+    "title": "Revenue Growth",
+    "violations": [
+      "3d_effects",
+      "perspective_distortion",
+      "chartjunk"
+    ],
+    "tufte_score": 0.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_good_00213",
+    "label": "good",
+    "chart_type": "scatter",
+    "title": "Customer Satisfaction",
+    "violations": [],
+    "tufte_score": 1.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_bad_00213",
+    "label": "bad",
+    "chart_type": "rainbow",
+    "title": "Customer Satisfaction",
+    "violations": [
+      "rainbow_palette",
+      "dark_theme_abuse",
+      "low_data_ink_ratio"
+    ],
+    "tufte_score": 0.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_good_00214",
+    "label": "good",
+    "chart_type": "pie",
+    "title": "Market Share Analysis",
+    "violations": [],
+    "tufte_score": 1.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_bad_00214",
+    "label": "bad",
+    "chart_type": "spaghetti",
+    "title": "Market Share Analysis",
+    "violations": [
+      "spaghetti_chart",
+      "too_many_series",
+      "rainbow_palette",
+      "low_readability"
+    ],
+    "tufte_score": 0.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_good_00215",
+    "label": "good",
+    "chart_type": "bar",
+    "title": "Team Productivity",
+    "violations": [],
+    "tufte_score": 1.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_bad_00215",
+    "label": "bad",
+    "chart_type": "3d",
+    "title": "Team Productivity",
+    "violations": [
+      "3d_effects",
+      "perspective_distortion",
+      "chartjunk"
+    ],
+    "tufte_score": 0.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_good_00216",
+    "label": "good",
+    "chart_type": "line",
+    "title": "Annual Metrics",
+    "violations": [],
+    "tufte_score": 1.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_bad_00216",
+    "label": "bad",
+    "chart_type": "heavy_grid",
+    "title": "Annual Metrics",
+    "violations": [
+      "heavy_gridlines",
+      "low_data_ink_ratio",
+      "data_obscured"
+    ],
+    "tufte_score": 0.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_good_00217",
+    "label": "good",
+    "chart_type": "hbar",
+    "title": "Regional Comparison",
+    "violations": [],
+    "tufte_score": 1.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_bad_00217",
+    "label": "bad",
+    "chart_type": "heavy_grid",
+    "title": "Regional Comparison",
+    "violations": [
+      "heavy_gridlines",
+      "low_data_ink_ratio",
+      "data_obscured"
+    ],
+    "tufte_score": 0.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_good_00218",
+    "label": "good",
+    "chart_type": "line",
+    "title": "Monthly Performance",
+    "violations": [],
+    "tufte_score": 1.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_bad_00218",
+    "label": "bad",
+    "chart_type": "rainbow",
+    "title": "Monthly Performance",
+    "violations": [
+      "rainbow_palette",
+      "dark_theme_abuse",
+      "low_data_ink_ratio"
+    ],
+    "tufte_score": 0.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_good_00219",
+    "label": "good",
+    "chart_type": "pie",
+    "title": "Monthly Performance",
+    "violations": [],
+    "tufte_score": 1.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_bad_00219",
+    "label": "bad",
+    "chart_type": "spaghetti",
+    "title": "Monthly Performance",
+    "violations": [
+      "spaghetti_chart",
+      "too_many_series",
+      "rainbow_palette",
+      "low_readability"
+    ],
+    "tufte_score": 0.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_good_00220",
+    "label": "good",
+    "chart_type": "hbar",
+    "title": "Team Productivity",
+    "violations": [],
+    "tufte_score": 1.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_bad_00220",
+    "label": "bad",
+    "chart_type": "3d",
+    "title": "Team Productivity",
+    "violations": [
+      "3d_effects",
+      "perspective_distortion",
+      "chartjunk"
+    ],
+    "tufte_score": 0.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_good_00221",
+    "label": "good",
+    "chart_type": "line",
+    "title": "Revenue Growth",
+    "violations": [],
+    "tufte_score": 1.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_bad_00221",
+    "label": "bad",
+    "chart_type": "heavy_grid",
+    "title": "Revenue Growth",
+    "violations": [
+      "heavy_gridlines",
+      "low_data_ink_ratio",
+      "data_obscured"
+    ],
+    "tufte_score": 0.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_good_00222",
+    "label": "good",
+    "chart_type": "hbar",
+    "title": "Annual Metrics",
+    "violations": [],
+    "tufte_score": 1.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_bad_00222",
+    "label": "bad",
+    "chart_type": "heavy_grid",
+    "title": "Annual Metrics",
+    "violations": [
+      "heavy_gridlines",
+      "low_data_ink_ratio",
+      "data_obscured"
+    ],
+    "tufte_score": 0.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_good_00223",
+    "label": "good",
+    "chart_type": "pie",
+    "title": "Market Share Analysis",
+    "violations": [],
+    "tufte_score": 1.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_bad_00223",
+    "label": "bad",
+    "chart_type": "spaghetti",
+    "title": "Market Share Analysis",
+    "violations": [
+      "spaghetti_chart",
+      "too_many_series",
+      "rainbow_palette",
+      "low_readability"
+    ],
+    "tufte_score": 0.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_good_00224",
+    "label": "good",
+    "chart_type": "scatter",
+    "title": "Team Productivity",
+    "violations": [],
+    "tufte_score": 1.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_bad_00224",
+    "label": "bad",
+    "chart_type": "dual_axis",
+    "title": "Team Productivity",
+    "violations": [
+      "dual_axis_abuse",
+      "misleading_correlation",
+      "scale_manipulation"
+    ],
+    "tufte_score": 0.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_good_00225",
+    "label": "good",
+    "chart_type": "hbar",
+    "title": "Revenue Growth",
+    "violations": [],
+    "tufte_score": 1.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_bad_00225",
+    "label": "bad",
+    "chart_type": "spaghetti",
+    "title": "Revenue Growth",
+    "violations": [
+      "spaghetti_chart",
+      "too_many_series",
+      "rainbow_palette",
+      "low_readability"
+    ],
+    "tufte_score": 0.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_good_00226",
+    "label": "good",
+    "chart_type": "hbar",
+    "title": "Sales by Quarter",
+    "violations": [],
+    "tufte_score": 1.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_bad_00226",
+    "label": "bad",
+    "chart_type": "rainbow",
+    "title": "Sales by Quarter",
+    "violations": [
+      "rainbow_palette",
+      "dark_theme_abuse",
+      "low_data_ink_ratio"
+    ],
+    "tufte_score": 0.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_good_00227",
+    "label": "good",
+    "chart_type": "pie",
+    "title": "Revenue Growth",
+    "violations": [],
+    "tufte_score": 1.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_bad_00227",
+    "label": "bad",
+    "chart_type": "chartjunk",
+    "title": "Revenue Growth",
+    "violations": [
+      "chartjunk",
+      "decorative_elements",
+      "low_data_ink_ratio"
+    ],
+    "tufte_score": 0.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_good_00228",
+    "label": "good",
+    "chart_type": "bar",
+    "title": "Customer Satisfaction",
+    "violations": [],
+    "tufte_score": 1.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_bad_00228",
+    "label": "bad",
+    "chart_type": "3d",
+    "title": "Customer Satisfaction",
+    "violations": [
+      "3d_effects",
+      "perspective_distortion",
+      "chartjunk"
+    ],
+    "tufte_score": 0.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_good_00229",
+    "label": "good",
+    "chart_type": "hbar",
+    "title": "Annual Metrics",
+    "violations": [],
+    "tufte_score": 1.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_bad_00229",
+    "label": "bad",
+    "chart_type": "heavy_grid",
+    "title": "Annual Metrics",
+    "violations": [
+      "heavy_gridlines",
+      "low_data_ink_ratio",
+      "data_obscured"
+    ],
+    "tufte_score": 0.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_good_00230",
+    "label": "good",
+    "chart_type": "pie",
+    "title": "Team Productivity",
+    "violations": [],
+    "tufte_score": 1.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_bad_00230",
+    "label": "bad",
+    "chart_type": "chartjunk",
+    "title": "Team Productivity",
+    "violations": [
+      "chartjunk",
+      "decorative_elements",
+      "low_data_ink_ratio"
+    ],
+    "tufte_score": 0.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_good_00231",
+    "label": "good",
+    "chart_type": "line",
+    "title": "Team Productivity",
+    "violations": [],
+    "tufte_score": 1.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_bad_00231",
+    "label": "bad",
+    "chart_type": "spaghetti",
+    "title": "Team Productivity",
+    "violations": [
+      "spaghetti_chart",
+      "too_many_series",
+      "rainbow_palette",
+      "low_readability"
+    ],
+    "tufte_score": 0.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_good_00232",
+    "label": "good",
+    "chart_type": "scatter",
+    "title": "Regional Comparison",
+    "violations": [],
+    "tufte_score": 1.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_bad_00232",
+    "label": "bad",
+    "chart_type": "dual_axis",
+    "title": "Regional Comparison",
+    "violations": [
+      "dual_axis_abuse",
+      "misleading_correlation",
+      "scale_manipulation"
+    ],
+    "tufte_score": 0.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_good_00233",
+    "label": "good",
+    "chart_type": "pie",
+    "title": "Market Share Analysis",
+    "violations": [],
+    "tufte_score": 1.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_bad_00233",
+    "label": "bad",
+    "chart_type": "3d",
+    "title": "Market Share Analysis",
+    "violations": [
+      "3d_effects",
+      "perspective_distortion",
+      "chartjunk"
+    ],
+    "tufte_score": 0.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_good_00234",
+    "label": "good",
+    "chart_type": "line",
+    "title": "Monthly Performance",
+    "violations": [],
+    "tufte_score": 1.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_bad_00234",
+    "label": "bad",
+    "chart_type": "dual_axis",
+    "title": "Monthly Performance",
+    "violations": [
+      "dual_axis_abuse",
+      "misleading_correlation",
+      "scale_manipulation"
+    ],
+    "tufte_score": 0.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_good_00235",
+    "label": "good",
+    "chart_type": "bar",
+    "title": "Customer Satisfaction",
+    "violations": [],
+    "tufte_score": 1.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_bad_00235",
+    "label": "bad",
+    "chart_type": "dual_axis",
+    "title": "Customer Satisfaction",
+    "violations": [
+      "dual_axis_abuse",
+      "misleading_correlation",
+      "scale_manipulation"
+    ],
+    "tufte_score": 0.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_good_00236",
+    "label": "good",
+    "chart_type": "bar",
+    "title": "Regional Comparison",
+    "violations": [],
+    "tufte_score": 1.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_bad_00236",
+    "label": "bad",
+    "chart_type": "heavy_grid",
+    "title": "Regional Comparison",
+    "violations": [
+      "heavy_gridlines",
+      "low_data_ink_ratio",
+      "data_obscured"
+    ],
+    "tufte_score": 0.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_good_00237",
+    "label": "good",
+    "chart_type": "line",
+    "title": "Revenue Growth",
+    "violations": [],
+    "tufte_score": 1.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_bad_00237",
+    "label": "bad",
+    "chart_type": "dual_axis",
+    "title": "Revenue Growth",
+    "violations": [
+      "dual_axis_abuse",
+      "misleading_correlation",
+      "scale_manipulation"
+    ],
+    "tufte_score": 0.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_good_00238",
+    "label": "good",
+    "chart_type": "scatter",
+    "title": "Regional Comparison",
+    "violations": [],
+    "tufte_score": 1.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_bad_00238",
+    "label": "bad",
+    "chart_type": "rainbow",
+    "title": "Regional Comparison",
+    "violations": [
+      "rainbow_palette",
+      "dark_theme_abuse",
+      "low_data_ink_ratio"
+    ],
+    "tufte_score": 0.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_good_00239",
+    "label": "good",
+    "chart_type": "bar",
+    "title": "Customer Satisfaction",
+    "violations": [],
+    "tufte_score": 1.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_bad_00239",
+    "label": "bad",
+    "chart_type": "3d",
+    "title": "Customer Satisfaction",
+    "violations": [
+      "3d_effects",
+      "perspective_distortion",
+      "chartjunk"
+    ],
+    "tufte_score": 0.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_good_00240",
+    "label": "good",
+    "chart_type": "line",
+    "title": "Sales by Quarter",
+    "violations": [],
+    "tufte_score": 1.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_bad_00240",
+    "label": "bad",
+    "chart_type": "spaghetti",
+    "title": "Sales by Quarter",
+    "violations": [
+      "spaghetti_chart",
+      "too_many_series",
+      "rainbow_palette",
+      "low_readability"
+    ],
+    "tufte_score": 0.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_good_00241",
+    "label": "good",
+    "chart_type": "bar",
+    "title": "Regional Comparison",
+    "violations": [],
+    "tufte_score": 1.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_bad_00241",
+    "label": "bad",
+    "chart_type": "truncated",
+    "title": "Regional Comparison",
+    "violations": [
+      "truncated_axis",
+      "misleading_scale"
+    ],
+    "tufte_score": 0.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_good_00242",
+    "label": "good",
+    "chart_type": "line",
+    "title": "Regional Comparison",
+    "violations": [],
+    "tufte_score": 1.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_bad_00242",
+    "label": "bad",
+    "chart_type": "chartjunk",
+    "title": "Regional Comparison",
+    "violations": [
+      "chartjunk",
+      "decorative_elements",
+      "low_data_ink_ratio"
+    ],
+    "tufte_score": 0.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_good_00243",
+    "label": "good",
+    "chart_type": "scatter",
+    "title": "Monthly Performance",
+    "violations": [],
+    "tufte_score": 1.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_bad_00243",
+    "label": "bad",
+    "chart_type": "chartjunk",
+    "title": "Monthly Performance",
+    "violations": [
+      "chartjunk",
+      "decorative_elements",
+      "low_data_ink_ratio"
+    ],
+    "tufte_score": 0.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_good_00244",
+    "label": "good",
+    "chart_type": "hbar",
+    "title": "Monthly Performance",
+    "violations": [],
+    "tufte_score": 1.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_bad_00244",
+    "label": "bad",
+    "chart_type": "rainbow",
+    "title": "Monthly Performance",
+    "violations": [
+      "rainbow_palette",
+      "dark_theme_abuse",
+      "low_data_ink_ratio"
+    ],
+    "tufte_score": 0.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_good_00245",
+    "label": "good",
+    "chart_type": "scatter",
+    "title": "Market Share Analysis",
+    "violations": [],
+    "tufte_score": 1.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_bad_00245",
+    "label": "bad",
+    "chart_type": "3d",
+    "title": "Market Share Analysis",
+    "violations": [
+      "3d_effects",
+      "perspective_distortion",
+      "chartjunk"
+    ],
+    "tufte_score": 0.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_good_00246",
+    "label": "good",
+    "chart_type": "line",
+    "title": "Annual Metrics",
+    "violations": [],
+    "tufte_score": 1.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_bad_00246",
+    "label": "bad",
+    "chart_type": "chartjunk",
+    "title": "Annual Metrics",
+    "violations": [
+      "chartjunk",
+      "decorative_elements",
+      "low_data_ink_ratio"
+    ],
+    "tufte_score": 0.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_good_00247",
+    "label": "good",
+    "chart_type": "pie",
+    "title": "Revenue Growth",
+    "violations": [],
+    "tufte_score": 1.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_bad_00247",
+    "label": "bad",
+    "chart_type": "dual_axis",
+    "title": "Revenue Growth",
+    "violations": [
+      "dual_axis_abuse",
+      "misleading_correlation",
+      "scale_manipulation"
+    ],
+    "tufte_score": 0.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_good_00248",
+    "label": "good",
+    "chart_type": "bar",
+    "title": "Sales by Quarter",
+    "violations": [],
+    "tufte_score": 1.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_bad_00248",
+    "label": "bad",
+    "chart_type": "dual_axis",
+    "title": "Sales by Quarter",
+    "violations": [
+      "dual_axis_abuse",
+      "misleading_correlation",
+      "scale_manipulation"
+    ],
+    "tufte_score": 0.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_good_00249",
+    "label": "good",
+    "chart_type": "line",
+    "title": "Sales by Quarter",
+    "violations": [],
+    "tufte_score": 1.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_bad_00249",
+    "label": "bad",
+    "chart_type": "3d",
+    "title": "Sales by Quarter",
+    "violations": [
+      "3d_effects",
+      "perspective_distortion",
+      "chartjunk"
+    ],
+    "tufte_score": 0.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_good_00250",
+    "label": "good",
+    "chart_type": "pie",
+    "title": "Market Share Analysis",
+    "violations": [],
+    "tufte_score": 1.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_bad_00250",
+    "label": "bad",
+    "chart_type": "chartjunk",
+    "title": "Market Share Analysis",
+    "violations": [
+      "chartjunk",
+      "decorative_elements",
+      "low_data_ink_ratio"
+    ],
+    "tufte_score": 0.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_good_00251",
+    "label": "good",
+    "chart_type": "scatter",
+    "title": "Regional Comparison",
+    "violations": [],
+    "tufte_score": 1.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_bad_00251",
+    "label": "bad",
+    "chart_type": "rainbow",
+    "title": "Regional Comparison",
+    "violations": [
+      "rainbow_palette",
+      "dark_theme_abuse",
+      "low_data_ink_ratio"
+    ],
+    "tufte_score": 0.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_good_00252",
+    "label": "good",
+    "chart_type": "bar",
+    "title": "Regional Comparison",
+    "violations": [],
+    "tufte_score": 1.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_bad_00252",
+    "label": "bad",
+    "chart_type": "spaghetti",
+    "title": "Regional Comparison",
+    "violations": [
+      "spaghetti_chart",
+      "too_many_series",
+      "rainbow_palette",
+      "low_readability"
+    ],
+    "tufte_score": 0.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_good_00253",
+    "label": "good",
+    "chart_type": "scatter",
+    "title": "Monthly Performance",
+    "violations": [],
+    "tufte_score": 1.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_bad_00253",
+    "label": "bad",
+    "chart_type": "dual_axis",
+    "title": "Monthly Performance",
+    "violations": [
+      "dual_axis_abuse",
+      "misleading_correlation",
+      "scale_manipulation"
+    ],
+    "tufte_score": 0.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_good_00254",
+    "label": "good",
+    "chart_type": "line",
+    "title": "Customer Satisfaction",
+    "violations": [],
+    "tufte_score": 1.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_bad_00254",
+    "label": "bad",
+    "chart_type": "rainbow",
+    "title": "Customer Satisfaction",
+    "violations": [
+      "rainbow_palette",
+      "dark_theme_abuse",
+      "low_data_ink_ratio"
+    ],
+    "tufte_score": 0.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_good_00255",
+    "label": "good",
+    "chart_type": "line",
+    "title": "Sales by Quarter",
+    "violations": [],
+    "tufte_score": 1.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_bad_00255",
+    "label": "bad",
+    "chart_type": "3d",
+    "title": "Sales by Quarter",
+    "violations": [
+      "3d_effects",
+      "perspective_distortion",
+      "chartjunk"
+    ],
+    "tufte_score": 0.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_good_00256",
+    "label": "good",
+    "chart_type": "line",
+    "title": "Market Share Analysis",
+    "violations": [],
+    "tufte_score": 1.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_bad_00256",
+    "label": "bad",
+    "chart_type": "3d",
+    "title": "Market Share Analysis",
+    "violations": [
+      "3d_effects",
+      "perspective_distortion",
+      "chartjunk"
+    ],
+    "tufte_score": 0.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_good_00257",
+    "label": "good",
+    "chart_type": "pie",
+    "title": "Annual Metrics",
+    "violations": [],
+    "tufte_score": 1.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_bad_00257",
+    "label": "bad",
+    "chart_type": "heavy_grid",
+    "title": "Annual Metrics",
+    "violations": [
+      "heavy_gridlines",
+      "low_data_ink_ratio",
+      "data_obscured"
+    ],
+    "tufte_score": 0.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_good_00258",
+    "label": "good",
+    "chart_type": "scatter",
+    "title": "Regional Comparison",
+    "violations": [],
+    "tufte_score": 1.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_bad_00258",
+    "label": "bad",
+    "chart_type": "spaghetti",
+    "title": "Regional Comparison",
+    "violations": [
+      "spaghetti_chart",
+      "too_many_series",
+      "rainbow_palette",
+      "low_readability"
+    ],
+    "tufte_score": 0.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_good_00259",
+    "label": "good",
+    "chart_type": "hbar",
+    "title": "Customer Satisfaction",
+    "violations": [],
+    "tufte_score": 1.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_bad_00259",
+    "label": "bad",
+    "chart_type": "truncated",
+    "title": "Customer Satisfaction",
+    "violations": [
+      "truncated_axis",
+      "misleading_scale"
+    ],
+    "tufte_score": 0.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_good_00260",
+    "label": "good",
+    "chart_type": "scatter",
+    "title": "Revenue Growth",
+    "violations": [],
+    "tufte_score": 1.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_bad_00260",
+    "label": "bad",
+    "chart_type": "dual_axis",
+    "title": "Revenue Growth",
+    "violations": [
+      "dual_axis_abuse",
+      "misleading_correlation",
+      "scale_manipulation"
+    ],
+    "tufte_score": 0.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_good_00261",
+    "label": "good",
+    "chart_type": "scatter",
+    "title": "Market Share Analysis",
+    "violations": [],
+    "tufte_score": 1.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_bad_00261",
+    "label": "bad",
+    "chart_type": "truncated",
+    "title": "Market Share Analysis",
+    "violations": [
+      "truncated_axis",
+      "misleading_scale"
+    ],
+    "tufte_score": 0.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_good_00262",
+    "label": "good",
+    "chart_type": "bar",
+    "title": "Annual Metrics",
+    "violations": [],
+    "tufte_score": 1.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_bad_00262",
+    "label": "bad",
+    "chart_type": "truncated",
+    "title": "Annual Metrics",
+    "violations": [
+      "truncated_axis",
+      "misleading_scale"
+    ],
+    "tufte_score": 0.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_good_00263",
+    "label": "good",
+    "chart_type": "bar",
+    "title": "Monthly Performance",
+    "violations": [],
+    "tufte_score": 1.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_bad_00263",
+    "label": "bad",
+    "chart_type": "spaghetti",
+    "title": "Monthly Performance",
+    "violations": [
+      "spaghetti_chart",
+      "too_many_series",
+      "rainbow_palette",
+      "low_readability"
+    ],
+    "tufte_score": 0.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_good_00264",
+    "label": "good",
+    "chart_type": "bar",
+    "title": "Monthly Performance",
+    "violations": [],
+    "tufte_score": 1.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_bad_00264",
+    "label": "bad",
+    "chart_type": "rainbow",
+    "title": "Monthly Performance",
+    "violations": [
+      "rainbow_palette",
+      "dark_theme_abuse",
+      "low_data_ink_ratio"
+    ],
+    "tufte_score": 0.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_good_00265",
+    "label": "good",
+    "chart_type": "hbar",
+    "title": "Sales by Quarter",
+    "violations": [],
+    "tufte_score": 1.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_bad_00265",
+    "label": "bad",
+    "chart_type": "chartjunk",
+    "title": "Sales by Quarter",
+    "violations": [
+      "chartjunk",
+      "decorative_elements",
+      "low_data_ink_ratio"
+    ],
+    "tufte_score": 0.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_good_00266",
+    "label": "good",
+    "chart_type": "line",
+    "title": "Revenue Growth",
+    "violations": [],
+    "tufte_score": 1.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_bad_00266",
+    "label": "bad",
+    "chart_type": "heavy_grid",
+    "title": "Revenue Growth",
+    "violations": [
+      "heavy_gridlines",
+      "low_data_ink_ratio",
+      "data_obscured"
+    ],
+    "tufte_score": 0.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_good_00267",
+    "label": "good",
+    "chart_type": "pie",
+    "title": "Sales by Quarter",
+    "violations": [],
+    "tufte_score": 1.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_bad_00267",
+    "label": "bad",
+    "chart_type": "chartjunk",
+    "title": "Sales by Quarter",
+    "violations": [
+      "chartjunk",
+      "decorative_elements",
+      "low_data_ink_ratio"
+    ],
+    "tufte_score": 0.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_good_00268",
+    "label": "good",
+    "chart_type": "pie",
+    "title": "Annual Metrics",
+    "violations": [],
+    "tufte_score": 1.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_bad_00268",
+    "label": "bad",
+    "chart_type": "dual_axis",
+    "title": "Annual Metrics",
+    "violations": [
+      "dual_axis_abuse",
+      "misleading_correlation",
+      "scale_manipulation"
+    ],
+    "tufte_score": 0.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_good_00269",
+    "label": "good",
+    "chart_type": "pie",
+    "title": "Revenue Growth",
+    "violations": [],
+    "tufte_score": 1.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_bad_00269",
+    "label": "bad",
+    "chart_type": "spaghetti",
+    "title": "Revenue Growth",
+    "violations": [
+      "spaghetti_chart",
+      "too_many_series",
+      "rainbow_palette",
+      "low_readability"
+    ],
+    "tufte_score": 0.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_good_00270",
+    "label": "good",
+    "chart_type": "bar",
+    "title": "Monthly Performance",
+    "violations": [],
+    "tufte_score": 1.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_bad_00270",
+    "label": "bad",
+    "chart_type": "dual_axis",
+    "title": "Monthly Performance",
+    "violations": [
+      "dual_axis_abuse",
+      "misleading_correlation",
+      "scale_manipulation"
+    ],
+    "tufte_score": 0.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_good_00271",
+    "label": "good",
+    "chart_type": "pie",
+    "title": "Market Share Analysis",
+    "violations": [],
+    "tufte_score": 1.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_bad_00271",
+    "label": "bad",
+    "chart_type": "heavy_grid",
+    "title": "Market Share Analysis",
+    "violations": [
+      "heavy_gridlines",
+      "low_data_ink_ratio",
+      "data_obscured"
+    ],
+    "tufte_score": 0.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_good_00272",
+    "label": "good",
+    "chart_type": "line",
+    "title": "Monthly Performance",
+    "violations": [],
+    "tufte_score": 1.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_bad_00272",
+    "label": "bad",
+    "chart_type": "truncated",
+    "title": "Monthly Performance",
+    "violations": [
+      "truncated_axis",
+      "misleading_scale"
+    ],
+    "tufte_score": 0.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_good_00273",
+    "label": "good",
+    "chart_type": "pie",
+    "title": "Market Share Analysis",
+    "violations": [],
+    "tufte_score": 1.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_bad_00273",
+    "label": "bad",
+    "chart_type": "rainbow",
+    "title": "Market Share Analysis",
+    "violations": [
+      "rainbow_palette",
+      "dark_theme_abuse",
+      "low_data_ink_ratio"
+    ],
+    "tufte_score": 0.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_good_00274",
+    "label": "good",
+    "chart_type": "scatter",
+    "title": "Sales by Quarter",
+    "violations": [],
+    "tufte_score": 1.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_bad_00274",
+    "label": "bad",
+    "chart_type": "heavy_grid",
+    "title": "Sales by Quarter",
+    "violations": [
+      "heavy_gridlines",
+      "low_data_ink_ratio",
+      "data_obscured"
+    ],
+    "tufte_score": 0.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_good_00275",
+    "label": "good",
+    "chart_type": "line",
+    "title": "Team Productivity",
+    "violations": [],
+    "tufte_score": 1.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_bad_00275",
+    "label": "bad",
+    "chart_type": "dual_axis",
+    "title": "Team Productivity",
+    "violations": [
+      "dual_axis_abuse",
+      "misleading_correlation",
+      "scale_manipulation"
+    ],
+    "tufte_score": 0.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_good_00276",
+    "label": "good",
+    "chart_type": "pie",
+    "title": "Regional Comparison",
+    "violations": [],
+    "tufte_score": 1.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_bad_00276",
+    "label": "bad",
+    "chart_type": "chartjunk",
+    "title": "Regional Comparison",
+    "violations": [
+      "chartjunk",
+      "decorative_elements",
+      "low_data_ink_ratio"
+    ],
+    "tufte_score": 0.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_good_00277",
+    "label": "good",
+    "chart_type": "line",
+    "title": "Sales by Quarter",
+    "violations": [],
+    "tufte_score": 1.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_bad_00277",
+    "label": "bad",
+    "chart_type": "rainbow",
+    "title": "Sales by Quarter",
+    "violations": [
+      "rainbow_palette",
+      "dark_theme_abuse",
+      "low_data_ink_ratio"
+    ],
+    "tufte_score": 0.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_good_00278",
+    "label": "good",
+    "chart_type": "pie",
+    "title": "Monthly Performance",
+    "violations": [],
+    "tufte_score": 1.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_bad_00278",
+    "label": "bad",
+    "chart_type": "chartjunk",
+    "title": "Monthly Performance",
+    "violations": [
+      "chartjunk",
+      "decorative_elements",
+      "low_data_ink_ratio"
+    ],
+    "tufte_score": 0.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_good_00279",
+    "label": "good",
+    "chart_type": "pie",
+    "title": "Sales by Quarter",
+    "violations": [],
+    "tufte_score": 1.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_bad_00279",
+    "label": "bad",
+    "chart_type": "dual_axis",
+    "title": "Sales by Quarter",
+    "violations": [
+      "dual_axis_abuse",
+      "misleading_correlation",
+      "scale_manipulation"
+    ],
+    "tufte_score": 0.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_good_00280",
+    "label": "good",
+    "chart_type": "bar",
+    "title": "Monthly Performance",
+    "violations": [],
+    "tufte_score": 1.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_bad_00280",
+    "label": "bad",
+    "chart_type": "dual_axis",
+    "title": "Monthly Performance",
+    "violations": [
+      "dual_axis_abuse",
+      "misleading_correlation",
+      "scale_manipulation"
+    ],
+    "tufte_score": 0.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_good_00281",
+    "label": "good",
+    "chart_type": "scatter",
+    "title": "Regional Comparison",
+    "violations": [],
+    "tufte_score": 1.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_bad_00281",
+    "label": "bad",
+    "chart_type": "dual_axis",
+    "title": "Regional Comparison",
+    "violations": [
+      "dual_axis_abuse",
+      "misleading_correlation",
+      "scale_manipulation"
+    ],
+    "tufte_score": 0.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_good_00282",
+    "label": "good",
+    "chart_type": "scatter",
+    "title": "Team Productivity",
+    "violations": [],
+    "tufte_score": 1.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_bad_00282",
+    "label": "bad",
+    "chart_type": "truncated",
+    "title": "Team Productivity",
+    "violations": [
+      "truncated_axis",
+      "misleading_scale"
+    ],
+    "tufte_score": 0.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_good_00283",
+    "label": "good",
+    "chart_type": "scatter",
+    "title": "Revenue Growth",
+    "violations": [],
+    "tufte_score": 1.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_bad_00283",
+    "label": "bad",
+    "chart_type": "3d",
+    "title": "Revenue Growth",
+    "violations": [
+      "3d_effects",
+      "perspective_distortion",
+      "chartjunk"
+    ],
+    "tufte_score": 0.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_good_00284",
+    "label": "good",
+    "chart_type": "hbar",
+    "title": "Market Share Analysis",
+    "violations": [],
+    "tufte_score": 1.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_bad_00284",
+    "label": "bad",
+    "chart_type": "spaghetti",
+    "title": "Market Share Analysis",
+    "violations": [
+      "spaghetti_chart",
+      "too_many_series",
+      "rainbow_palette",
+      "low_readability"
+    ],
+    "tufte_score": 0.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_good_00285",
+    "label": "good",
+    "chart_type": "hbar",
+    "title": "Revenue Growth",
+    "violations": [],
+    "tufte_score": 1.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_bad_00285",
+    "label": "bad",
+    "chart_type": "dual_axis",
+    "title": "Revenue Growth",
+    "violations": [
+      "dual_axis_abuse",
+      "misleading_correlation",
+      "scale_manipulation"
+    ],
+    "tufte_score": 0.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_good_00286",
+    "label": "good",
+    "chart_type": "scatter",
+    "title": "Revenue Growth",
+    "violations": [],
+    "tufte_score": 1.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_bad_00286",
+    "label": "bad",
+    "chart_type": "heavy_grid",
+    "title": "Revenue Growth",
+    "violations": [
+      "heavy_gridlines",
+      "low_data_ink_ratio",
+      "data_obscured"
+    ],
+    "tufte_score": 0.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_good_00287",
+    "label": "good",
+    "chart_type": "scatter",
+    "title": "Monthly Performance",
+    "violations": [],
+    "tufte_score": 1.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_bad_00287",
+    "label": "bad",
+    "chart_type": "3d",
+    "title": "Monthly Performance",
+    "violations": [
+      "3d_effects",
+      "perspective_distortion",
+      "chartjunk"
+    ],
+    "tufte_score": 0.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_good_00288",
+    "label": "good",
+    "chart_type": "line",
+    "title": "Sales by Quarter",
+    "violations": [],
+    "tufte_score": 1.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_bad_00288",
+    "label": "bad",
+    "chart_type": "3d",
+    "title": "Sales by Quarter",
+    "violations": [
+      "3d_effects",
+      "perspective_distortion",
+      "chartjunk"
+    ],
+    "tufte_score": 0.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_good_00289",
+    "label": "good",
+    "chart_type": "bar",
+    "title": "Annual Metrics",
+    "violations": [],
+    "tufte_score": 1.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_bad_00289",
+    "label": "bad",
+    "chart_type": "3d",
+    "title": "Annual Metrics",
+    "violations": [
+      "3d_effects",
+      "perspective_distortion",
+      "chartjunk"
+    ],
+    "tufte_score": 0.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_good_00290",
+    "label": "good",
+    "chart_type": "line",
+    "title": "Regional Comparison",
+    "violations": [],
+    "tufte_score": 1.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_bad_00290",
+    "label": "bad",
+    "chart_type": "heavy_grid",
+    "title": "Regional Comparison",
+    "violations": [
+      "heavy_gridlines",
+      "low_data_ink_ratio",
+      "data_obscured"
+    ],
+    "tufte_score": 0.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_good_00291",
+    "label": "good",
+    "chart_type": "line",
+    "title": "Customer Satisfaction",
+    "violations": [],
+    "tufte_score": 1.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_bad_00291",
+    "label": "bad",
+    "chart_type": "spaghetti",
+    "title": "Customer Satisfaction",
+    "violations": [
+      "spaghetti_chart",
+      "too_many_series",
+      "rainbow_palette",
+      "low_readability"
+    ],
+    "tufte_score": 0.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_good_00292",
+    "label": "good",
+    "chart_type": "hbar",
+    "title": "Team Productivity",
+    "violations": [],
+    "tufte_score": 1.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_bad_00292",
+    "label": "bad",
+    "chart_type": "chartjunk",
+    "title": "Team Productivity",
+    "violations": [
+      "chartjunk",
+      "decorative_elements",
+      "low_data_ink_ratio"
+    ],
+    "tufte_score": 0.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_good_00293",
+    "label": "good",
+    "chart_type": "bar",
+    "title": "Sales by Quarter",
+    "violations": [],
+    "tufte_score": 1.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_bad_00293",
+    "label": "bad",
+    "chart_type": "truncated",
+    "title": "Sales by Quarter",
+    "violations": [
+      "truncated_axis",
+      "misleading_scale"
+    ],
+    "tufte_score": 0.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_good_00294",
+    "label": "good",
+    "chart_type": "line",
+    "title": "Revenue Growth",
+    "violations": [],
+    "tufte_score": 1.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_bad_00294",
+    "label": "bad",
+    "chart_type": "rainbow",
+    "title": "Revenue Growth",
+    "violations": [
+      "rainbow_palette",
+      "dark_theme_abuse",
+      "low_data_ink_ratio"
+    ],
+    "tufte_score": 0.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_good_00295",
+    "label": "good",
+    "chart_type": "scatter",
+    "title": "Customer Satisfaction",
+    "violations": [],
+    "tufte_score": 1.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_bad_00295",
+    "label": "bad",
+    "chart_type": "chartjunk",
+    "title": "Customer Satisfaction",
+    "violations": [
+      "chartjunk",
+      "decorative_elements",
+      "low_data_ink_ratio"
+    ],
+    "tufte_score": 0.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_good_00296",
+    "label": "good",
+    "chart_type": "line",
+    "title": "Regional Comparison",
+    "violations": [],
+    "tufte_score": 1.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_bad_00296",
+    "label": "bad",
+    "chart_type": "spaghetti",
+    "title": "Regional Comparison",
+    "violations": [
+      "spaghetti_chart",
+      "too_many_series",
+      "rainbow_palette",
+      "low_readability"
+    ],
+    "tufte_score": 0.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_good_00297",
+    "label": "good",
+    "chart_type": "line",
+    "title": "Revenue Growth",
+    "violations": [],
+    "tufte_score": 1.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_bad_00297",
+    "label": "bad",
+    "chart_type": "spaghetti",
+    "title": "Revenue Growth",
+    "violations": [
+      "spaghetti_chart",
+      "too_many_series",
+      "rainbow_palette",
+      "low_readability"
+    ],
+    "tufte_score": 0.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_good_00298",
+    "label": "good",
+    "chart_type": "bar",
+    "title": "Regional Comparison",
+    "violations": [],
+    "tufte_score": 1.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_bad_00298",
+    "label": "bad",
+    "chart_type": "chartjunk",
+    "title": "Regional Comparison",
+    "violations": [
+      "chartjunk",
+      "decorative_elements",
+      "low_data_ink_ratio"
+    ],
+    "tufte_score": 0.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_good_00299",
+    "label": "good",
+    "chart_type": "line",
+    "title": "Annual Metrics",
+    "violations": [],
+    "tufte_score": 1.0,
+    "renderer": "plotly_kaleido"
+  },
+  {
+    "id": "plotly_bad_00299",
+    "label": "bad",
+    "chart_type": "dual_axis",
+    "title": "Annual Metrics",
+    "violations": [
+      "dual_axis_abuse",
+      "misleading_correlation",
+      "scale_manipulation"
+    ],
+    "tufte_score": 0.0,
+    "renderer": "plotly_kaleido"
+  }
+]
