@@ -66,6 +66,27 @@ streamlit run app.py
 ```
 Visit `http://localhost:8501` in your browser.
 
+### 6. Multimodal inference (CNN + free Gemini VLM)
+
+Combine your trained CNN with a **vision-language model** (Google Gemini, free API key) for Tufte-style **reasoning** and a **consensus** label.
+
+1. Get a key: [Google AI Studio](https://aistudio.google.com/apikey) (free tier).
+2. Install: `pip install google-generativeai` (included in `requirements.txt`).
+3. Export the key: `export GEMINI_API_KEY="your_key"` (or paste it in the Streamlit sidebar).
+
+**CLI** (writes `predictions_multimodal/multimodal_results.json`):
+
+```bash
+export GEMINI_API_KEY="your_key"
+python multimodal_inference.py --image ./inference/image_bad.png --model_name resnet50 --gradcam
+```
+
+**Streamlit:** enable **“VLM + consensus”** in the sidebar and enter the same API key.
+
+**Consensus rules:** if CNN and VLM **agree**, that label wins. If they **disagree**, the final label is **SPLIT** (no majority with two voters)—review CNN metrics and VLM reasoning. If the API fails, the app falls back to **CNN only**.
+
+If Gemini returns **404** (model renamed) or **quota** errors, the code tries other Gemini IDs automatically (`gemini-flash-latest`, etc.). Alternatively use **Groq** (free vision API): `export VLM_PROVIDER=groq GROQ_API_KEY=...` then `python multimodal_inference.py --image ... --vlm_provider groq`.
+
 ---
 
 ## 📁 Project Structure
@@ -73,8 +94,11 @@ Visit `http://localhost:8501` in your browser.
 ```
 VisScore/
 ├── synthetic_data_gen.py    # Generate synthetic chart dataset
+├── synthetic_data_gen_plotly.py  # Optional Plotly/Kaleido charts (style diversity)
 ├── cnn_training.py          # Train CNN models
 ├── inference.py             # Batch inference pipeline
+├── multimodal_inference.py  # CNN + Gemini VLM + consensus (CLI)
+├── vlm_judge.py             # Gemini Tufte prompt + JSON parsing
 ├── app.py                   # Streamlit web UI
 ├── requirements.txt         # Python dependencies
 ├── README.md                # This file

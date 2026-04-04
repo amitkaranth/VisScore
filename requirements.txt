@@ -37,3 +37,6 @@ tqdm>=4.65.0
 
 # --- Web UI ---
 streamlit>=1.28.0
+
+# --- Multimodal VLM (free tier: Google AI Studio) ---
+google-generativeai>=0.8.0

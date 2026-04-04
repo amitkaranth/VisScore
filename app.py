@@ -23,7 +23,8 @@ import matplotlib.patches as mpatches
 # Import inference functions
 import sys
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-from inference import load_model, predict, save_gradcam
+from inference import GradCAM, load_model, predict, save_gradcam
+from vlm_judge import combine_cnn_and_vlm, judge_chart_vlm
 
 
 # ============================================================
@@ -61,40 +62,62 @@ def get_device():
 
 
 def find_available_models(results_dir="./results"):
-    """Find all trained models in results directory."""
+    """Find trained models: training_config.json + best_model.pth, plus
+    training_config_<tag>.json + best_model_<tag>.pth (e.g. previous run)."""
     models_info = {}
-    if os.path.exists(results_dir):
-        for config_file in os.listdir(results_dir):
-            if config_file.endswith("training_config.json"):
-                config_path = os.path.join(results_dir, config_file)
-                try:
-                    with open(config_path, "r") as f:
-                        config = json.load(f)
-                    model_name = config.get("model", "unknown")
-                    model_path = os.path.join(results_dir, "best_model.pth")
-                    if os.path.exists(model_path):
-                        models_info[f"{model_name}"] = {
-                            "path": model_path,
-                            "model_name": model_name,
-                            "epochs": config.get("epochs", "N/A"),
-                            "batch_size": config.get("batch_size", "N/A"),
-                            "val_accuracy": config.get("best_val_accuracy", "N/A"),
-                        }
-                except Exception as e:
-                    st.warning(f"Could not load config {config_file}: {e}")
-    
-    # If no models found, check for default model
+    if not os.path.isdir(results_dir):
+        return models_info
+
+    pairs: list[tuple[str, str, str]] = []
+
+    main_cfg = os.path.join(results_dir, "training_config.json")
+    main_w = os.path.join(results_dir, "best_model.pth")
+    if os.path.isfile(main_cfg) and os.path.isfile(main_w):
+        pairs.append((main_cfg, main_w, "active"))
+
+    for fn in sorted(os.listdir(results_dir)):
+        if not fn.startswith("training_config_") or not fn.endswith(".json"):
+            continue
+        tag = fn[len("training_config_") : -len(".json")]
+        if not tag:
+            continue
+        cfg_path = os.path.join(results_dir, fn)
+        w_path = os.path.join(results_dir, f"best_model_{tag}.pth")
+        if os.path.isfile(w_path):
+            pairs.append((cfg_path, w_path, tag))
+
+    seen: set[tuple[str, str]] = set()
+    for cfg_path, w_path, suffix in pairs:
+        key = (cfg_path, w_path)
+        if key in seen:
+            continue
+        seen.add(key)
+        try:
+            with open(cfg_path, "r") as f:
+                config = json.load(f)
+            model_name = config.get("model", "unknown")
+            label = f"{model_name} ({suffix})"
+            models_info[label] = {
+                "path": w_path,
+                "model_name": model_name,
+                "epochs": config.get("epochs", "N/A"),
+                "batch_size": config.get("batch_size", "N/A"),
+                "val_accuracy": config.get("best_val_accuracy", "N/A"),
+            }
+        except Exception as e:
+            st.warning(f"Could not load config {cfg_path}: {e}")
+
     if not models_info:
-        default_model_path = "./results/best_model.pth"
-        if os.path.exists(default_model_path):
+        fallback = os.path.join(results_dir, "best_model.pth")
+        if os.path.isfile(fallback):
             models_info["ResNet50 (Default)"] = {
-                "path": default_model_path,
+                "path": fallback,
                 "model_name": "resnet50",
                 "epochs": "N/A",
                 "batch_size": "N/A",
                 "val_accuracy": "N/A",
             }
-    
+
     return models_info
 
 
@@ -104,7 +127,7 @@ def load_model_cached(model_path, model_name, device):
     return load_model(model_path, model_name, device)
 
 
-def display_prediction_card(result, input_tensor, original_img, model_name, device):
+def display_prediction_card(result, input_tensor, original_img, model_name, device, model_path):
     """Display prediction results in a nice card format."""
     col1, col2 = st.columns([1, 2])
     
@@ -134,20 +157,17 @@ def display_prediction_card(result, input_tensor, original_img, model_name, devi
     # Grad-CAM visualization
     st.subheader("Model Attention (Grad-CAM)")
     try:
-        from inference import GradCAM
         import cv2
         
-        # Get target layer
+        model = load_model_cached(model_path, model_name, device)
         if "resnet" in model_name.lower():
-            model = load_model_cached(models_info[selected_model]["path"], model_name, device)
             target_layer = model.layer4[-1]
         elif "efficientnet" in model_name.lower():
-            model = load_model_cached(models_info[selected_model]["path"], model_name, device)
             target_layer = model.features[-1]
         elif "vgg" in model_name.lower():
-            model = load_model_cached(models_info[selected_model]["path"], model_name, device)
             target_layer = model.features[-1]
         else:
+            st.info("Grad-CAM: unsupported architecture.")
             return
         
         gradcam = GradCAM(model, target_layer)
@@ -224,6 +244,37 @@ def main():
             })
         
         st.divider()
+        st.subheader("Multimodal (VLM + consensus)")
+        enable_vlm = st.checkbox(
+            "Enable VLM + consensus",
+            value=False,
+            help="Gemini or Groq (free keys) for Tufte-style reasoning; combines with CNN.",
+        )
+        vlm_provider_ui = st.selectbox(
+            "VLM provider",
+            options=["gemini", "groq"],
+            index=0 if (os.environ.get("VLM_PROVIDER", "gemini").lower() != "groq") else 1,
+            help="Gemini: AI Studio. Groq: console.groq.com — use if Gemini 404/quota issues.",
+        )
+        gemini_key = st.text_input(
+            "Gemini API key",
+            type="password",
+            help="https://aistudio.google.com/apikey — or set GEMINI_API_KEY in the environment.",
+        )
+        groq_key = st.text_input(
+            "Groq API key",
+            type="password",
+            help="https://console.groq.com/keys — or set GROQ_API_KEY (used when provider is Groq).",
+        )
+        _gemini_m = os.environ.get("GEMINI_VLM_MODEL") or "gemini-flash-latest"
+        _groq_m = os.environ.get("GROQ_VLM_MODEL") or "meta-llama/llama-4-scout-17b-16e-instruct"
+        vlm_model = st.text_input(
+            "VLM model id (optional)",
+            value=_groq_m if vlm_provider_ui == "groq" else _gemini_m,
+            help="Gemini: gemini-flash-latest. Groq: meta-llama/llama-4-scout-17b-16e-instruct",
+        )
+        
+        st.divider()
         st.subheader("Device Info")
         device = get_device()
         st.info(f"Using: **{device}**")
@@ -263,7 +314,8 @@ def main():
         try:
             device = get_device()
             model_name = model_info["model_name"]
-            model = load_model_cached(model_info["path"], model_name, device)
+            model_path = model_info["path"]
+            model = load_model_cached(model_path, model_name, device)
         except Exception as e:
             st.error(f"Error loading model: {e}")
             st.stop()
@@ -275,15 +327,69 @@ def main():
                 tmp_path = tmp_file.name
             
             # Get prediction
-            with st.spinner("🔍 Analyzing chart..."):
+            with st.spinner("🔍 Analyzing chart (CNN)..."):
                 result, input_tensor, original_img = predict(model, tmp_path, device)
             
             # Display results
-            display_prediction_card(result, input_tensor, original_img, model_name, device)
+            display_prediction_card(
+                result, input_tensor, original_img, model_name, device, model_path
+            )
+            
+            # Optional VLM + consensus
+            g_key = (gemini_key or "").strip() or os.environ.get("GEMINI_API_KEY") or os.environ.get(
+                "GOOGLE_API_KEY"
+            )
+            q_key = (groq_key or "").strip() or os.environ.get("GROQ_API_KEY")
+            if enable_vlm:
+                st.divider()
+                st.subheader("🧠 VLM (Tufte reasoning)")
+                need_warn = (
+                    vlm_provider_ui == "gemini" and not g_key
+                ) or (vlm_provider_ui == "groq" and not q_key)
+                if need_warn:
+                    st.warning(
+                        f"Add a **{vlm_provider_ui}** API key in the sidebar (or set env). "
+                        "Gemini: https://aistudio.google.com/apikey · Groq: https://console.groq.com/keys"
+                    )
+                else:
+                    with st.spinner(f"Calling {vlm_provider_ui} (vision)..."):
+                        vlm_out = judge_chart_vlm(
+                            tmp_path,
+                            provider=vlm_provider_ui,
+                            gemini_api_key=g_key or None,
+                            groq_api_key=q_key or None,
+                            model_name=(vlm_model or "").strip() or None,
+                        )
+                    if vlm_out.get("error"):
+                        st.error(vlm_out["error"])
+                    else:
+                        v = vlm_out.get("verdict", "?")
+                        if v == "GOOD":
+                            st.success(f"**VLM verdict:** {v}")
+                        else:
+                            st.error(f"**VLM verdict:** {v}")
+                        st.markdown(f"**Reasoning:** {vlm_out.get('reasoning', '')}")
+                        st.caption(f"Model: {vlm_out.get('model', '')}")
+
+                    cons = combine_cnn_and_vlm(result["label"], vlm_out)
+                    st.divider()
+                    st.subheader("⚖️ Consensus")
+                    fv = cons.get("final_verdict")
+                    if fv == "SPLIT":
+                        st.warning(
+                            f"**Split decision** — CNN: **{cons.get('cnn_vote')}**, "
+                            f"VLM: **{cons.get('vlm_vote')}**. {cons.get('note', '')}"
+                        )
+                    elif fv == "GOOD":
+                        st.success(f"**Final:** {fv} ({cons.get('agreement')})")
+                    else:
+                        st.error(f"**Final:** {fv} ({cons.get('agreement')})")
+                    if cons.get("agreement") == "cnn_only":
+                        st.info(cons.get("note", ""))
             
             # Additional info
             st.divider()
-            st.subheader("📋 Detailed Analysis")
+            st.subheader("📋 CNN metrics")
             col1, col2, col3, col4 = st.columns(4)
             
             with col1:
