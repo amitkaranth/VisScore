@@ -10,10 +10,11 @@ from pathlib import Path
 from visscore_synthetic.metadata import MetadataWriter
 from visscore_synthetic.pipelines import save_chart_image
 from visscore_synthetic.registry import (
+    build_non_tufte_registry,
+    build_tufte_registry,
     draw_random_chart,
     parse_chart_filter,
-    NON_TUFE_CHARTS,
-    TUFE_CHARTS,
+    parse_libraries,
 )
 from visscore_synthetic.seeding import augment_subrng, image_rng
 
@@ -24,8 +25,8 @@ logger = logging.getLogger(__name__)
 def parse_args(argv: list[str] | None = None) -> argparse.Namespace:
     p = argparse.ArgumentParser(
         description=(
-            "Generate synthetic chart images (matplotlib): tufte vs non_tufte classes. "
-            "Fully local; no diffusion or Hugging Face."
+            "Generate synthetic chart images (matplotlib and/or seaborn): tufte vs non_tufte. "
+            "Fully local; combine with your own Plotly/reddit exports for broader generalization."
         ),
     )
     p.add_argument(
@@ -63,6 +64,19 @@ def parse_args(argv: list[str] | None = None) -> argparse.Namespace:
         type=str,
         default=None,
         help="Comma-separated subset of non_tufte chart keys",
+    )
+    p.add_argument(
+        "--libraries",
+        type=str,
+        default="matplotlib,seaborn",
+        help="Comma-separated: matplotlib, seaborn (default: both for renderer diversity)",
+    )
+    p.add_argument(
+        "--matplotlib-style-mode",
+        type=str,
+        choices=["none", "light", "extended"],
+        default="light",
+        help="Random mpl style context for matplotlib charts only: none | light | extended (non_tufte dark/grid)",
     )
 
     p.add_argument(
@@ -109,7 +123,9 @@ def _generate_split(
     min_h: int,
     max_h: int,
     dpi: float,
+    registry: dict,
     allowed: frozenset[str] | None,
+    mpl_style_mode: str,
     augment: bool,
     style_strength: float,
     meta_writer: MetadataWriter | None,
@@ -121,7 +137,16 @@ def _generate_split(
         h = int(rng.integers(min_h, max_h + 1))
         w = max(64, w)
         h = max(64, h)
-        fig, meta = draw_random_chart(rng, class_label, w, h, dpi, allowed)
+        fig, meta = draw_random_chart(
+            rng,
+            class_label,
+            w,
+            h,
+            dpi,
+            allowed,
+            registry,
+            mpl_style_mode,
+        )
         fname = f"{prefix}_s{global_seed}_i{i:04d}.png"
         path = out_subdir / fname
         aug_rng = augment_subrng(global_seed, class_label, i)
@@ -138,7 +163,11 @@ def _generate_split(
                 "dpi": dpi,
                 "requested_width": w,
                 "requested_height": h,
-                **{k: v for k, v in meta.items() if k not in ("chart_type", "chart_family", "class_label")},
+                **{
+                    k: v
+                    for k, v in meta.items()
+                    if k not in ("chart_type", "chart_family", "class_label")
+                },
                 **extra,
             }
             meta_writer.write_row(row)
@@ -158,11 +187,16 @@ def main(argv: list[str] | None = None) -> int:
         return 1
 
     try:
-        tufte_allowed = parse_chart_filter(args.tufte_charts, TUFE_CHARTS)
-        non_allowed = parse_chart_filter(args.non_tufte_charts, NON_TUFE_CHARTS)
+        libraries = parse_libraries(args.libraries)
+        tufte_reg = build_tufte_registry(libraries)
+        non_reg = build_non_tufte_registry(libraries)
+        tufte_allowed = parse_chart_filter(args.tufte_charts, tufte_reg)
+        non_allowed = parse_chart_filter(args.non_tufte_charts, non_reg)
     except ValueError as e:
         logger.error("%s", e)
         return 1
+
+    mpl_mode = str(args.matplotlib_style_mode)
 
     meta_path: Path | None = None
     if not args.no_metadata:
@@ -180,7 +214,9 @@ def main(argv: list[str] | None = None) -> int:
                 min_h=min_h,
                 max_h=max_h,
                 dpi=float(args.dpi),
+                registry=tufte_reg,
                 allowed=tufte_allowed,
+                mpl_style_mode=mpl_mode,
                 augment=bool(args.augment),
                 style_strength=float(args.style_strength),
                 meta_writer=mw,
@@ -195,7 +231,9 @@ def main(argv: list[str] | None = None) -> int:
                 min_h=min_h,
                 max_h=max_h,
                 dpi=float(args.dpi),
+                registry=non_reg,
                 allowed=non_allowed,
+                mpl_style_mode=mpl_mode,
                 augment=bool(args.augment),
                 style_strength=float(args.style_strength),
                 meta_writer=mw,
@@ -211,7 +249,9 @@ def main(argv: list[str] | None = None) -> int:
             min_h=min_h,
             max_h=max_h,
             dpi=float(args.dpi),
+            registry=tufte_reg,
             allowed=tufte_allowed,
+            mpl_style_mode=mpl_mode,
             augment=bool(args.augment),
             style_strength=float(args.style_strength),
             meta_writer=None,
@@ -226,7 +266,9 @@ def main(argv: list[str] | None = None) -> int:
             min_h=min_h,
             max_h=max_h,
             dpi=float(args.dpi),
+            registry=non_reg,
             allowed=non_allowed,
+            mpl_style_mode=mpl_mode,
             augment=bool(args.augment),
             style_strength=float(args.style_strength),
             meta_writer=None,

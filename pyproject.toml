@@ -4,8 +4,8 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "visscore-synthetic"
-version = "0.2.0"
-description = "Programmatic synthetic Tufte vs chartjunk chart images for CNN training (matplotlib)"
+version = "0.3.0"
+description = "Programmatic synthetic Tufte vs chartjunk chart images (matplotlib + seaborn)"
 readme = "README.md"
 requires-python = ">=3.9"
 license = { text = "Apache-2.0" }
@@ -13,6 +13,8 @@ dependencies = [
   "matplotlib>=3.7.0",
   "numpy>=1.24.0",
   "Pillow>=9.0.0",
+  "pandas>=2.0.0",
+  "seaborn>=0.13.0",
 ]
 
 [project.scripts]
