@@ -1,148 +1,88 @@
-# VisScore — synthetic Tufte / non-Tufte chart images
+# VisScore — programmatic synthetic chart dataset (Tufte vs non-Tufte)
 
-Python package for generating labeled PNGs (Tufte-style vs chartjunk) with **Hugging Face Diffusers** and open weights. No paid image APIs. Default batch: **150** + **150** images.
+Generates **labeled PNG charts** for CNN training using **matplotlib** only: no diffusion, no Hugging Face, no GPU requirement. Two classes:
 
-Layout follows a standard **`src/` package** layout so you can install with `pip`, run as a module or console script, and later deploy the same entrypoint on **Google Cloud** (Compute Engine GPU VM, Vertex AI custom job, GKE with NVIDIA device plugin, or Artifact Registry + batch worker) without notebooks.
+- `tufte/` — high data-ink, minimal decoration, restrained palettes, thin axes, 2D only  
+- `non_tufte/` — chartjunk: loud colors, heavy grids, legends, 3D bars, busy dashboards, etc.
 
----
+Outputs:
+
+- `data/synthetic/tufte/` and `data/synthetic/non_tufte/` (or `--out-dir`)
+- `metadata.jsonl` with one JSON object per image (unless `--no-metadata`)
 
 ## Install
 
-From the repository root (creates console script **`visscore-generate`** and importable **`visscore_synthetic`**):
-
 ```bash
-python -m pip install --upgrade pip setuptools wheel   # recommended; avoids old pip editable issues
-pip install -e .
-# equivalent:
-pip install -r requirements.txt
-```
-
-Requires **Python 3.9+** and a **CUDA GPU** for practical runtimes (CPU is supported but very slow).
-
----
-
-## Hugging Face token
-
-**FLUX.1-schnell** is [gated](https://huggingface.co/black-forest-labs/FLUX.1-schnell): create a free account, accept the model terms, create a token, then either:
-
-```bash
-export HF_TOKEN=hf_...
-```
-
-or pass `--hf-token hf_...` on the CLI. **SDXL** may also require accepting terms on Hugging Face.
-
----
-
-## Run (CLI)
-
-After `pip install -e .`:
-
-```bash
-visscore-generate \
-  --out-dir data/synthetic \
-  --n-tufte 150 \
-  --n-non-tufte 150 \
-  --model flux-schnell \
-  --image-size 768 \
-  --seed 42
-```
-
-Equivalent without installing a script (if `PYTHONPATH=src` or after editable install):
-
-```bash
-python -m visscore_synthetic \
-  --out-dir data/synthetic \
-  --n-tufte 150 \
-  --n-non-tufte 150
-```
-
-**CUDA OOM:** use `--model sdxl --image-size 512` and free GPU memory (restart runtime if needed).
-
----
-
-## Google Colab (GPU, no notebook required)
-
-Use a **terminal** in Colab (or `%pip` / `!` in a one-off cell only to run shell—your pipeline stays CLI-only).
-
-```bash
-git clone -b image-generation --single-branch https://github.com/YOUR_USER/VisScore.git /content/VisScore
-cd /content/VisScore
 python -m pip install --upgrade pip setuptools wheel
 pip install -e .
-export HF_TOKEN=hf_your_token_here
-python -m visscore_synthetic \
-  --out-dir /content/visscore_synthetic \
-  --n-tufte 150 \
-  --n-non-tufte 150 \
-  --model flux-schnell \
-  --image-size 768
 ```
 
-`/content` is ephemeral; write to **Google Drive** or **Cloud Storage** (e.g. mount a bucket with gcsfuse, or upload after `tar`) if you need to keep outputs.
+Dependencies: **matplotlib**, **numpy**, **Pillow** (see `pyproject.toml`).
 
----
+## Example (small dataset)
 
-## Google Cloud (later scale-out)
+```bash
+visscore-generate --n-tufte 20 --n-non-tufte 20 --seed 0 --out-dir data/synthetic --dpi 100 --image-size 512
+```
 
-Same code path as anywhere else: install the package (or use the container) and invoke **`visscore-generate`** or **`python -m visscore_synthetic`**.
+With augmentation and metadata to a custom path:
 
-- **Compute Engine:** GPU VM (L4 / T4 / A100 per quota), Docker or raw venv, set `HF_TOKEN` from Secret Manager or metadata.
-- **Vertex AI:** Custom training or custom container job; pass secrets as environment variables; write `--out-dir` to a mounted Cloud Storage path (e.g. job output URI).
-- **Artifact Registry:** Build and push the image from the included [`Dockerfile`](Dockerfile) (`docker build -t visscore-synthetic .`), then run that image on a GPU node with `HF_TOKEN` injected.
-
-The repository intentionally does **not** depend on `.ipynb` files so jobs are reproducible from versioned CLI + container.
-
----
+```bash
+visscore-generate --n-tufte 50 --n-non-tufte 50 --seed 1 --augment --style-strength 0.3 \
+  --metadata ./runs/run1/metadata.jsonl
+```
 
 ## CLI reference
 
-| Argument | Default | Description |
-|----------|---------|-------------|
-| `--out-dir` | `data/synthetic` | Output root; creates `tufte/` and `non_tufte/` |
-| `--n-tufte` | `150` | Tufte-style image count |
-| `--n-non-tufte` | `150` | Non-Tufte image count |
-| `--model` | `flux-schnell` | `flux-schnell` or `sdxl` |
-| `--image-size` | `768` | Square side in pixels (multiple of 8) |
-| `--seed` | `42` | Base random seed |
-| `--hf-token` | env | Overrides `HF_TOKEN` / `HUGGING_FACE_HUB_TOKEN` |
-| `--flux-model-id` | BFL schnell id | Override checkpoint |
-| `--sdxl-model-id` | SDXL base id | Override checkpoint |
+| Option | Default | Description |
+|--------|---------|-------------|
+| `--out-dir` | `data/synthetic` | Root; creates `tufte/` and `non_tufte/` |
+| `--n-tufte` | 150 | Count of tufte-class images |
+| `--n-non-tufte` | 150 | Count of non-tufte images |
+| `--seed` | 42 | Global seed (reproducible dataset) |
+| `--dpi` | 100 | Matplotlib DPI |
+| `--min-width` / `--max-width` | 480 / 896 | Random width per image (pixels) |
+| `--min-height` / `--max-height` | 360 / 672 | Random height per image |
+| `--image-size` | — | If set, square images of this size (overrides min/max) |
+| `--tufte-charts` | all | Comma-separated keys (see below) |
+| `--non-tufte-charts` | all | Comma-separated keys |
+| `--augment` | off | Mild PIL blur / JPEG / brightness / contrast |
+| `--style-strength` | 0.35 | Augmentation strength in [0, 1] |
+| `--metadata` | `<out-dir>/metadata.jsonl` | JSONL path |
+| `--no-metadata` | — | Skip metadata file |
 
----
+**Tufte chart keys:** `line`, `scatter`, `bar_horizontal`, `dot_strip`, `small_multiples`, `box`, `sparkline`, `area`
 
-## Output layout
+**Non-Tufte chart keys:** `bar_rainbow`, `line_clutter`, `pie_exploded`, `dashboard`, `bar3d`, `scatter_annotated`, `histogram_busy`
+
+## Filenames
+
+`tufte_s<seed>_i<index>.png` and `non_tufte_s<seed>_i<index>.png` — deterministic from `--seed` and index.
+
+## Layout
 
 ```
-<out-dir>/
-├── tufte/tufte_0000.png …
-└── non_tufte/non_tufte_0000.png …
+src/visscore_synthetic/
+  __init__.py
+  __main__.py       # python -m visscore_synthetic
+  cli.py            # entrypoint
+  seeding.py        # deterministic RNG per row
+  registry.py       # chart registry + dispatcher
+  tufte_charts.py   # Tufte-style generators
+  non_tufte_charts.py
+  pipelines.py      # figure → PNG (+ optional augment)
+  augment.py
+  metadata.py
 ```
 
-`data/synthetic/` is in `.gitignore`.
+## Docker
 
----
-
-## Repository layout
-
+```bash
+docker build -t visscore-synthetic .
+docker run --rm -v "$PWD/out:/out" visscore-synthetic --out-dir /out --n-tufte 10 --n-non-tufte 10
 ```
-VisScore/
-├── src/
-│   └── visscore_synthetic/
-│       ├── __init__.py
-│       ├── __main__.py      # python -m visscore_synthetic
-│       ├── cli.py           # argparse + batch loop
-│       ├── pipelines.py     # Diffusers load / generate
-│       └── prompts.py       # prompt lists
-├── pyproject.toml           # package metadata + visscore-generate entry point
-├── setup.py                 # setuptools shim for older pip editable installs
-├── requirements.txt         # pip install -e .
-├── Dockerfile               # optional GPU container for GCP / GCE
-└── README.md
-```
-
----
 
 ## Notes
 
-- Diffusion outputs are **stylized** charts; numeric accuracy is not guaranteed—suitable for **rough** binary aesthetic classification.
-- Respect each model’s **license** on Hugging Face (e.g. FLUX.1-schnell Apache-2.0; verify SDXL terms if used).
+- Text and geometry are **real matplotlib** rendering, not generated by a text-to-image model.
+- Same `--seed` and counts reproduce the same images (for fixed package versions).
