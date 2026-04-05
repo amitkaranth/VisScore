@@ -1,51 +1,45 @@
 # VisScore — synthetic Tufte / non-Tufte chart images
 
-Generate labeled PNGs for CNN training using **open** text-to-image weights (Hugging Face Diffusers). No paid image APIs. Default: **150** Tufte-style + **150** chartjunk-style images.
+Python package for generating labeled PNGs (Tufte-style vs chartjunk) with **Hugging Face Diffusers** and open weights. No paid image APIs. Default batch: **150** + **150** images.
 
-**Models**
-
-- **FLUX.1-schnell** (default): best quality/speed tradeoff on Colab; [gated on Hugging Face](https://huggingface.co/black-forest-labs/FLUX.1-schnell) (free account + accept terms + `HF_TOKEN`).
-- **SDXL** (fallback): lower VRAM; pass `--model sdxl` if you hit CUDA OOM.
+Layout follows a standard **`src/` package** layout so you can install with `pip`, run as a module or console script, and later deploy the same entrypoint on **Google Cloud** (Compute Engine GPU VM, Vertex AI custom job, GKE with NVIDIA device plugin, or Artifact Registry + batch worker) without notebooks.
 
 ---
 
-## Google Colab (GPU)
+## Install
 
-1. **Runtime → Change runtime type →** select a **GPU** (e.g. T4).
-2. Clone **this branch** (replace the URL with your fork or upstream):
-
-```bash
-git clone -b image-generation --single-branch https://github.com/YOUR_USER/VisScore.git /content/VisScore
-cd /content/VisScore
-```
-
-3. Install Python deps (Colab already ships `torch` with CUDA in most runtimes):
+From the repository root (creates console script **`visscore-generate`** and importable **`visscore_synthetic`**):
 
 ```bash
+python -m pip install --upgrade pip setuptools wheel   # recommended; avoids old pip editable issues
+pip install -e .
+# equivalent:
 pip install -r requirements.txt
 ```
 
-4. Authenticate with Hugging Face (needed for gated FLUX weights). Either:
+Requires **Python 3.9+** and a **CUDA GPU** for practical runtimes (CPU is supported but very slow).
 
-- Set a Colab secret named **`HF_TOKEN`**, then in a notebook cell:
+---
 
-```python
-import os
-from google.colab import userdata
-from huggingface_hub import login
-token = userdata.get("HF_TOKEN")
-login(token=token)
-os.environ["HF_TOKEN"] = token
-```
+## Hugging Face token
 
-- Or run `huggingface-cli login` / `python -c "from huggingface_hub import login; login()"` and follow the prompt.
-
-5. Run the generator (writes under `/content/out` on the VM):
+**FLUX.1-schnell** is [gated](https://huggingface.co/black-forest-labs/FLUX.1-schnell): create a free account, accept the model terms, create a token, then either:
 
 ```bash
-export HF_TOKEN=hf_your_token_here   # if not already set by login()
-python scripts/generate_tufte_synthetic.py \
-  --out-dir /content/visscore_synthetic \
+export HF_TOKEN=hf_...
+```
+
+or pass `--hf-token hf_...` on the CLI. **SDXL** may also require accepting terms on Hugging Face.
+
+---
+
+## Run (CLI)
+
+After `pip install -e .`:
+
+```bash
+visscore-generate \
+  --out-dir data/synthetic \
   --n-tufte 150 \
   --n-non-tufte 150 \
   --model flux-schnell \
@@ -53,47 +47,66 @@ python scripts/generate_tufte_synthetic.py \
   --seed 42
 ```
 
-6. **Optional:** open [notebooks/colab_generate_tufte_synthetic.ipynb](notebooks/colab_generate_tufte_synthetic.ipynb) in Colab and run cells in order (same effect as the commands above).
+Equivalent without installing a script (if `PYTHONPATH=src` or after editable install):
 
-7. **Download outputs:** Colab discards `/content` when the session ends. Zip and download, or set `--out-dir` to a mounted Google Drive path, e.g. `/content/drive/MyDrive/visscore_synthetic` after `drive.mount("/content/drive")`.
+```bash
+python -m visscore_synthetic \
+  --out-dir data/synthetic \
+  --n-tufte 150 \
+  --n-non-tufte 150
+```
+
+**CUDA OOM:** use `--model sdxl --image-size 512` and free GPU memory (restart runtime if needed).
 
 ---
 
-## Local CLI (CUDA machine)
+## Google Colab (GPU, no notebook required)
 
-From the repo root:
+Use a **terminal** in Colab (or `%pip` / `!` in a one-off cell only to run shell—your pipeline stays CLI-only).
 
 ```bash
-cd /path/to/VisScore
-python -m venv .venv
-source .venv/bin/activate   # Windows: .venv\Scripts\activate
-pip install -r requirements.txt
-export HF_TOKEN=hf_...      # Linux/macOS; Windows: set HF_TOKEN=hf_...
-python scripts/generate_tufte_synthetic.py --out-dir data/synthetic
+git clone -b image-generation --single-branch https://github.com/YOUR_USER/VisScore.git /content/VisScore
+cd /content/VisScore
+python -m pip install --upgrade pip setuptools wheel
+pip install -e .
+export HF_TOKEN=hf_your_token_here
+python -m visscore_synthetic \
+  --out-dir /content/visscore_synthetic \
+  --n-tufte 150 \
+  --n-non-tufte 150 \
+  --model flux-schnell \
+  --image-size 768
 ```
+
+`/content` is ephemeral; write to **Google Drive** or **Cloud Storage** (e.g. mount a bucket with gcsfuse, or upload after `tar`) if you need to keep outputs.
+
+---
+
+## Google Cloud (later scale-out)
+
+Same code path as anywhere else: install the package (or use the container) and invoke **`visscore-generate`** or **`python -m visscore_synthetic`**.
+
+- **Compute Engine:** GPU VM (L4 / T4 / A100 per quota), Docker or raw venv, set `HF_TOKEN` from Secret Manager or metadata.
+- **Vertex AI:** Custom training or custom container job; pass secrets as environment variables; write `--out-dir` to a mounted Cloud Storage path (e.g. job output URI).
+- **Artifact Registry:** Build and push the image from the included [`Dockerfile`](Dockerfile) (`docker build -t visscore-synthetic .`), then run that image on a GPU node with `HF_TOKEN` injected.
+
+The repository intentionally does **not** depend on `.ipynb` files so jobs are reproducible from versioned CLI + container.
 
 ---
 
 ## CLI reference
 
-All arguments for [scripts/generate_tufte_synthetic.py](scripts/generate_tufte_synthetic.py):
-
 | Argument | Default | Description |
 |----------|---------|-------------|
 | `--out-dir` | `data/synthetic` | Output root; creates `tufte/` and `non_tufte/` |
-| `--n-tufte` | `150` | Count of Tufte-style images |
-| `--n-non-tufte` | `150` | Count of non-Tufte images |
+| `--n-tufte` | `150` | Tufte-style image count |
+| `--n-non-tufte` | `150` | Non-Tufte image count |
 | `--model` | `flux-schnell` | `flux-schnell` or `sdxl` |
 | `--image-size` | `768` | Square side in pixels (multiple of 8) |
 | `--seed` | `42` | Base random seed |
 | `--hf-token` | env | Overrides `HF_TOKEN` / `HUGGING_FACE_HUB_TOKEN` |
 | `--flux-model-id` | BFL schnell id | Override checkpoint |
 | `--sdxl-model-id` | SDXL base id | Override checkpoint |
-
-**Environment:** `HF_TOKEN` or `HUGGING_FACE_HUB_TOKEN` for downloads of gated models.
-
-**OOM:** Restart runtime, then e.g.  
-`python scripts/generate_tufte_synthetic.py --out-dir /content/out --model sdxl --image-size 512`
 
 ---
 
@@ -105,7 +118,7 @@ All arguments for [scripts/generate_tufte_synthetic.py](scripts/generate_tufte_s
 └── non_tufte/non_tufte_0000.png …
 ```
 
-`data/synthetic/` is listed in `.gitignore` so generated PNGs are not committed by default.
+`data/synthetic/` is in `.gitignore`.
 
 ---
 
@@ -113,11 +126,17 @@ All arguments for [scripts/generate_tufte_synthetic.py](scripts/generate_tufte_s
 
 ```
 VisScore/
-├── scripts/
-│   └── generate_tufte_synthetic.py
-├── notebooks/
-│   └── colab_generate_tufte_synthetic.ipynb
-├── requirements.txt
+├── src/
+│   └── visscore_synthetic/
+│       ├── __init__.py
+│       ├── __main__.py      # python -m visscore_synthetic
+│       ├── cli.py           # argparse + batch loop
+│       ├── pipelines.py     # Diffusers load / generate
+│       └── prompts.py       # prompt lists
+├── pyproject.toml           # package metadata + visscore-generate entry point
+├── setup.py                 # setuptools shim for older pip editable installs
+├── requirements.txt         # pip install -e .
+├── Dockerfile               # optional GPU container for GCP / GCE
 └── README.md
 ```
 
@@ -125,5 +144,5 @@ VisScore/
 
 ## Notes
 
-- Diffusion outputs are **stylized** charts; numeric accuracy and axis text are not guaranteed. Suitable for **rough** binary aesthetic classification.
-- Respect each model’s **license** on Hugging Face (FLUX.1-schnell is Apache-2.0; check SDXL terms if you use it).
+- Diffusion outputs are **stylized** charts; numeric accuracy is not guaranteed—suitable for **rough** binary aesthetic classification.
+- Respect each model’s **license** on Hugging Face (e.g. FLUX.1-schnell Apache-2.0; verify SDXL terms if used).
