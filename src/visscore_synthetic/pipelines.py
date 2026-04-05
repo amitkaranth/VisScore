@@ -103,14 +103,20 @@ def generate_sdxl(
     import torch
 
     generator = torch.Generator(device="cpu").manual_seed(seed)
+    negative = prompt.split("NEGATIVE:")[-1] if "NEGATIVE:" in prompt else None
+    positive = prompt.split("NEGATIVE:")[0]
+
     out = pipe(
-        prompt,
+        positive,
+        negative_prompt=negative,
         height=height,
         width=width,
         num_inference_steps=30,
-        guidance_scale=7.0,
+        guidance_scale=7.5,
         generator=generator,
     )
+
+
     return out.images[0]
 
 
