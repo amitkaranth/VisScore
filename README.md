@@ -10,20 +10,45 @@ Outputs:
 - `data/synthetic/tufte/` and `data/synthetic/non_tufte/` (or `--out-dir`)
 - `metadata.jsonl` with one JSON object per image (unless `--no-metadata`)
 
-## Install
+## Quick start (copy-paste)
+
+From the **repository root** after cloning:
+
+```bash
+cd /path/to/VisScore
+```
 
 ```bash
 python -m pip install --upgrade pip setuptools wheel
+```
+
+```bash
 pip install -e .
 ```
 
-Dependencies: **matplotlib**, **numpy**, **Pillow** (see `pyproject.toml`).
-
-## Example (small dataset)
+Generate a **small** dataset (20 + 20 images + default `data/synthetic/metadata.jsonl`):
 
 ```bash
 visscore-generate --n-tufte 20 --n-non-tufte 20 --seed 0 --out-dir data/synthetic --dpi 100 --image-size 512
 ```
+
+Same as above if `visscore-generate` is not on your `PATH`:
+
+```bash
+python -m visscore_synthetic --n-tufte 20 --n-non-tufte 20 --seed 0 --out-dir data/synthetic --dpi 100 --image-size 512
+```
+
+Full default counts (150 + 150):
+
+```bash
+visscore-generate --out-dir data/synthetic --seed 42
+```
+
+## Install
+
+Dependencies: **matplotlib**, **numpy**, **Pillow** (see `pyproject.toml`). Use the Quick start commands above.
+
+## More examples
 
 With augmentation and metadata to a custom path:
 
