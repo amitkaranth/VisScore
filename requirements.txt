@@ -1,7 +1,10 @@
-# VisScore Reddit scraper — no PRAW, no Reddit API.
-# Uses old.reddit.com + requests + BeautifulSoup only.
+# Synthetic Tufte / non-Tufte image generation (Diffusers + CUDA).
+# Colab usually provides torch with GPU; install the rest with:
+#   pip install -r requirements.txt
 
-requests>=2.28.0
-beautifulsoup4>=4.11.0
+torch>=2.1.0
+diffusers>=0.32.0
+transformers>=4.40.0
+accelerate>=0.30.0
+safetensors>=0.4.0
 Pillow>=9.0.0
-PyYAML>=6.0

@@ -16,11 +16,8 @@ venv/
 ENV/
 env/
 
-# VisScore scraper – data and logs
-data/raw/
-data/metadata/
-logs/
-*.log
+# Generated synthetic dataset (often large)
+data/synthetic/
 
 # IDE / editor
 .idea/

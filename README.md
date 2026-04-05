@@ -1,131 +1,129 @@
-# VisScore Reddit Scraper
+# VisScore — synthetic Tufte / non-Tufte chart images
 
-Python based web scraper for collecting chart images from **old.reddit.com** (e.g. r/dataisbeautiful, r/dataisugly) to build a machine learning dataset.
+Generate labeled PNGs for CNN training using **open** text-to-image weights (Hugging Face Diffusers). No paid image APIs. Default: **150** Tufte-style + **150** chartjunk-style images.
 
-**No Reddit API. No PRAW.** Uses only `requests` and BeautifulSoup on static HTML. No API keys or OAuth.
+**Models**
+
+- **FLUX.1-schnell** (default): best quality/speed tradeoff on Colab; [gated on Hugging Face](https://huggingface.co/black-forest-labs/FLUX.1-schnell) (free account + accept terms + `HF_TOKEN`).
+- **SDXL** (fallback): lower VRAM; pass `--model sdxl` if you hit CUDA OOM.
 
 ---
 
-## Requirements
+## Google Colab (GPU)
 
-- Python 3.9+
-- Dependencies in `requirements.txt`
-
-## Install
+1. **Runtime → Change runtime type →** select a **GPU** (e.g. T4).
+2. Clone **this branch** (replace the URL with your fork or upstream):
 
 ```bash
-cd vis_scraper
+git clone -b image-generation --single-branch https://github.com/YOUR_USER/VisScore.git /content/VisScore
+cd /content/VisScore
+```
+
+3. Install Python deps (Colab already ships `torch` with CUDA in most runtimes):
+
+```bash
 pip install -r requirements.txt
 ```
 
-## Usage
+4. Authenticate with Hugging Face (needed for gated FLUX weights). Either:
 
-### CLI (recommended)
+- Set a Colab secret named **`HF_TOKEN`**, then in a notebook cell:
+
+```python
+import os
+from google.colab import userdata
+from huggingface_hub import login
+token = userdata.get("HF_TOKEN")
+login(token=token)
+os.environ["HF_TOKEN"] = token
+```
+
+- Or run `huggingface-cli login` / `python -c "from huggingface_hub import login; login()"` and follow the prompt.
+
+5. Run the generator (writes under `/content/out` on the VM):
 
 ```bash
-# From vis_scraper directory
-python main.py [subreddit] [--sort top|hot|new] [--time day|week|month|year|all] [--max-posts N]
+export HF_TOKEN=hf_your_token_here   # if not already set by login()
+python scripts/generate_tufte_synthetic.py \
+  --out-dir /content/visscore_synthetic \
+  --n-tufte 150 \
+  --n-non-tufte 150 \
+  --model flux-schnell \
+  --image-size 768 \
+  --seed 42
 ```
 
-**Examples:**
+6. **Optional:** open [notebooks/colab_generate_tufte_synthetic.ipynb](notebooks/colab_generate_tufte_synthetic.ipynb) in Colab and run cells in order (same effect as the commands above).
+
+7. **Download outputs:** Colab discards `/content` when the session ends. Zip and download, or set `--out-dir` to a mounted Google Drive path, e.g. `/content/drive/MyDrive/visscore_synthetic` after `drive.mount("/content/drive")`.
+
+---
+
+## Local CLI (CUDA machine)
+
+From the repo root:
 
 ```bash
-# r/dataisbeautiful, top of month, up to 50 image posts (default)
-python main.py
-
-# r/dataisugly, hot, 100 posts
-python main.py dataisugly --sort hot --max-posts 100
-
-# r/dataisbeautiful, top of all time, 200 posts
-python main.py dataisbeautiful --sort top --time all --max-posts 200
-
-# Disable resolving image from permalink (faster, fewer images)
-python main.py dataisbeautiful --no-resolve --max-posts 30
-
-# Disable resume (re-download everything)
-python main.py dataisbeautiful --no-resume
+cd /path/to/VisScore
+python -m venv .venv
+source .venv/bin/activate   # Windows: .venv\Scripts\activate
+pip install -r requirements.txt
+export HF_TOKEN=hf_...      # Linux/macOS; Windows: set HF_TOKEN=hf_...
+python scripts/generate_tufte_synthetic.py --out-dir data/synthetic
 ```
 
-### Options
+---
 
-| Option | Description |
-|--------|-------------|
-| `subreddit` | Subreddit name without `r/` (default: `dataisbeautiful`) |
-| `--sort` | `top`, `hot`, or `new` (default: `top`) |
-| `--time` | For `top` only: `day`, `week`, `month`, `year`, `all` (default: `month`) |
-| `--max-posts` | Max image posts to download (default: 50) |
-| `--no-resolve` | Do not fetch post page to get image URL when listing only has comments link |
-| `--no-resume` | Ignore existing metadata/files and re-run from scratch |
-| `--config` | Path to `config.yaml` (optional) |
+## CLI reference
+
+All arguments for [scripts/generate_tufte_synthetic.py](scripts/generate_tufte_synthetic.py):
+
+| Argument | Default | Description |
+|----------|---------|-------------|
+| `--out-dir` | `data/synthetic` | Output root; creates `tufte/` and `non_tufte/` |
+| `--n-tufte` | `150` | Count of Tufte-style images |
+| `--n-non-tufte` | `150` | Count of non-Tufte images |
+| `--model` | `flux-schnell` | `flux-schnell` or `sdxl` |
+| `--image-size` | `768` | Square side in pixels (multiple of 8) |
+| `--seed` | `42` | Base random seed |
+| `--hf-token` | env | Overrides `HF_TOKEN` / `HUGGING_FACE_HUB_TOKEN` |
+| `--flux-model-id` | BFL schnell id | Override checkpoint |
+| `--sdxl-model-id` | SDXL base id | Override checkpoint |
+
+**Environment:** `HF_TOKEN` or `HUGGING_FACE_HUB_TOKEN` for downloads of gated models.
+
+**OOM:** Restart runtime, then e.g.  
+`python scripts/generate_tufte_synthetic.py --out-dir /content/out --model sdxl --image-size 512`
 
 ---
 
-## Output Layout
-
-- **Images:** `data/raw/<subreddit>/` (e.g. `data/raw/dataisbeautiful/`)
-- **Metadata:** `data/metadata/<subreddit>_<sort>_<time>.json`
-- **Logs:** `logs/scraper.log`
-
-Metadata JSON includes for each image: `post_id`, `title`, `upvotes`, `image_url`, `permalink`, `subreddit`, `local_path`, `width`, `height`, `sha256`.
-
----
-
-## Behavior
-
-- **Listing:** Fetches old.reddit.com listing pages (HTML), parses with BeautifulSoup, paginates with `after`.
-- **Image URLs:** Only direct image links are kept: `.jpg`, `.png`, `.webp`, i.redd.it, single-imgur. Videos, gifs, albums, galleries, and articles are excluded.
-- **Resolve:** If the listing only shows a comments link, the scraper can fetch the post page once to read `og:image` (or first i.redd.it link). Use `--no-resolve` to skip this and only keep posts whose listing link is already an image.
-- **Download:** Each URL is downloaded with retries and backoff. Response is checked: status code and `Content-Type: image/*`.
-- **Validation:** After download, images are opened with PIL; rejected if width or height &lt; 300 px or if corrupted. SHA256 is computed for deduplication.
-- **Resume:** By default, posts already present in metadata or as files in `data/raw/<subreddit>/` are skipped; use `--no-resume` to override.
-- **Rate limiting:** Configurable delay (default 2–5 s) between requests. No Reddit API, so no API key; be respectful to avoid blocks.
-
----
-
-## Config
-
-Edit `config.yaml` to change:
-
-- `scraper`: `base_url`, `user_agent`, `request_delay_min/max_seconds`, `max_retries`, `timeout_seconds`
-- `image`: `min_width_px`, `min_height_px`
-- `paths`: `raw_images_dir`, `metadata_dir`, `logs_dir`
-- `resume`: set to `false` to disable resume by default
-
----
-
-## Code Layout
+## Output layout
 
 ```
-vis_scraper/
-├── scraper/
-│   ├── reddit_scraper.py   # Listing fetch + parse (old.reddit.com, BeautifulSoup)
-│   ├── image_downloader.py # Download + HTTP/Content-Type + PIL + SHA256
-│   ├── validators.py       # Image validation (PIL, dimensions, hash)
-│   └── utils.py            # Config, logging, retry, User-Agent, sleep
-├── data/
-│   ├── raw/
-│   │   ├── dataisbeautiful/
-│   │   └── dataisugly/
-│   └── metadata/
-├── logs/
-├── config.yaml
-├── main.py                 # CLI + orchestration
+<out-dir>/
+├── tufte/tufte_0000.png …
+└── non_tufte/non_tufte_0000.png …
+```
+
+`data/synthetic/` is listed in `.gitignore` so generated PNGs are not committed by default.
+
+---
+
+## Repository layout
+
+```
+VisScore/
+├── scripts/
+│   └── generate_tufte_synthetic.py
+├── notebooks/
+│   └── colab_generate_tufte_synthetic.ipynb
 ├── requirements.txt
 └── README.md
 ```
 
 ---
 
-## Academic / Evaluation Notes
+## Notes
 
-- No use of PRAW or Reddit’s official API; all data comes from public old.reddit.com HTML.
-- User-Agent is set to a descriptive value; Reddit may block generic or missing User-Agents.
-- Retries use exponential backoff; failures and skips are logged.
-- Design is modular and type-hinted for clarity and unit testing.
-
----
-
-## Troubleshooting
-
-- **403 Blocked:** Reddit may block requests from some networks (e.g. datacenters, CI). Run from a normal home/office connection. Ensure `User-Agent` in `config.yaml` is set to a descriptive value (e.g. `visscore-research-scraper/1.0 (academic project)`).
-- **No images found:** Use `--no-resolve` to see if listing-only image links work; otherwise ensure the subreddit has link posts to i.redd.it or direct image URLs.
+- Diffusion outputs are **stylized** charts; numeric accuracy and axis text are not guaranteed. Suitable for **rough** binary aesthetic classification.
+- Respect each model’s **license** on Hugging Face (FLUX.1-schnell is Apache-2.0; check SDXL terms if you use it).
