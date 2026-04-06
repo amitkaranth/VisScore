@@ -45,3 +45,5 @@ checkpoints/
 .venv
 
 *.png
+*.jpg
+*.csv
