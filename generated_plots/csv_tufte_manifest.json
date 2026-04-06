@@ -1,0 +1,238 @@
+[
+  {
+    "source_csv": "/Users/surajpatelm/Desktop/Spring26/DataVisualisation/VisScore/input_csvs/02aef56b-c5b0-4da6-87a3-14bf30f5ca27_Data.csv",
+    "status": "ok",
+    "inferred": {
+      "date_col": null,
+      "category_col": "Country Name",
+      "numeric_cols": [
+        "2020 [YR2020]"
+      ]
+    },
+    "charts": [
+      {
+        "kind": "bar",
+        "quality": "good",
+        "file": "02aef56b_c5b0_4da6_87a3_14bf30f5ca27_Data/02aef56b_c5b0_4da6_87a3_14bf30f5ca27_Data_bar_Country_Name_2020_YR2020.png",
+        "violations": []
+      },
+      {
+        "kind": "bar",
+        "quality": "bad",
+        "file": "02aef56b_c5b0_4da6_87a3_14bf30f5ca27_Data/02aef56b_c5b0_4da6_87a3_14bf30f5ca27_Data_bad_bar_Country_Name_2020_YR2020.png",
+        "violations": [
+          "chartjunk",
+          "low_data_ink_ratio",
+          "heavy_gridlines",
+          "truncated_axis",
+          "rainbow_palette",
+          "excessive_legend"
+        ]
+      },
+      {
+        "kind": "histogram",
+        "quality": "good",
+        "file": "02aef56b_c5b0_4da6_87a3_14bf30f5ca27_Data/02aef56b_c5b0_4da6_87a3_14bf30f5ca27_Data_hist_2020_YR2020.png",
+        "violations": []
+      },
+      {
+        "kind": "histogram",
+        "quality": "bad",
+        "file": "02aef56b_c5b0_4da6_87a3_14bf30f5ca27_Data/02aef56b_c5b0_4da6_87a3_14bf30f5ca27_Data_bad_hist_2020_YR2020.png",
+        "violations": [
+          "rainbow_palette",
+          "jet_colormap",
+          "heavy_gridlines",
+          "low_data_ink_ratio",
+          "chartjunk"
+        ]
+      }
+    ]
+  },
+  {
+    "source_csv": "/Users/surajpatelm/Desktop/Spring26/DataVisualisation/VisScore/input_csvs/02aef56b-c5b0-4da6-87a3-14bf30f5ca27_Series - Metadata.csv",
+    "status": "ok",
+    "inferred": {
+      "date_col": null,
+      "category_col": "Country Name",
+      "numeric_cols": [
+        "2020 [YR2020]"
+      ]
+    },
+    "charts": [
+      {
+        "kind": "bar",
+        "quality": "good",
+        "file": "02aef56b_c5b0_4da6_87a3_14bf30f5ca27_Series_Metadata/02aef56b_c5b0_4da6_87a3_14bf30f5ca27_Series_Metadata_bar_Country_Name_2020_YR2020.png",
+        "violations": []
+      },
+      {
+        "kind": "bar",
+        "quality": "bad",
+        "file": "02aef56b_c5b0_4da6_87a3_14bf30f5ca27_Series_Metadata/02aef56b_c5b0_4da6_87a3_14bf30f5ca27_Series_Metadata_bad_bar_Country_Name_2020_YR2020.png",
+        "violations": [
+          "chartjunk",
+          "low_data_ink_ratio",
+          "heavy_gridlines",
+          "truncated_axis",
+          "rainbow_palette",
+          "excessive_legend"
+        ]
+      },
+      {
+        "kind": "histogram",
+        "quality": "good",
+        "file": "02aef56b_c5b0_4da6_87a3_14bf30f5ca27_Series_Metadata/02aef56b_c5b0_4da6_87a3_14bf30f5ca27_Series_Metadata_hist_2020_YR2020.png",
+        "violations": []
+      },
+      {
+        "kind": "histogram",
+        "quality": "bad",
+        "file": "02aef56b_c5b0_4da6_87a3_14bf30f5ca27_Series_Metadata/02aef56b_c5b0_4da6_87a3_14bf30f5ca27_Series_Metadata_bad_hist_2020_YR2020.png",
+        "violations": [
+          "rainbow_palette",
+          "jet_colormap",
+          "heavy_gridlines",
+          "low_data_ink_ratio",
+          "chartjunk"
+        ]
+      }
+    ]
+  },
+  {
+    "source_csv": "/Users/surajpatelm/Desktop/Spring26/DataVisualisation/VisScore/input_csvs/IHME_GBD_2010_MORTALITY_AGE_SPECIFIC_BY_COUNTRY_1970_2010.csv",
+    "status": "ok",
+    "inferred": {
+      "date_col": null,
+      "category_col": "Country Code",
+      "numeric_cols": [
+        "Year",
+        "Number of Deaths"
+      ]
+    },
+    "charts": [
+      {
+        "kind": "bar",
+        "quality": "good",
+        "file": "IHME_GBD_2010_MORTALITY_AGE_SPECIFIC_BY_COUNTRY_1970_2010/IHME_GBD_2010_MORTALITY_AGE_SPECIFIC_BY_COUNTRY_1970_2010_bar_Country_Code_Year.png",
+        "violations": []
+      },
+      {
+        "kind": "bar",
+        "quality": "bad",
+        "file": "IHME_GBD_2010_MORTALITY_AGE_SPECIFIC_BY_COUNTRY_1970_2010/IHME_GBD_2010_MORTALITY_AGE_SPECIFIC_BY_COUNTRY_1970_2010_bad_bar_Country_Code_Year.png",
+        "violations": [
+          "chartjunk",
+          "low_data_ink_ratio",
+          "heavy_gridlines",
+          "truncated_axis",
+          "rainbow_palette",
+          "excessive_legend"
+        ]
+      },
+      {
+        "kind": "scatter",
+        "quality": "good",
+        "file": "IHME_GBD_2010_MORTALITY_AGE_SPECIFIC_BY_COUNTRY_1970_2010/IHME_GBD_2010_MORTALITY_AGE_SPECIFIC_BY_COUNTRY_1970_2010_scatter_Year_Number_of_Deaths.png",
+        "violations": []
+      },
+      {
+        "kind": "scatter",
+        "quality": "bad",
+        "file": "IHME_GBD_2010_MORTALITY_AGE_SPECIFIC_BY_COUNTRY_1970_2010/IHME_GBD_2010_MORTALITY_AGE_SPECIFIC_BY_COUNTRY_1970_2010_bad_scatter_Year_Number_of_Deaths.png",
+        "violations": [
+          "rainbow_palette",
+          "heavy_gridlines",
+          "low_data_ink_ratio",
+          "chartjunk"
+        ]
+      },
+      {
+        "kind": "histogram",
+        "quality": "good",
+        "file": "IHME_GBD_2010_MORTALITY_AGE_SPECIFIC_BY_COUNTRY_1970_2010/IHME_GBD_2010_MORTALITY_AGE_SPECIFIC_BY_COUNTRY_1970_2010_hist_Year.png",
+        "violations": []
+      },
+      {
+        "kind": "histogram",
+        "quality": "bad",
+        "file": "IHME_GBD_2010_MORTALITY_AGE_SPECIFIC_BY_COUNTRY_1970_2010/IHME_GBD_2010_MORTALITY_AGE_SPECIFIC_BY_COUNTRY_1970_2010_bad_hist_Year.png",
+        "violations": [
+          "rainbow_palette",
+          "jet_colormap",
+          "heavy_gridlines",
+          "low_data_ink_ratio",
+          "chartjunk"
+        ]
+      }
+    ]
+  },
+  {
+    "source_csv": "/Users/surajpatelm/Desktop/Spring26/DataVisualisation/VisScore/input_csvs/TB_Burden_Country.csv",
+    "status": "ok",
+    "inferred": {
+      "date_col": null,
+      "category_col": "Country or territory name",
+      "numeric_cols": [
+        "ISO numeric country/territory code",
+        "Year"
+      ]
+    },
+    "charts": [
+      {
+        "kind": "bar",
+        "quality": "good",
+        "file": "TB_Burden_Country/TB_Burden_Country_bar_Country_or_territory_name_ISO_numeric_countryterritory_code.png",
+        "violations": []
+      },
+      {
+        "kind": "bar",
+        "quality": "bad",
+        "file": "TB_Burden_Country/TB_Burden_Country_bad_bar_Country_or_territory_name_ISO_numeric_countryterritory_code.png",
+        "violations": [
+          "chartjunk",
+          "low_data_ink_ratio",
+          "heavy_gridlines",
+          "truncated_axis",
+          "rainbow_palette",
+          "excessive_legend"
+        ]
+      },
+      {
+        "kind": "scatter",
+        "quality": "good",
+        "file": "TB_Burden_Country/TB_Burden_Country_scatter_ISO_numeric_countryterritory_code_Year.png",
+        "violations": []
+      },
+      {
+        "kind": "scatter",
+        "quality": "bad",
+        "file": "TB_Burden_Country/TB_Burden_Country_bad_scatter_ISO_numeric_countryterritory_code_Year.png",
+        "violations": [
+          "rainbow_palette",
+          "heavy_gridlines",
+          "low_data_ink_ratio",
+          "chartjunk"
+        ]
+      },
+      {
+        "kind": "histogram",
+        "quality": "good",
+        "file": "TB_Burden_Country/TB_Burden_Country_hist_ISO_numeric_countryterritory_code.png",
+        "violations": []
+      },
+      {
+        "kind": "histogram",
+        "quality": "bad",
+        "file": "TB_Burden_Country/TB_Burden_Country_bad_hist_ISO_numeric_countryterritory_code.png",
+        "violations": [
+          "rainbow_palette",
+          "jet_colormap",
+          "heavy_gridlines",
+          "low_data_ink_ratio",
+          "chartjunk"
+        ]
+      }
+    ]
+  }
+]

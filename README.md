@@ -1,23 +1,50 @@
 # VisScore: CNN-Based Visualization Quality Classifier
 
-A comprehensive machine learning system for assessing visualization quality based on Edward Tufte's design principles. This project generates synthetic chart datasets, trains deep learning models for binary classification (good/bad charts), and provides an interactive web interface for predictions with explainability visualizations.
+A machine learning system for assessing visualization quality based on Edward Tufte’s design principles. It supports **synthetic training data**, **charts generated from your own CSVs**, and a **combined CNN + vision–language model (VLM)** workflow for informed good/bad decisions with optional reasoning text.
 
 ## 📋 Project Overview
 
-**Problem**: Automatically assess whether a data visualization follows best practices and design principles.
+**Problem**: Automatically assess whether a data visualization follows best practices (Tufte-aligned “good” vs problematic “bad”).
 
-**Solution**: 
-- Generate synthetic "good" and "bad" chart pairs based on Tufte's principles
-- Train a CNN model (ResNet-50, EfficientNet-B0, or VGG-16) on these images
-- Deploy via Streamlit for interactive predictions with Grad-CAM visual explanations
+**Solution**:
+- **Train** a CNN (ResNet-50, EfficientNet-B0, or VGG-16) on synthetic good/bad chart images—or fine-tune with your own labeled exports.
+- **Generate** Tufte-style charts (and optional “bad” counterparts) from arbitrary CSVs for exploration or extra training data.
+- **Score** any chart PNG with the **retrained CNN**, optionally plus a **VLM** (Gemini or Groq) and a **consensus** rule in Streamlit or the CLI.
 
 **Key Features**:
-- ✅ Synthetic data generation with diverse chart types and violations
-- ✅ Multiple neural network architectures with transfer learning
-- ✅ Grad-CAM heatmap visualization for model interpretability
-- ✅ Batch inference pipeline (single image or directory)
-- ✅ Interactive Streamlit web UI with multi-model support
-- ✅ Comprehensive metrics: confusion matrix, ROC curves, precision-recall
+- Synthetic data generation (Matplotlib and optional Plotly/Kaleido)
+- **CSV → charts**: `csv_tufte_charts.py` (good + bad variants; metric columns preferred over IDs; single-hue good bars)
+- **Standalone Streamlit** for CSV uploads: `streamlit_csv_charts.py` (separate from the main classifier UI)
+- CNN training, batch inference, Grad-CAM
+- **Multimodal**: CNN + VLM Tufte-style judge + consensus (`vlm_judge.py`, `multimodal_inference.py`, sidebar in `app.py`)
+- Main Streamlit UI: model pickers, VLM provider/keys, combined decision
+
+---
+
+## 🧭 Recommended end-to-end flow
+
+Use this narrative when you want **real datasets → plots → informed scoring**:
+
+1. **Generate plots from any CSV dataset**  
+   - **CLI:** `python csv_tufte_charts.py --input_dir ./your_csvs --output_dir ./generated_plots`  
+   - **UI:** `streamlit run streamlit_csv_charts.py` — upload CSVs, set DPI / max chart types / include bad variants, download PNGs + manifest.  
+   The tool infers dates, categories, and numeric columns, prefers **real metrics** (rates, deaths, burden, etc.) over **ID-like** columns (ISO codes, country codes), and draws **good** bars in a **single color** (better alignment with CNN training).
+
+2. **(Parallel track) Train or retrain the CNN**  
+   Use synthetic data, your own `good/` and `bad/` folders, or mix in exports from step 1 if you label them.  
+   ```bash
+   python cnn_training.py --data_dir ./visual_dataset --model resnet50 --epochs 25
+   ```  
+   Weights land in `./results/` (e.g. `best_model.pth` + `training_config.json`).
+
+3. **Link charts to the inference service**  
+   - **Main app:** `streamlit run app.py` — upload a generated PNG (or any chart), pick your **retrained** checkpoint from the sidebar, optionally enable **VLM + consensus** and set **Gemini** or **Groq** keys (see `.env.example`).  
+   - **CLI:** `python multimodal_inference.py --image ./generated_plots/.../chart.png --vlm_provider groq` (or default Gemini).  
+   You get **CNN probabilities**, optional **VLM verdict + reasoning**, and a **combined label** (agreement, SPLIT, or CNN-only fallback).
+
+This keeps **plot generation** (`csv_tufte_charts` / `streamlit_csv_charts`) independent from **scoring** (`app.py` / `inference.py` / `multimodal_inference.py`), while the workflow is easy to chain: export PNGs → open them in VisScore.
+
+**Full “from scratch” guide (data folders, all training flags, VLMs, both Streamlit apps):** see **[FROM_SCRATCH.md](FROM_SCRATCH.md)**. **One-shot pipeline** (install + synthetic data + train): `./run_from_scratch.sh all` (see script header for `install` / `data` / `train` subcommands).
 
 ---
 
@@ -26,8 +53,8 @@ A comprehensive machine learning system for assessing visualization quality base
 ### 1. Environment Setup
 
 ```bash
-# Clone or navigate to project directory
-cd /./DataVisualisation/VisScore
+# Navigate to project directory
+cd /path/to/VisScore
 
 # Create virtual environment
 python3 -m venv .venv
@@ -66,26 +93,52 @@ streamlit run app.py
 ```
 Visit `http://localhost:8501` in your browser.
 
-### 6. Multimodal inference (CNN + free Gemini VLM)
+### 6. Multimodal inference (retrained CNN + VLM, combined decision)
 
-Combine your trained CNN with a **vision-language model** (Google Gemini, free API key) for Tufte-style **reasoning** and a **consensus** label.
+Combine your **trained CNN** with a **vision–language model** for Tufte-oriented **text reasoning** plus a **consensus** label.
 
-1. Get a key: [Google AI Studio](https://aistudio.google.com/apikey) (free tier).
-2. Install: `pip install google-generativeai` (included in `requirements.txt`).
-3. Export the key: `export GEMINI_API_KEY="your_key"` (or paste it in the Streamlit sidebar).
+**Providers**
+- **Gemini:** key from [Google AI Studio](https://aistudio.google.com/apikey); `pip install google-generativeai` (in `requirements.txt`).
+- **Groq:** vision-capable chat models; set `GROQ_API_KEY` and use `--vlm_provider groq` (CLI) or choose Groq in the Streamlit sidebar.
+
+**Environment (optional):** copy `.env.example` to `.env` and set `GEMINI_API_KEY`, `GROQ_API_KEY`, `VLM_PROVIDER`, etc.
 
 **CLI** (writes `predictions_multimodal/multimodal_results.json`):
 
 ```bash
 export GEMINI_API_KEY="your_key"
-python multimodal_inference.py --image ./inference/image_bad.png --model_name resnet50 --gradcam
+python multimodal_inference.py --image ./generated_plots/my_run/chart.png --model_name resnet50 --gradcam
+
+# Groq example
+export GROQ_API_KEY="your_key"
+python multimodal_inference.py --image ./chart.png --vlm_provider groq --model_name resnet50
 ```
 
-**Streamlit:** enable **“VLM + consensus”** in the sidebar and enter the same API key.
+**Streamlit (`app.py`):** enable **“Enable VLM + consensus”**, choose provider, paste keys / model id as needed.
 
-**Consensus rules:** if CNN and VLM **agree**, that label wins. If they **disagree**, the final label is **SPLIT** (no majority with two voters)—review CNN metrics and VLM reasoning. If the API fails, the app falls back to **CNN only**.
+**Consensus (high level):** when CNN and VLM **agree**, that label wins; when they **disagree**, the UI shows **SPLIT** so you can compare logits and VLM reasoning; on API failure, results fall back to **CNN only**. The VLM uses a **strict Tufte-style rubric** (data-ink, grid weight, chartjunk, on-image captions, etc.).
 
-If Gemini returns **404** (model renamed) or **quota** errors, the code tries other Gemini IDs automatically (`gemini-flash-latest`, etc.). Alternatively use **Groq** (free vision API): `export VLM_PROVIDER=groq GROQ_API_KEY=...` then `python multimodal_inference.py --image ... --vlm_provider groq`.
+Gemini calls try **fallback model IDs** if one returns 404 or quota errors.
+
+### 7. CSV → charts (optional, any dataset)
+
+**CLI — batch over a folder or glob:**
+
+```bash
+python csv_tufte_charts.py --input_dir ./raw_csvs --output_dir ./generated_plots
+python csv_tufte_charts.py --input_glob "./data/*.csv" --output_dir ./out --dpi 200 --no_bad
+```
+
+- Writes one subfolder per CSV stem, **good** Tufte-style PNGs per inferred chart type (line, bar, scatter, histogram), and by default matching **bad** (chartjunk) variants.
+- Outputs `csv_tufte_manifest.json` under the output directory.
+
+**Streamlit — upload CSVs only (separate app):**
+
+```bash
+streamlit run streamlit_csv_charts.py
+```
+
+Does **not** modify `app.py`. Use the generated PNGs as input to `app.py` or `multimodal_inference.py`.
 
 ---
 
@@ -93,15 +146,20 @@ If Gemini returns **404** (model renamed) or **quota** errors, the code tries ot
 
 ```
 VisScore/
-├── synthetic_data_gen.py    # Generate synthetic chart dataset
-├── synthetic_data_gen_plotly.py  # Optional Plotly/Kaleido charts (style diversity)
-├── cnn_training.py          # Train CNN models
-├── inference.py             # Batch inference pipeline
-├── multimodal_inference.py  # CNN + Gemini VLM + consensus (CLI)
-├── vlm_judge.py             # Gemini Tufte prompt + JSON parsing
-├── app.py                   # Streamlit web UI
-├── requirements.txt         # Python dependencies
-├── README.md                # This file
+├── synthetic_data_gen.py       # Generate synthetic chart dataset (matplotlib)
+├── synthetic_data_gen_plotly.py  # Optional Plotly/Kaleido charts
+├── csv_tufte_charts.py         # CSV → good (+ optional bad) chart PNGs (standalone)
+├── streamlit_csv_charts.py     # Streamlit UI for CSV uploads → charts (standalone)
+├── cnn_training.py             # Train CNN models
+├── inference.py                # Batch inference + Grad-CAM
+├── multimodal_inference.py     # CNN + VLM + consensus (CLI)
+├── vlm_judge.py                # VLM prompts (Gemini/Groq), JSON parse, consensus helpers
+├── app.py                      # Main Streamlit: CNN + optional VLM + Grad-CAM
+├── .env.example                # Example API keys / VLM_PROVIDER (copy to .env)
+├── FROM_SCRATCH.md             # End-to-end: data layout, training options, VLMs, Streamlit
+├── run_from_scratch.sh         # Optional: pip install + synthetic data + train
+├── requirements.txt
+├── README.md
 │
 ├── vis_dataset/             # Generated synthetic data (after step 1)
 │   ├── good/                # High-quality charts
@@ -119,8 +177,32 @@ VisScore/
 │   ├── results.json         # Prediction results for batch
 │   └── gradcam_*.png        # Grad-CAM overlays
 │
+├── generated_plots/         # Typical output from csv_tufte_charts.py (you create this)
+│   └── csv_tufte_manifest.json
+│
 └── __pycache__/             # Python cache (ignore)
 ```
+
+---
+
+## 📈 CSV → charts (`csv_tufte_charts.py`) — details
+
+**Purpose:** Turn arbitrary CSV files into static chart images for review, reporting, or feeding the VisScore CNN/VLM.
+
+**Behavior:**
+- Infers **datetime**, **numeric**, and **categorical** columns; builds line, bar (horizontal or vertical), scatter, and histogram when data allows.
+- **Good** charts: white background, minimal grid, single-hue categorical bars (`#4C72B0`), honest bar baseline.
+- **Bad** charts (default): chartjunk-style twins (heavy grids, rainbow fills, truncated bars, etc.) for contrast or extra training negatives.
+- **Numeric column choice:** columns whose names look like **metrics** (burden, deaths, incidence, rate, `100k`, etc.) are preferred over **IDs** (ISO, country code, numeric territory codes, postal, etc.).
+
+| Argument | Description |
+|----------|-------------|
+| `--input_dir` | Folder of `.csv` files |
+| `--input_glob` | e.g. `./exports/*.csv` |
+| `--output_dir` | Root for PNGs + `csv_tufte_manifest.json` |
+| `--dpi` | Raster resolution (default 150) |
+| `--max_charts_per_file` | Cap on chart *types* per CSV (each type may emit good + bad) |
+| `--no_bad` | Only write Tufte-style charts |
 
 ---
 
@@ -282,27 +364,7 @@ python inference.py --image_dir ./validation_set/ --model_name vgg16 --gradcam
 - JSON: `predictions/results.json` containing all results
 - Images: `predictions/gradcam_*.png` (if `--gradcam` flag used)
 
-**Example Results.json**:
-```json
-{
-  "predictions": [
-    {
-      "image": "chart1.png",
-      "label": "GOOD",
-      "probability": 0.89,
-      "confidence": "High"
-    },
-    {
-      "image": "chart2.png",
-      "label": "BAD",
-      "probability": 0.72,
-      "confidence": "Medium"
-    }
-  ],
-  "model_name": "resnet50",
-  "timestamp": "2026-02-20T15:30:45.123456"
-}
-```
+**Example `results.json` fields** (per image): `label` (GOOD/BAD), `probability` (P(good) after sigmoid), `confidence` (model certainty in the displayed label).
 
 ---
 
@@ -315,17 +377,11 @@ streamlit run app.py
 ```
 
 **Features**:
-- 📤 **Image Upload**: Drag-and-drop or click to upload PNG/JPG/JPEG chart images
-- 🤖 **Model Selection**: Dropdown menu auto-discovers all trained models from `./results/`
-- 📊 **Prediction Display**: 
-  - Classification result (GOOD / BAD)
-  - Confidence level indicator
-  - Probability score
-  - Model metadata (training params, accuracy)
-- 🔍 **Grad-CAM Visualization**: 3-panel display showing:
-  1. Original uploaded chart
-  2. Attention heatmap (where model focused)
-  3. Overlay (heatmap on original)
+- **Image upload**: PNG/JPEG chart images (including exports from `csv_tufte_charts.py`)
+- **Model selection**: Dropdown discovers checkpoints in `./results/` (active `training_config.json` + `best_model.pth`, plus tagged pairs like `training_config_<tag>.json` / `best_model_<tag>.pth`)
+- **CNN output**: label (GOOD/BAD), **probability** ≈ P(good), **confidence** in the chosen label, optional Grad-CAM
+- **Multimodal**: optional VLM (Gemini or Groq) + **consensus** with CNN (agree / SPLIT / CNN-only fallback)
+- **Grad-CAM**: original, heatmap, overlay
 
 **Usage**:
 
@@ -546,6 +602,22 @@ python inference.py --image_dir ./validation/ \
 cat ./validation_predictions/results.json | jq '.predictions[] | {image, label, probability}'
 ```
 
+### E. Real data → charts → CNN + VLM decision
+```bash
+# 1) Generate plots from CSVs
+python csv_tufte_charts.py --input_dir ./datasets --output_dir ./generated_plots
+
+# 2) Score one chart with CNN + VLM (Groq example)
+export GROQ_API_KEY="..."
+python multimodal_inference.py \
+  --image ./generated_plots/some_stem/some_stem_bar_....png \
+  --model_path ./results/best_model.pth \
+  --model_name resnet50 \
+  --vlm_provider groq
+
+# Or use the main UI: streamlit run app.py → upload the same PNG, enable VLM + consensus
+```
+
 ---
 
 ## 📝 Citation & References
@@ -576,10 +648,8 @@ See [LICENSE](LICENSE) file.
 ## 🤝 Contributing
 
 Suggestions for improvements:
-- [ ] Add more chart types (waterfall, box plots, heatmaps)
-- [ ] Extended violation types (e.g., accessibility, color-blind friendliness)
-- [ ] Mobile-responsive Streamlit UI
-- [ ] Real-world dataset integration
+- [ ] Add more chart types in `csv_tufte_charts.py` (e.g. box plots, small multiples)
+- [ ] Extended violation types (accessibility, color-blind checks)
 - [ ] API endpoint for model serving (Flask/FastAPI)
 
 ---
@@ -594,6 +664,5 @@ For issues or questions:
 
 ---
 
-**Last Updated**: February 20, 2026  
-**Project Version**: 1.0  
+**Last Updated**: April 6, 2026  
 **Python Version**: 3.11+
