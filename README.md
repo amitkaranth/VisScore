@@ -129,7 +129,7 @@ visscore-generate --non-tufte-charts sns_heatmap_loud,sns_box_swarm_busy,sns_kde
 
 ## Filenames
 
-`tufte_s<seed>_i<index>.png` and `non_tufte_s<seed>_i<index>.png` — deterministic from `--seed` and index.
+`tufte_<tag>_s<seed>_i<index>.png` and `non_tufte_<tag>_s<seed>_i<index>.png` — `<tag>` is `mpl` (matplotlib) or `sns` (seaborn). JSONL metadata still has full `renderer`: `matplotlib` / `seaborn`. Deterministic from `--seed` and index.
 
 ---
 

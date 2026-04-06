@@ -147,7 +147,10 @@ def _generate_split(
             registry,
             mpl_style_mode,
         )
-        fname = f"{prefix}_s{global_seed}_i{i:04d}.png"
+        # Short tags in filenames: mpl / sns (metadata still uses full renderer names).
+        _r = str(meta.get("renderer", "matplotlib"))
+        lib = "sns" if _r == "seaborn" else "mpl"
+        fname = f"{prefix}_{lib}_s{global_seed}_i{i:04d}.png"
         path = out_subdir / fname
         aug_rng = augment_subrng(global_seed, class_label, i)
         extra = save_chart_image(fig, path, dpi, augment, aug_rng, style_strength)
