@@ -79,9 +79,6 @@ def _manifest_to_zip_bytes(out_root: Path) -> bytes:
 def main() -> None:
     st.set_page_config(page_title=PAGE_TITLE, page_icon="📈", layout="wide")
     st.title(PAGE_TITLE)
-    st.caption(
-        "Standalone helper for `csv_tufte_charts.py`. Your main VisScore app (`app.py`) is unchanged — run that with `streamlit run app.py`."
-    )
 
     with st.sidebar:
         st.header("Options")

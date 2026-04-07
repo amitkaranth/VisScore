@@ -9,7 +9,7 @@
   "val_split": 0.15,
   "test_split": 0.15,
   "seed": 42,
-  "best_val_accuracy": 0.9772727272727273,
-  "final_val_accuracy": 0.9818181818181818,
+  "best_val_accuracy": 0.98,
+  "final_val_accuracy": 0.91,
   "device": "cuda"
 }
