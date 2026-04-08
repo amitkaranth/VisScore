@@ -213,7 +213,8 @@ class GradCAM:
 
     def _register_hooks(self):
         def fwd_hook(module, inp, out):
-            self.activations = out.detach()
+            # Keep activations attached to graph so we can differentiate w.r.t. them
+            self.activations = out
 
         def bwd_hook(module, grad_in, grad_out):
             self.gradients = grad_out[0].detach()
@@ -223,18 +224,24 @@ class GradCAM:
 
     def generate(self, input_tensor, target_class=None):
         self.model.eval()
-        output = self.model(input_tensor)
+        # Ensure autograd tracks computations even if backbone weights are frozen.
+        if not input_tensor.requires_grad:
+            input_tensor = input_tensor.requires_grad_(True)
 
-        if target_class is None:
-            target_class = (output > 0).float()
+        output = self.model(input_tensor)  # shape [B, 1]
 
-        self.model.zero_grad()
-        output.backward(retain_graph=True)
+        # For binary classification, use the logit as the target score.
+        score = output[:, 0].sum()
 
-        weights = self.gradients.mean(dim=[2, 3], keepdim=True)
+        # Compute gradients explicitly w.r.t. the hooked activations.
+        if self.activations is None:
+            raise RuntimeError("Grad-CAM activations were not captured. Check target layer selection.")
+
+        grads = torch.autograd.grad(score, self.activations, retain_graph=False, create_graph=False)[0]
+        weights = grads.mean(dim=(2, 3), keepdim=True)
         cam = (weights * self.activations).sum(dim=1, keepdim=True)
         cam = torch.relu(cam)
-        cam = cam.squeeze().cpu().numpy()
+        cam = cam.squeeze().detach().cpu().numpy()
 
         # Normalize
         cam = (cam - cam.min()) / (cam.max() - cam.min() + 1e-8)
@@ -574,13 +581,6 @@ def main():
     print(f"Training curves saved to {args.output_dir}/training_curves.png")
     print(f"Evaluation results saved to {args.output_dir}/evaluation_results.png")
 
-    # Grad-CAM visualizations
-    try:
-        import cv2
-        visualize_gradcam(model, val_dataset_wrapper, device, args.model, args.output_dir, n=8)
-    except ImportError:
-        print("Install opencv-python for Grad-CAM: pip install opencv-python")
-
     # Save training config
     config = vars(args)
     config["best_val_accuracy"] = best_val_acc
@@ -591,6 +591,15 @@ def main():
         json.dump(config, f, indent=2)
 
     print(f"\nAll results saved to {args.output_dir}/")
+
+    # Grad-CAM visualizations (non-fatal; runs after saving config)
+    try:
+        import cv2
+        visualize_gradcam(model, val_dataset_wrapper, device, args.model, args.output_dir, n=8)
+    except ImportError:
+        print("Install opencv-python for Grad-CAM: pip install opencv-python")
+    except Exception as e:
+        print(f"Grad-CAM skipped due to error: {e}")
 
 
 if __name__ == "__main__":
