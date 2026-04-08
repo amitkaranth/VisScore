@@ -44,6 +44,32 @@ checkpoints/
 .env
 .venv
 
-*.png
-*.jpg
-*.csv
+# --- Project outputs / large artifacts (do not commit) ---
+# Training outputs / checkpoints
+results/
+results copy/
+
+# Datasets (raw/large)
+vis_dataset/
+vis_dataset_plotly/
+visual_dataset/
+
+# Generated predictions / plots
+predictions/
+predictions_multimodal/
+generated_plots/
+
+# Scraper outputs
+data/
+logs/
+
+# Logs
+*.log
+
+# Tool caches
+.mypy_cache/
+.ruff_cache/
+.tox/
+
+# Streamlit local config/state
+.streamlit/
