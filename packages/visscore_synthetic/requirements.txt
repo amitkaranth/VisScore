@@ -1,0 +1,7 @@
+# Install the package in editable mode (adds `visscore-generate` and `visscore_synthetic` on PYTHONPATH).
+# From repository root:
+#   pip install -r requirements.txt
+#
+# Same as: pip install -e .
+
+-e .

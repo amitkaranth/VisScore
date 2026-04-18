@@ -1,0 +1,3 @@
+# Optional: Matplotlib + seaborn synthetic dataset CLI (packages/visscore_synthetic)
+-r requirements.txt
+-e ./packages/visscore_synthetic

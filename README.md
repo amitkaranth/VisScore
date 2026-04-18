@@ -19,6 +19,26 @@ A machine learning system for assessing visualization quality based on Edward Tu
 - **Multimodal**: CNN + VLM Tufte-style judge + consensus (`vlm_judge.py`, `multimodal_inference.py`, sidebar in `app.py`)
 - Main Streamlit UI: model pickers, VLM provider/keys, combined decision
 
+### Repository layout (monorepo)
+
+Training, inference, VLMs, and Streamlit apps live at the **repository root** (`cnn_training.py`, `app.py`, `src/viscore/`, etc.). Optional, self-contained tools live under **`packages/`**—see [packages/README.md](packages/README.md).
+
+| Location | Role |
+|----------|------|
+| Root Python modules & `src/viscore/` | CNN training, inference, multimodal/VLM, CSV→chart scripts, main Streamlit apps. |
+| [packages/visscore_synthetic/](packages/visscore_synthetic/README.md) | Installable **matplotlib + seaborn** synthetic generator (`visscore-generate` / `python -m visscore_synthetic`). |
+| [packages/reddit_scraper/](packages/reddit_scraper/README.md) | Scrape chart images from old.reddit.com (**requests + BeautifulSoup**, not PRAW). |
+
+**Synthetic data generation (two tracks)**:
+
+- **Root scripts** (`synthetic_data_gen.py`, `synthetic_data_gen_plotly.py`): Plotly/Matplotlib flows documented in this README and used by many training walkthroughs.
+- **`packages/visscore_synthetic`**: richer, pip-installable Tufte vs chartjunk CLI; install with `pip install -r requirements-synthetic.txt` or `pip install -e ./packages/visscore_synthetic`.
+
+**Optional dependency bundles**:
+
+- `pip install -r requirements-synthetic.txt` — base + editable synthetic package (pandas/seaborn per its `pyproject.toml`).
+- `pip install -r requirements-reddit.txt` — base + Reddit scraper (BeautifulSoup, PyYAML).
+
 ---
 
 ## 🧭 Recommended end-to-end flow
