@@ -129,16 +129,26 @@ Optional Plotly/Kaleido generator (separate script): `synthetic_data_gen_plotly.
 | `--epochs` | `25` | Training epochs |
 | `--batch_size` | `32` | Batch size (lower if OOM) |
 | `--lr` | `1e-4` | Adam learning rate |
+| `--weight_decay` | `1e-4` | L2 regularization |
 | `--img_size` | `224` | Input size |
+| `--aug_strength` | `default` | `none` / `default` / `strong` |
+| `--random_erasing_p` | `0.1` | RandomErasing (0 = off) |
+| `--rotation_degrees` | `5.0` | Random rotation (0 = off) |
 | `--val_split` | `0.15` | Validation fraction |
 | `--test_split` | `0.15` | Test fraction |
 | `--seed` | `42` | Reproducibility |
+| `--backbone_train_mode` | `head_only` | `head_only`, `last_block`, or `full` |
+| `--head_dropout1` / `--head_dropout2` | `0.5` / `0.5` | Classifier dropout |
+| `--save_best` | `val_loss` | `val_loss` or `val_acc` for best checkpoint |
+| `--early_stop_patience` | `5` | Early stopping (0 = off) |
 
 Example:
 
 ```bash
 python cnn_training.py --data_dir ./vis_dataset --output_dir ./results --model resnet50 --epochs 25 --batch_size 32
 ```
+
+Fine-tune the last backbone block (closer to older defaults): add e.g. `--backbone_train_mode last_block`.
 
 **Important:** `--model` at inference time must match the architecture used when the weights were saved.
 
