@@ -18,8 +18,7 @@ kaleido>=0.2.1
 Pillow>=9.5.0
 opencv-python>=4.8.0
 
-# --- Reddit Scraping ---
-praw>=7.7.0
+# --- HTTP (shared; Reddit scraper extras: requirements-reddit.txt) ---
 requests>=2.31.0
 
 # --- ML Evaluation & Metrics ---

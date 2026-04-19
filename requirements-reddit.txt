@@ -1,0 +1,4 @@
+# Optional: packages/reddit_scraper (old.reddit.com HTML; no PRAW / no Reddit API)
+-r requirements.txt
+beautifulsoup4>=4.11.0
+PyYAML>=6.0

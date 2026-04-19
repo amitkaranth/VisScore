@@ -45,9 +45,18 @@ checkpoints/
 .venv
 
 # --- Project outputs / large artifacts (do not commit) ---
-# Training outputs / checkpoints
+# Training outputs / checkpoints (entire trees; also block stray JSON configs)
 results/
 results copy/
+results/training_config*.json
+results/**/training_config*.json
+
+# Local inference test images (keep scripts; do not commit samples)
+inference/*.jpg
+inference/*.jpeg
+inference/*.png
+inference/*.gif
+inference/*.webp
 
 # Datasets (raw/large)
 vis_dataset/

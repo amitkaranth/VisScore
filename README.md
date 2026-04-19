@@ -19,6 +19,26 @@ A machine learning system for assessing visualization quality based on Edward Tu
 - **Multimodal**: CNN + VLM Tufte-style judge + consensus (`vlm_judge.py`, `multimodal_inference.py`, sidebar in `app.py`)
 - Main Streamlit UI: model pickers, VLM provider/keys, combined decision
 
+### Repository layout (monorepo)
+
+Training, inference, VLMs, and Streamlit apps live at the **repository root** (`cnn_training.py`, `app.py`, `src/viscore/`, etc.). Optional, self-contained tools live under **`packages/`**—see [packages/README.md](packages/README.md).
+
+| Location | Role |
+|----------|------|
+| Root Python modules & `src/viscore/` | CNN training, inference, multimodal/VLM, CSV→chart scripts, main Streamlit apps. |
+| [packages/visscore_synthetic/](packages/visscore_synthetic/README.md) | Installable **matplotlib + seaborn** synthetic generator (`visscore-generate` / `python -m visscore_synthetic`). |
+| [packages/reddit_scraper/](packages/reddit_scraper/README.md) | Scrape chart images from old.reddit.com (**requests + BeautifulSoup**, not PRAW). |
+
+**Synthetic data generation (two tracks)**:
+
+- **Root scripts** (`synthetic_data_gen.py`, `synthetic_data_gen_plotly.py`): Plotly/Matplotlib flows documented in this README and used by many training walkthroughs.
+- **`packages/visscore_synthetic`**: richer, pip-installable Tufte vs chartjunk CLI; install with `pip install -r requirements-synthetic.txt` or `pip install -e ./packages/visscore_synthetic`.
+
+**Optional dependency bundles**:
+
+- `pip install -r requirements-synthetic.txt` — base + editable synthetic package (pandas/seaborn per its `pyproject.toml`).
+- `pip install -r requirements-reddit.txt` — base + Reddit scraper (BeautifulSoup, PyYAML).
+
 ---
 
 ## 🧭 Recommended end-to-end flow
@@ -275,16 +295,28 @@ python cnn_training.py [OPTIONS]
 | `--epochs` | int | `25` | Number of training epochs |
 | `--batch_size` | int | `32` | Batch size for training |
 | `--lr` | float | `1e-4` | Learning rate (Adam optimizer) |
+| `--weight_decay` | float | `1e-4` | L2 regularization (Adam `weight_decay`) |
 | `--img_size` | int | `224` | Input image size (ImageNet standard) |
+| `--aug_strength` | choice | `default` | `none`, `default`, or `strong` (color jitter strength) |
+| `--random_erasing_p` | float | `0.1` | RandomErasing probability (`0` disables) |
+| `--rotation_degrees` | float | `5.0` | Random rotation degrees (`0` disables) |
 | `--val_split` | float | `0.15` | Validation set fraction (0.0-1.0) |
 | `--test_split` | float | `0.15` | Test set fraction (0.0-1.0) |
 | `--seed` | int | `42` | Random seed for reproducibility |
+| `--backbone_train_mode` | choice | `head_only` | What to fine-tune: `head_only` (classifier only), `last_block` (e.g. ResNet `layer4`), or `full` backbone |
+| `--head_dropout1` | float | `0.5` | Dropout after backbone (first head layer) |
+| `--head_dropout2` | float | `0.5` | Dropout before final logit |
+| `--save_best` | choice | `val_loss` | Checkpoint metric: `val_loss` or `val_acc` |
+| `--early_stop_patience` | int | `5` | Stop if no improvement for this many epochs (`0` disables) |
 
 **Examples**:
 
 ```bash
 # Train ResNet-50 with default settings
 python cnn_training.py
+
+# Previous merge-style behavior: fine-tune last residual block + stronger head defaults tuned separately
+python cnn_training.py --backbone_train_mode last_block --head_dropout1 0.3 --head_dropout2 0.2
 
 # Train EfficientNet-B0 with custom hyperparameters
 python cnn_training.py --model efficientnet_b0 --epochs 50 --batch_size 16 --lr 5e-5
@@ -299,10 +331,10 @@ python cnn_training.py --model resnet50 --lr 1e-3 --epochs 50
 **Process**:
 1. Load images from `good/` and `bad/` directories
 2. Split into train (70%), validation (15%), test (15%)
-3. Apply data augmentation (crops, flips, color jitter)
-4. Train with Adam optimizer + learning rate scheduling
-5. Save best model based on validation accuracy
-6. Generate evaluation plots and Grad-CAM visualizations
+3. Apply data augmentation (crops, flips, color jitter; strength controlled by `--aug_strength`, optional erasing/rotation)
+4. Train with Adam (with `weight_decay`) + learning rate scheduling
+5. Save `best_model.pth` when the chosen metric improves (`--save_best`; default is lowest **validation loss**). Optional early stopping via `--early_stop_patience`
+6. Generate evaluation plots; Grad-CAM runs after checkpoints are saved (non-fatal if it errors)
 
 **Outputs**:
 - `results/best_model.pth` - Best trained weights
